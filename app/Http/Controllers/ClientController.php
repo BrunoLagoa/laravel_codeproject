@@ -17,7 +17,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return \CodeProject\Client::all();
+        return \CodeProject\Models\Client::all();
     }
 
     /**
