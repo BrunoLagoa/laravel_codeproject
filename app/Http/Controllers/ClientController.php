@@ -57,7 +57,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        return Client::find($id);
+        return $this->repository->find($id);
     }
 
 
@@ -70,7 +70,8 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Client::find($id)->update($request->all());
+        return $this->service->update($request->all(), $id);
+        //$this->repository->find($id)->update($request->all());
     }
 
     /**
@@ -81,6 +82,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        Client::find($id)->delete();
+        $this->repository->find($id)->delete();
     }
 }

@@ -1,60 +1,42 @@
 <?php
 
 namespace CodeProject\Services;
-
-
 use CodeProject\Repositories\ClientRepository;
 use CodeProject\Validators\ClientValidator;
-use Illuminate\Contracts\Validation\ValidationException;
+use Prettus\Validator\Exceptions\ValidatorException;
 
-
-class ClientService
-{
-    /**
-     * @var ClientRepository
-     */
+class ClientService {
     protected $repository;
-
     /**
-     * @var ClientValidator
+     * @var
      */
     private $validator;
-
-    public function __construct(ClientRepository $repository, ClientValidator $validator)
-    {
+    public function __construct(ClientRepository $repository, ClientValidator $validator){
         $this->repository = $repository;
         $this->validator = $validator;
     }
-
-    public function create(array $data)
-    {
-        try {
+    public function create(array $data){
+        try{
             $this->validator->with($data)->passesOrFail();
             return $this->repository->create($data);
-        }catch (ValidationException $e) {
+        } catch (ValidatorException $e) {
             return [
                 'error' => true,
-                'message' => $e->getMessageProvider()
+                'message' => $e->getMessageBag()
             ];
         }
-
-        // Enviar um email
-        // Disparar notificação
-        // Disparar um tweet
-
+        //enviar email
+        //dispara notificacao
     }
-
-    public function update(array $data, $id)
-    {
-        try {
+    public function update(array $data, $id){
+        try{
             $this->validator->with($data)->passesOrFail();
             return $this->repository->update($data, $id);
-        }catch (ValidationException $e) {
+        } catch (ValidatorException $e) {
             return [
                 'error' => true,
                 'message' => $e->getMessageBag()
             ];
         }
     }
-
 }
