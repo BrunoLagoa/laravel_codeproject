@@ -7,6 +7,7 @@ use CodeProject\Repositories\ClientRepository;
 use CodeProject\Validators\ClientValidator;
 use Illuminate\Contracts\Validation\ValidationException;
 
+
 class ClientService
 {
     /**
@@ -33,7 +34,7 @@ class ClientService
         }catch (ValidationException $e) {
             return [
                 'error' => true,
-                'message' => $e->getMessageBag()
+                'message' => $e->getMessageProvider()
             ];
         }
 
