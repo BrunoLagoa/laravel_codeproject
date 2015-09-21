@@ -5,7 +5,9 @@ namespace CodeProject\Http\Controllers;
 use CodeProject\Http\Requests;
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectController extends Controller
 {
@@ -57,7 +59,16 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        return $this->repository->find($id);
+        try {
+            $project = $this->repository->find($id);
+            return $project;
+        }catch (ModelNotFoundException $e) {
+            return [
+                'error' => true,
+                'message' => 'Project not found'
+            ];
+        }
+
     }
 
 
