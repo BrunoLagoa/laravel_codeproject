@@ -37,7 +37,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return $this->repository->all();
+        return $this->service->all();
     }
 
     /**
@@ -60,7 +60,7 @@ class ProjectController extends Controller
     public function show($id)
     {
         try {
-            $project = $this->repository->find($id);
+            $project = $this->service->find($id);
             return $project;
         }catch (ModelNotFoundException $e) {
             return [
