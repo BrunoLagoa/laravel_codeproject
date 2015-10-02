@@ -19,6 +19,6 @@ class UserTableSeeder extends Seeder
             'password' => Hash::make(123456)
         ]);
 
-        //factory('CodeCommerce\User',10)->create();
+        factory(\CodeProject\Entities\User::class,9)->create();
     }
 }
