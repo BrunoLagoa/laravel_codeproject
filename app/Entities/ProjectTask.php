@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class ProjectNote extends Model implements Transformable
+class ProjectTask extends Model implements Transformable
 {
     use TransformableTrait;
 
     protected $fillable = [
+        'name',
         'project_id',
-        'title',
-        'note'
+        'start_date',
+        'due_date',
+        'status'
     ];
 
     public function project()

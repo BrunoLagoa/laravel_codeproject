@@ -42,6 +42,38 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
    
  4 - Na listagem dos dados, traga também as informações sobre o owner_id e client_id (dica: utilize o método do repository: "with")
  
+## Fase 1 do projeto
+<b>TASKS E MEMBERS</b>
+  
+ Agora que você está entendendo o processo de relacionamento e disponibilização das APIs relacionadas a Projects, faça:
+ 
+ 1 - Crie a entidade ProjectTask, com os seguintes campos e disponibilize os endpoints project/tasks.
+ Não se esqueça de criar as migrations, seeds, repositories, services, etc.
+ 
+ - id
+ - name
+ - project_id 
+ - start_date
+ - due_date
+ - status
+ - created_at
+ - updated_at
+ 
+ 2 - Crie a entidade ProjectMembers, com os campos:
+ 
+ - project_id
+ - user_id
+ 
+ Faça o relacionamento com a entidade Project e User para que facilmente possamos ter acesso aos membros de um projeto.
+ 
+ No ProjectService, crie dois métodos:
+ 
+ - addMember: para adicionar um novo member em um projeto
+ - removeMember: para remover um membro de um projeto
+ - isMember: para verificar se um usuário é membro de um determinado projeto
+ 
+ Crie um endpoint: /project/{id}/members para ter acesso a todos os membros de um projeto. 
+ 
  
 ------------------------------------------------------------------------------------------
 [Bruno Castro](http://www.bhzautomacao.com.br) - Development
