@@ -71,7 +71,6 @@ class ProjectController extends Controller
 
     }
 
-
     /**
      * Update the specified resource in storage.
      *
@@ -94,5 +93,42 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         $this->repository->find($id)->delete();
+    }
+
+    /**
+     * @param $id
+     * @return Response
+     */
+    public function showMembers($id)
+    {
+        return $this->service->showMembers($id);
+    }
+
+    /**
+     * @param $id
+     * @param $memberId
+     * @return Response
+     */
+    public function addMember($id, $memberId)
+    {
+        return $this->service->addMember($id, $memberId);
+    }
+    /**
+     * @param $id
+     * @param $memberId
+     * @return Response
+     */
+    public function removeMember($id, $memberId)
+    {
+        return $this->service->removeMember($id, $memberId);
+    }
+    /**
+     * @param $id
+     * @param $memberId
+     * @return Response
+     */
+    public function isMember($id, $memberId)
+    {
+        return $this->service->isMember($id, $memberId);
     }
 }

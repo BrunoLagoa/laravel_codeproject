@@ -39,7 +39,7 @@ $factory->define(CodeProject\Entities\Project::class, function (Faker\Generator 
         'description' => $faker->sentence,
         'progress' => rand(1,100),
         'status' => rand(1,3),
-        'due_date' => $faker->date('now'),
+        'due_date' => $faker->date('Y-m-d', 'now'),
     ];
 });
 
@@ -53,10 +53,17 @@ $factory->define(CodeProject\Entities\ProjectNote::class, function (Faker\Genera
 
 $factory->define(CodeProject\Entities\ProjectTask::class, function (Faker\Generator $faker) {
     return [
-        'project_id' => rand(1,10),
+        'project_id' => $faker->numberBetween(0,10),
         'name' => $faker->word,
-        'start_date' => $faker->date('now'),
-        'due_date' => $faker->date('now'),
         'status' => rand(1,3),
+        'start_date' => $faker->date('Y-m-d', 'now'),
+        'due_date' => $faker->date('Y-m-d', 'now'),
+    ];
+});
+
+$factory->define(CodeProject\Entities\ProjectMember::class, function (Faker\Generator $faker) {
+    return [
+        'project_id' => rand(1,10),
+        'user_id' => rand(1,10),
     ];
 });

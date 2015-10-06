@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProjectTaskTableSeeder extends Seeder
+class ProjectMemberTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +11,8 @@ class ProjectTaskTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('project_tasks')->truncate();
+        DB::table('project_members')->truncate();
         //\CodeProject\Entities\Project::truncate();
-        factory(\CodeProject\Entities\ProjectTask::class,10)->create();
+        factory(\CodeProject\Entities\ProjectMember::class,30)->create();
     }
 }

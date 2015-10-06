@@ -42,7 +42,7 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
    
  4 - Na listagem dos dados, traga também as informações sobre o owner_id e client_id (dica: utilize o método do repository: "with")
  
-## Fase 1 do projeto
+## Fase 3 do projeto
 <b>TASKS E MEMBERS</b>
   
  Agora que você está entendendo o processo de relacionamento e disponibilização das APIs relacionadas a Projects, faça:
