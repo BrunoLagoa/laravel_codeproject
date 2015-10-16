@@ -19,7 +19,7 @@ Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });
 
-Route::get('client', 'ClientController@index');
+Route::get('client', ['middleware' => 'oauth', 'uses' => 'ClientController@index']);
 Route::post('client', 'ClientController@store');
 Route::get('client/{id}', 'ClientController@show');
 Route::put('client/{id}', 'ClientController@update');
