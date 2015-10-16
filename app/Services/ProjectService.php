@@ -68,7 +68,8 @@ class ProjectService
     public function showMembers($id)
     {
         try {
-            return $this->repository->with(['members'])->find($id);
+            //return $this->repository->with(['members'])->find($id);
+            return response()->json($this->repository->find($id)->members->all());
         } catch(ModelNotFoundException $ex) {
             return [
                 'error' => true,
@@ -77,11 +78,17 @@ class ProjectService
         }
     }
 
+    /**
+     * @param $id
+     * @param $memberId
+     * @return array|mixed
+     */
     public function addMember($id, $memberId)
     {
         try {
+            //$user->roles()->attach($roleId, ['expires' => $expires]);
             $this->repository->find($id)->members()->attach($memberId);
-            return $this->repository->find($id);
+            return "Concluido";
         } catch (ModelNotFoundException $e) {
             return [
                 'error' => true,
@@ -93,7 +100,9 @@ class ProjectService
     public function removeMember($id, $memberId)
     {
         try {
-            $this->repository->find($id)->members()->detach($memberId);
+            //$user->roles()->detach($roleId);
+            //$this->repository->find($id)->members()->detach($memberId);
+            $this->repository->with(['members'])->find($id)->detach($memberId);
             return response()->json([
                 'error' => false,
                 'message' => [

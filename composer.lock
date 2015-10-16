@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0c1123f91b2687c8236b46809bfb4f33",
-    "content-hash": "4ac6e33f6336eb0433c4cd92cb84c102",
+    "hash": "0d5ad93f8cb62e982d1c6601c0bb5f09",
+    "content-hash": "3a46fa32c01f22cb70bb54e7cb9cf006",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -491,6 +491,56 @@
             "time": "2015-09-16 16:57:12"
         },
         {
+            "name": "league/event",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/event.git",
+                "reference": "f5c255063dd6fe3d87de8c7ab88ee5f6a244bcbe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/event/zipball/f5c255063dd6fe3d87de8c7ab88ee5f6a244bcbe",
+                "reference": "f5c255063dd6fe3d87de8c7ab88ee5f6a244bcbe",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "~1.0.1",
+                "phpspec/phpspec": "^2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Event\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Event package",
+            "keywords": [
+                "emitter",
+                "event",
+                "listener"
+            ],
+            "time": "2015-09-14 05:51:39"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.12",
             "source": {
@@ -570,6 +620,137 @@
                 "storage"
             ],
             "time": "2015-09-05 12:06:41"
+        },
+        {
+            "name": "league/oauth2-server",
+            "version": "4.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth2-server.git",
+                "reference": "34a6b66b8ca4255f8334c5aaf5cb34d7c57cdde8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-server/zipball/34a6b66b8ca4255f8334c5aaf5cb34d7c57cdde8",
+                "reference": "34a6b66b8ca4255f8334c5aaf5cb34d7c57cdde8",
+                "shasum": ""
+            },
+            "require": {
+                "league/event": "~2.1",
+                "php": ">=5.4.0",
+                "symfony/http-foundation": "~2.4"
+            },
+            "replace": {
+                "league/oauth2server": "*",
+                "lncd/oauth2": "*"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Bilbie",
+                    "email": "hello@alexbilbie.com",
+                    "homepage": "http://www.alexbilbie.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A lightweight and powerful OAuth 2.0 authorization and resource server library with support for all the core specification grants. This library will allow you to secure your API with OAuth and allow your applications users to approve apps that want to access their data from your API.",
+            "homepage": "http://oauth2.thephpleague.com/",
+            "keywords": [
+                "Authentication",
+                "api",
+                "auth",
+                "authorisation",
+                "authorization",
+                "oauth",
+                "oauth 2",
+                "oauth 2.0",
+                "oauth2",
+                "protect",
+                "resource",
+                "secure",
+                "server"
+            ],
+            "time": "2015-03-22 23:19:36"
+        },
+        {
+            "name": "lucadegasperi/oauth2-server-laravel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucadegasperi/oauth2-server-laravel.git",
+                "reference": "3f85ba7e7131513243e32d1889e54221f744eb53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucadegasperi/oauth2-server-laravel/zipball/3f85ba7e7131513243e32d1889e54221f744eb53",
+                "reference": "3f85ba7e7131513243e32d1889e54221f744eb53",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.1.*",
+                "illuminate/console": "5.1.*",
+                "illuminate/contracts": "5.1.*",
+                "illuminate/database": "5.1.*",
+                "illuminate/http": "5.1.*",
+                "illuminate/support": "5.1.*",
+                "league/oauth2-server": "4.1.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "mockery/mockery": "^0.9",
+                "orchestra/testbench": "3.1.*",
+                "phpspec/phpspec": "^2.2",
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LucaDegasperi\\OAuth2Server\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luca Degasperi",
+                    "email": "packages@lucadegasperi.com"
+                },
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "hello@vinkla.com"
+                }
+            ],
+            "description": "An OAuth 2.0 bridge for Laravel and Lumen",
+            "keywords": [
+                "api",
+                "laravel",
+                "lumen",
+                "oauth",
+                "oauth2",
+                "server"
+            ],
+            "time": "2015-10-12 06:20:37"
         },
         {
             "name": "monolog/monolog",
@@ -1051,12 +1232,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Console.git",
+                "url": "https://github.com/symfony/console.git",
                 "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/9ff9032151186bd66ecee727d728f1319f52d1d8",
+                "url": "https://api.github.com/repos/symfony/console/zipball/9ff9032151186bd66ecee727d728f1319f52d1d8",
                 "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8",
                 "shasum": ""
             },
@@ -1108,12 +1289,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/CssSelector.git",
+                "url": "https://github.com/symfony/css-selector.git",
                 "reference": "ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad",
                 "reference": "ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad",
                 "shasum": ""
             },
@@ -1161,12 +1342,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Debug.git",
+                "url": "https://github.com/symfony/debug.git",
                 "reference": "726bf9651d29f53243281d0b6418cfaa5e318281"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/726bf9651d29f53243281d0b6418cfaa5e318281",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/726bf9651d29f53243281d0b6418cfaa5e318281",
                 "reference": "726bf9651d29f53243281d0b6418cfaa5e318281",
                 "shasum": ""
             },
@@ -1216,12 +1397,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/DomCrawler.git",
+                "url": "https://github.com/symfony/dom-crawler.git",
                 "reference": "2a161e4ee2b2f33d4153be58df4f6f2a5506936e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/2a161e4ee2b2f33d4153be58df4f6f2a5506936e",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/2a161e4ee2b2f33d4153be58df4f6f2a5506936e",
                 "reference": "2a161e4ee2b2f33d4153be58df4f6f2a5506936e",
                 "shasum": ""
             },
@@ -1269,12 +1450,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher.git",
+                "url": "https://github.com/symfony/event-dispatcher.git",
                 "reference": "b58c916f1db03a611b72dd702564f30ad8fe83fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/b58c916f1db03a611b72dd702564f30ad8fe83fa",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b58c916f1db03a611b72dd702564f30ad8fe83fa",
                 "reference": "b58c916f1db03a611b72dd702564f30ad8fe83fa",
                 "shasum": ""
             },
@@ -1376,12 +1557,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/HttpFoundation.git",
+                "url": "https://github.com/symfony/http-foundation.git",
                 "reference": "7253c2041652353e71560bbd300d6256d170ddaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/7253c2041652353e71560bbd300d6256d170ddaf",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/7253c2041652353e71560bbd300d6256d170ddaf",
                 "reference": "7253c2041652353e71560bbd300d6256d170ddaf",
                 "shasum": ""
             },
@@ -1429,12 +1610,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/HttpKernel.git",
+                "url": "https://github.com/symfony/http-kernel.git",
                 "reference": "fd9c7af92c9e3ade1327cc3af10b17731eebc4a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/fd9c7af92c9e3ade1327cc3af10b17731eebc4a7",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/fd9c7af92c9e3ade1327cc3af10b17731eebc4a7",
                 "reference": "fd9c7af92c9e3ade1327cc3af10b17731eebc4a7",
                 "shasum": ""
             },
@@ -3018,8 +3199,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "lucadegasperi/oauth2-server-laravel": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
