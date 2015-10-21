@@ -7,6 +7,7 @@ use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectController extends Controller
@@ -60,8 +61,15 @@ class ProjectController extends Controller
     public function show($id)
     {
         try {
+            $userId = Authorizer::getResourceOwnerId();
+
+            if($this->repository->isOwner($id, $userId) == false){
+                return ['success'=>false];
+            }
+
             $project = $this->service->find($id);
             return $project;
+            //return $this->repository->find($id);
         }catch (ModelNotFoundException $e) {
             return [
                 'error' => true,

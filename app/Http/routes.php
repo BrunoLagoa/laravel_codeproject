@@ -22,9 +22,9 @@ Route::post('oauth/access_token', function() {
 Route::group(['middleware'=>'oauth'], function() {
 
     Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
+    Route::resource('project', 'ProjectController', ['except' => ['create', 'edit']]);
 
     Route::group(['prefix' => 'project'], function() {
-        Route::resource('', 'ProjectController', ['except' => ['create', 'edit']]);
 
         Route::get('/{id}/note', 'ProjectNoteController@index');
         Route::post('/{id}/note', 'ProjectNoteController@store');
