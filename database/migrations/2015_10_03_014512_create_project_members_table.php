@@ -15,9 +15,9 @@ class CreateProjectMembersTable extends Migration
         Schema::create('project_members', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id', false, true);
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-            $table->integer('user_id', false, true);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->integer('member_id', false, true);
+            $table->foreign('member_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
