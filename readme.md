@@ -74,6 +74,17 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
  
  Crie um endpoint: /project/{id}/members para ter acesso a todos os membros de um projeto. 
  
+## Fase 4 do projeto
+<b>FINALIZANDO BACKEND</b>
+  
+ Agora que já temos nossa estrutura montada em relação ao projeto, precisamos finalizar a parte "base" do backend para que possamos iniciar o processo de integração com o AngularJS.
+
+ Faça:
+
+- Aplique o processo de Autorização em todos os endpoints de nossa API
+- Crie Presenters e Transformers em todos os repositories (deixe exibindo todos os dados por padrão - isso poderá ser mudado quando formos conversar com o Angular)
+- Termine o processo de inclusão de arquivos / upload validando possíveis tipos de erros
+- Processo de remoção de arquivos do projeto
  
 ------------------------------------------------------------------------------------------
 [Bruno Castro](http://www.bhzautomacao.com.br) - Development
