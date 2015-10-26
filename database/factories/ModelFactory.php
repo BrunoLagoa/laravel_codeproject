@@ -53,7 +53,7 @@ $factory->define(CodeProject\Entities\ProjectNote::class, function (Faker\Genera
 
 $factory->define(CodeProject\Entities\ProjectTask::class, function (Faker\Generator $faker) {
     return [
-        'project_id' => $faker->numberBetween(0,10),
+        'project_id' => $faker->numberBetween(1,10),
         'name' => $faker->word,
         'status' => rand(1,3),
         'start_date' => $faker->date('Y-m-d', 'now'),

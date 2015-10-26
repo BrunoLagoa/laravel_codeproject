@@ -82,8 +82,9 @@ class ProjectService
     public function showMembers($id)
     {
         try {
-            //return $this->repository->with(['members'])->find($id);
-            return response()->json($this->repository->find($id)->members->all());
+            return $this->repository->with(['members'])->find($id);
+            //return $this->repository->findWhere(['project_id' => $id]);
+            //return response()->json($this->repository->find($id)->members->all());
         } catch(ModelNotFoundException $ex) {
             return [
                 'error' => true,
@@ -162,6 +163,7 @@ class ProjectService
         $project = $this->repository->skipPresenter()->find($data['project_id']);
         $projectFile = $project->files()->create($data);
 
-        $this->storage->put($projectFile->id . "." . $data['extension'], $this->filesystem->get($data['file']));
+        $this->storage->put($projectFile->name . "." . $data['extension'], $this->filesystem->get($data['file']));
     }
+
 }
