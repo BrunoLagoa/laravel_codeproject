@@ -163,7 +163,12 @@ class ProjectService
         $project = $this->repository->skipPresenter()->find($data['project_id']);
         $projectFile = $project->files()->create($data);
 
-        $this->storage->put($projectFile->name . "." . $data['extension'], $this->filesystem->get($data['file']));
+        $this->storage->put($projectFile->id . "." . $data['extension'], $this->filesystem->get($data['file']));
+    }
+
+    public function destroyFile()
+    {
+        //
     }
 
 }

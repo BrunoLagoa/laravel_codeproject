@@ -2,6 +2,8 @@
 
 namespace CodeProject\Http\Controllers;
 
+use CodeProject\Entities\Project;
+use CodeProject\Entities\ProjectFile;
 use CodeProject\Http\Requests;
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
@@ -110,10 +112,25 @@ class ProjectFileController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int $id
+     * @param $filetId
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, $fileId)
     {
-        //
+
+        $projectFile = ProjectFile::find($fileId);
+
+        if(file_exists(storage_path().'\app\\'.$projectFile->id.'.'.$projectFile->extension))
+        {
+            Storage::disk('local')->delete($projectFile->id.'.'.$projectFile->extension);
+        }
+
+        $projectFile->delete();
+
+        return [
+            'error' => false,
+            'message' => 'Store file deleted'
+        ];
+
     }
 }
