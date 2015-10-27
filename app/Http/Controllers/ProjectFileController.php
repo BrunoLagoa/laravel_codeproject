@@ -117,20 +117,34 @@ class ProjectFileController extends Controller
      */
     public function destroy($id, $fileId)
     {
+        try{
+            $projectFile = ProjectFile::find($fileId);
+            //dd($projectFile);
+            if($projectFile == null)
+            {
+                return [
+                    'error' => true,
+                    'message' => 'File not found'
+                ];
+            }
 
-        $projectFile = ProjectFile::find($fileId);
+            if(file_exists(storage_path().'\app\\'.$projectFile->id.'.'.$projectFile->extension))
+            {
+                Storage::disk('local')->delete($projectFile->id.'.'.$projectFile->extension);
+            }
 
-        if(file_exists(storage_path().'\app\\'.$projectFile->id.'.'.$projectFile->extension))
-        {
-            Storage::disk('local')->delete($projectFile->id.'.'.$projectFile->extension);
+            $projectFile->delete();
+
+            return [
+                'error' => false,
+                'message' => 'Store file deleted'
+            ];
+        } catch(ModelNotFoundException $ex) {
+            return [
+                'error' => true,
+                'message' => 'Store file error'
+            ];
         }
-
-        $projectFile->delete();
-
-        return [
-            'error' => false,
-            'message' => 'Store file deleted'
-        ];
 
     }
 }
