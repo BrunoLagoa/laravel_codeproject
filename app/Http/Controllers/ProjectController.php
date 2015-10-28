@@ -50,32 +50,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-
-            $validator = Validator::make($request->all(), [
-                'owner_id' => 'required',
-                'client_id' => 'required',
-                'name' => 'required',
-                'description' => 'required',
-                'progress' => 'required',
-                'status' => 'required',
-                'due_date' => 'required',
-            ]);
-
-            if($validator->fails()) {
-                return [
-                    'error' => true,
-                    'message' => 'Required fields not found'
-                ];
-            }
-
-            return $this->service->create($request->all());
-        } catch(ModelNotFoundException $ex) {
-            return [
-                'error' => true,
-                'message' => 'Error in create project'
-            ];
-        }
+        return $this->service->create($request->all());
     }
 
     /**
