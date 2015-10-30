@@ -1,5 +1,11 @@
-var elixir = require('laravel-elixir');
+var elixir = require('laravel-elixir'),
+    liveReload = require('gulp-livereload'),
+    clean = require('gulp-clean'),
+    gulp = require('gulp');
 
+gulp.task('teste',function(){
+    console.log("Esta funcionando");
+    });
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management

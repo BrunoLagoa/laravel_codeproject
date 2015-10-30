@@ -10,6 +10,14 @@
   "moduleType": [
     "amd"
   ],
+  "ignore":[
+    "**/*",
+    "node_module",
+    "bower_components",
+    "resources/bower_components",
+    "test",
+    "tests"
+  ],
   "license": "MIT",
   "dependencies": {
     "angular": "1.4.1",
