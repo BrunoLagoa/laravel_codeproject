@@ -1,6 +1,7 @@
+.idea
+.env
 /vendor
 /node_modules
+/resources/bower_components
 Homestead.yaml
 Homestead.json
-.env
-.idea
