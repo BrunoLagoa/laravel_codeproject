@@ -31,6 +31,30 @@ config.vendor_path_css = [
     config.bower_path + '/bootstrap/dist/css/bootstrap-theme.min.css'
 ];
 
+gulp.task('copy-styles', function(){
+    gulp.src([
+        config.assets_path + '/css/**/*.css'
+    ])
+        .pipe(gulp.dest(config.build_path_css))
+        .pipe(liveReload());
+
+    gulp.src(config.vendor_path_css)
+        .pipe(gulp.dest(config.build_vendor_path_css))
+        .pipe(liveReload());
+});
+
+gulp.task('copy-scripts', function(){
+    gulp.src([
+        config.assets_path + '/cjs/**/*.js'
+    ])
+        .pipe(gulp.dest(config.build_path_js))
+        .pipe(liveReload());
+
+    gulp.src(config.vendor_path_js)
+        .pipe(gulp.dest(config.build_vendor_path_js))
+        .pipe(liveReload());
+});
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
