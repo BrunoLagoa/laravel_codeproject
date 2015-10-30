@@ -11,14 +11,14 @@
 ## poo-code-education
 Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](http://sites.code.education/laravel-com-angularjs/)
 
-## Fase 1 do projeto
+## Fase 1 do Projeto Laravel
 <b>CLIENTS</b>
  
  - Nessa fase do projeto, você deverá apresentar um CRUD completo de nosso model Client.
  - Sempre lembrando que toda a informação resultante deverá ser exibida para o usuário final como um json.
  - Não se esqueça de utilizar corretamente os verbos HTTP. 
 
-## Fase 2 do projeto
+## Fase 2 do Projeto Laravel
 <b>REPOSITORES / SERVICES</b>
  
  Agora que já falamos sobre os conceitos de Services e Repositories:
@@ -42,7 +42,7 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
    
  4 - Na listagem dos dados, traga também as informações sobre o owner_id e client_id (dica: utilize o método do repository: "with")
  
-## Fase 3 do projeto
+## Fase 3 do Projeto Laravel
 <b>TASKS E MEMBERS</b>
   
  Agora que você está entendendo o processo de relacionamento e disponibilização das APIs relacionadas a Projects, faça:
@@ -74,7 +74,7 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
  
  Crie um endpoint: /project/{id}/members para ter acesso a todos os membros de um projeto. 
  
-## Fase 4 do projeto
+## Fase 4 do Projeto Laravel
 <b>FINALIZANDO BACKEND</b>
   
  Agora que já temos nossa estrutura montada em relação ao projeto, precisamos finalizar a parte "base" do backend para que possamos iniciar o processo de integração com o AngularJS.
@@ -85,6 +85,13 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
 - Crie Presenters e Transformers em todos os repositories (deixe exibindo todos os dados por padrão - isso poderá ser mudado quando formos conversar com o Angular)
 - Termine o processo de inclusão de arquivos / upload validando possíveis tipos de erros
 - Processo de remoção de arquivos do projeto
+
+## Fase 1 do Projeto Angular
+<b>CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO</b>
+  
+ Agora que você já viu todo processo de preparação do nosso front-end, você deve reproduzir o mesmo ambiente em seu projeto.
+ É preciso que ao digitarmos "gulp watch-dev", ele realize todas as tarefas descritas para o desenvolvimento e quando
+ digitarmos "gulp default" ou somente "gulp", o mesmo gere os arquivos all.js e all.css que será o resultado da união dos arquivos correspondentes.
  
 ------------------------------------------------------------------------------------------
 [Bruno Castro](http://www.bhzautomacao.com.br) - Development
