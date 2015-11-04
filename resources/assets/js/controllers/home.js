@@ -1,4 +1,4 @@
-angular.module('app.controller')
+angular.module('app.controllers')
     .controller('HomeController', ['$scope', function($scope){
 
     }]);
