@@ -16,7 +16,9 @@
     "bower_components",
     "resources/bower_components",
     "test",
-    "tests"
+    "tests",
+    "**/.*",
+    "node_modules"
   ],
   "license": "MIT",
   "dependencies": {

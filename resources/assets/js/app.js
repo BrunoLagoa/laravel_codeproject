@@ -1,6 +1,6 @@
 var app = angular.module('app',['ngRoute','angular-oauth2','app.controllers']);
 
-angular.module('app.controllers',['angular-oauth2']);
+angular.module('app.controllers',['ngMessages','angular-oauth2']);
 
 app.config(['$routeProvider','OAuthProvider',function($routeProvider,OAuthProvider){
     $routeProvider

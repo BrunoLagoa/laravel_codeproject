@@ -1,8 +1,10 @@
-.idea
-.idea/workspace.xml
+/.idea/
+./idea
+./vagrant
 .env
 /vendor
 /node_modules
-/resources/bower_components
 Homestead.yaml
 Homestead.json
+VagrantFile
+resources/bower_components
