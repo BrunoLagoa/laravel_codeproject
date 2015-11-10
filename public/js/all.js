@@ -494,9 +494,22 @@ f+" > 4096 bytes)!");k.cookie=e}}c.module("ngCookies",["ng"]).provider("$cookies
 !function(e,t){"function"==typeof define&&define.amd?define(["angular","query-string"],t):"object"==typeof exports?module.exports=t(require("angular"),require("query-string")):e.angularOAuth2=t(e.angular,e.queryString)}(this,function(e,t){function r(e){e.interceptors.push("oauthInterceptor")}function n(){var r;this.configure=function(t){if(r)throw new Error("Already configured.");if(!(t instanceof Object))throw new TypeError("Invalid argument: `config` must be an `Object`.");return r=e.extend({},c,t),e.forEach(s,function(e){if(!r[e])throw new Error("Missing parameter: "+e+".")}),"/"===r.baseUrl.substr(-1)&&(r.baseUrl=r.baseUrl.slice(0,-1)),"/"!==r.grantPath[0]&&(r.grantPath="/"+r.grantPath),"/"!==r.revokePath[0]&&(r.revokePath="/"+r.revokePath),r},this.$get=function(n,o){var a=function(){function a(){if(!r)throw new Error("`OAuthProvider` must be configured first.")}return u(a,null,{isAuthenticated:{value:function(){return!!o.getToken()},writable:!0,enumerable:!0,configurable:!0},getAccessToken:{value:function(a,i){if(!a||!a.username||!a.password)throw new Error("`user` must be an object with `username` and `password` properties.");var u={client_id:r.clientId,grant_type:"password",username:a.username,password:a.password};return null!==r.clientSecret&&(u.client_secret=r.clientSecret),u=t.stringify(u),i=e.extend({headers:{"Content-Type":"application/x-www-form-urlencoded"}},i),n.post(""+r.baseUrl+r.grantPath,u,i).then(function(e){return o.setToken(e.data),e})},writable:!0,enumerable:!0,configurable:!0},getRefreshToken:{value:function(){var e={client_id:r.clientId,grant_type:"refresh_token",refresh_token:o.getRefreshToken()};null!==r.clientSecret&&(e.client_secret=r.clientSecret),e=t.stringify(e);var a={headers:{"Content-Type":"application/x-www-form-urlencoded"}};return n.post(""+r.baseUrl+r.grantPath,e,a).then(function(e){return o.setToken(e.data),e})},writable:!0,enumerable:!0,configurable:!0},revokeToken:{value:function(){var e=t.stringify({token:o.getRefreshToken()?o.getRefreshToken():o.getAccessToken()}),a={headers:{"Content-Type":"application/x-www-form-urlencoded"}};return n.post(""+r.baseUrl+r.revokePath,e,a).then(function(e){return o.removeToken(),e})},writable:!0,enumerable:!0,configurable:!0}}),a}();return new a},this.$get.$inject=["$http","OAuthToken"]}function o(){var t={name:"token",options:{secure:!0}};this.configure=function(r){if(!(r instanceof Object))throw new TypeError("Invalid argument: `config` must be an `Object`.");return e.extend(t,r),t},this.$get=function(e){var r=function(){function r(){}return u(r,null,{setToken:{value:function(r){return e.putObject(t.name,r,t.options)},writable:!0,enumerable:!0,configurable:!0},getToken:{value:function(){return e.getObject(t.name)},writable:!0,enumerable:!0,configurable:!0},getAccessToken:{value:function(){return this.getToken()?this.getToken().access_token:void 0},writable:!0,enumerable:!0,configurable:!0},getAuthorizationHeader:{value:function(){return this.getTokenType()&&this.getAccessToken()?""+(this.getTokenType().charAt(0).toUpperCase()+this.getTokenType().substr(1))+" "+this.getAccessToken():void 0},writable:!0,enumerable:!0,configurable:!0},getRefreshToken:{value:function(){return this.getToken()?this.getToken().refresh_token:void 0},writable:!0,enumerable:!0,configurable:!0},getTokenType:{value:function(){return this.getToken()?this.getToken().token_type:void 0},writable:!0,enumerable:!0,configurable:!0},removeToken:{value:function(){return e.remove(t.name,t.options)},writable:!0,enumerable:!0,configurable:!0}}),r}();return new r},this.$get.$inject=["$cookies"]}function a(e,t,r){return{request:function(e){return r.getAuthorizationHeader()&&(e.headers=e.headers||{},e.headers.Authorization=r.getAuthorizationHeader()),e},responseError:function(n){return 400!==n.status||!n.data||"invalid_request"!==n.data.error&&"invalid_grant"!==n.data.error||(r.removeToken(),t.$emit("oauth:error",n)),(401===n.status&&n.data&&"invalid_token"===n.data.error||n.headers("www-authenticate")&&0===n.headers("www-authenticate").indexOf("Bearer"))&&t.$emit("oauth:error",n),e.reject(n)}}}var i=e.module("angular-oauth2",["ngCookies"]).config(r).factory("oauthInterceptor",a).provider("OAuth",n).provider("OAuthToken",o);r.$inject=["$httpProvider"];var u=function(e,t,r){t&&Object.defineProperties(e,t),r&&Object.defineProperties(e.prototype,r)},c={baseUrl:null,clientId:null,clientSecret:null,grantPath:"/oauth2/token",revokePath:"/oauth2/revoke"},s=["baseUrl","clientId","grantPath","revokePath"],u=function(e,t,r){t&&Object.defineProperties(e,t),r&&Object.defineProperties(e.prototype,r)};return a.$inject=["$q","$rootScope","OAuthToken"],i});
 var app = angular.module('app',['ngRoute','angular-oauth2','app.controllers']);
 
-angular.module('app.controllers',['angular-oauth2']);
+angular.module('app.controllers',['ngMessages','angular-oauth2']);
 
-app.config(['$routeProvider','OAuthProvider',function($routeProvider,OAuthProvider){
+app.provider('appConfig', function(){
+    var config = {
+        baseUrl: 'http://localhost:8000'
+    };
+
+    return {
+        config: config,
+        $get: function(){
+            return config;
+        }
+    }
+});
+
+app.config(['$routeProvider','OAuthProvider','appConfigProvider',function($routeProvider,OAuthProvider, appConfigProvider){
     $routeProvider
         .when('/login', {
             templateUrl: 'build/views/login.html',
@@ -507,7 +520,7 @@ app.config(['$routeProvider','OAuthProvider',function($routeProvider,OAuthProvid
             controller: 'HomeController'
         });
         OAuthProvider.configure({
-            baseUrl: 'http://localhost:8000',
+            baseUrl: appConfigProvider.config.baseUrl,
             clientId: 'appid1',
             clientSecret: 'secret',
             grantPath: 'oauth/access_token'
@@ -541,13 +554,22 @@ angular.module('app.controllers')
             password: ''
         };
 
+        $scope.error = {
+            message: '',
+            error: false
+        };
+
         $scope.login = function() {
             // console.log($scope.user);
-            OAuth.getAccessToken($scope.user).then(function(){
-                $location.path('home');
-            },function(){
-                alert('Login invalido');
-            });
+            if($scope.form.$valid){
+                OAuth.getAccessToken($scope.user).then(function(){
+                    $location.path('home');
+                },function(data){
+                    // alert('Login invalido');
+                    $scope.error.error = true;
+                    $scope.error.message = data.data.error_description;
+                });
+            }
         };
     }]);
 //# sourceMappingURL=all.js.map

@@ -14,18 +14,18 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
 ## Fase 1 do Projeto Laravel
 <b>CLIENTS</b>
  
- - Nessa fase do projeto, você deverá apresentar um CRUD completo de nosso model Client.
- - Sempre lembrando que toda a informação resultante deverá ser exibida para o usuário final como um json.
- - Não se esqueça de utilizar corretamente os verbos HTTP. 
+ - Nessa fase do projeto, vocï¿½ deverï¿½ apresentar um CRUD completo de nosso model Client.
+ - Sempre lembrando que toda a informaï¿½ï¿½o resultante deverï¿½ ser exibida para o usuï¿½rio final como um json.
+ - Nï¿½o se esqueï¿½a de utilizar corretamente os verbos HTTP. 
 
 ## Fase 2 do Projeto Laravel
 <b>REPOSITORES / SERVICES</b>
  
- Agora que já falamos sobre os conceitos de Services e Repositories:
+ Agora que jï¿½ falamos sobre os conceitos de Services e Repositories:
    
- 1 - Faça o CRUD completo de nossa Entidade Client
+ 1 - Faï¿½a o CRUD completo de nossa Entidade Client
    
- 2 - Crie uma nova entidade chamada Project, onde sua tabela do banco de dados terá:
+ 2 - Crie uma nova entidade chamada Project, onde sua tabela do banco de dados terï¿½:
    
    - id
    - owner_id (chave estrangeira para users)
@@ -38,17 +38,17 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
    - created_at
    - updated_at
    
- 3 - Crie o Repository e Service referente a entidade Project, bem como suas validações, gerando um CRUD completo
+ 3 - Crie o Repository e Service referente a entidade Project, bem como suas validaï¿½ï¿½es, gerando um CRUD completo
    
- 4 - Na listagem dos dados, traga também as informações sobre o owner_id e client_id (dica: utilize o método do repository: "with")
+ 4 - Na listagem dos dados, traga tambï¿½m as informaï¿½ï¿½es sobre o owner_id e client_id (dica: utilize o mï¿½todo do repository: "with")
  
 ## Fase 3 do Projeto Laravel
 <b>TASKS E MEMBERS</b>
   
- Agora que você está entendendo o processo de relacionamento e disponibilização das APIs relacionadas a Projects, faça:
+ Agora que vocï¿½ estï¿½ entendendo o processo de relacionamento e disponibilizaï¿½ï¿½o das APIs relacionadas a Projects, faï¿½a:
  
  1 - Crie a entidade ProjectTask, com os seguintes campos e disponibilize os endpoints project/tasks.
- Não se esqueça de criar as migrations, seeds, repositories, services, etc.
+ Nï¿½o se esqueï¿½a de criar as migrations, seeds, repositories, services, etc.
  
  - id
  - name
@@ -64,34 +64,41 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
  - project_id
  - user_id
  
- Faça o relacionamento com a entidade Project e User para que facilmente possamos ter acesso aos membros de um projeto.
+ Faï¿½a o relacionamento com a entidade Project e User para que facilmente possamos ter acesso aos membros de um projeto.
  
- No ProjectService, crie dois métodos:
+ No ProjectService, crie dois mï¿½todos:
  
  - addMember: para adicionar um novo member em um projeto
  - removeMember: para remover um membro de um projeto
- - isMember: para verificar se um usuário é membro de um determinado projeto
+ - isMember: para verificar se um usuï¿½rio ï¿½ membro de um determinado projeto
  
  Crie um endpoint: /project/{id}/members para ter acesso a todos os membros de um projeto. 
  
 ## Fase 4 do Projeto Laravel
 <b>FINALIZANDO BACKEND</b>
   
- Agora que já temos nossa estrutura montada em relação ao projeto, precisamos finalizar a parte "base" do backend para que possamos iniciar o processo de integração com o AngularJS.
+ Agora que jï¿½ temos nossa estrutura montada em relaï¿½ï¿½o ao projeto, precisamos finalizar a parte "base" do backend para que possamos iniciar o processo de integraï¿½ï¿½o com o AngularJS.
 
- Faça:
+ Faï¿½a:
 
-- Aplique o processo de Autorização em todos os endpoints de nossa API
-- Crie Presenters e Transformers em todos os repositories (deixe exibindo todos os dados por padrão - isso poderá ser mudado quando formos conversar com o Angular)
-- Termine o processo de inclusão de arquivos / upload validando possíveis tipos de erros
-- Processo de remoção de arquivos do projeto
+- Aplique o processo de Autorizaï¿½ï¿½o em todos os endpoints de nossa API
+- Crie Presenters e Transformers em todos os repositories (deixe exibindo todos os dados por padrï¿½o - isso poderï¿½ ser mudado quando formos conversar com o Angular)
+- Termine o processo de inclusï¿½o de arquivos / upload validando possï¿½veis tipos de erros
+- Processo de remoï¿½ï¿½o de arquivos do projeto
 
 ## Fase 1 do Projeto Angular
 <b>CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO</b>
   
- Agora que você já viu todo processo de preparação do nosso front-end, você deve reproduzir o mesmo ambiente em seu projeto.
- É preciso que ao digitarmos "gulp watch-dev", ele realize todas as tarefas descritas para o desenvolvimento e quando
- digitarmos "gulp default" ou somente "gulp", o mesmo gere os arquivos all.js e all.css que será o resultado da união dos arquivos correspondentes.
+ Agora que vocï¿½ jï¿½ viu todo processo de preparaï¿½ï¿½o do nosso front-end, vocï¿½ deve reproduzir o mesmo ambiente em seu projeto.
+ ï¿½ preciso que ao digitarmos "gulp watch-dev", ele realize todas as tarefas descritas para o desenvolvimento e quando
+ digitarmos "gulp default" ou somente "gulp", o mesmo gere os arquivos all.js e all.css que serï¿½ o resultado da uniï¿½o dos arquivos correspondentes.
+
+## Fase 2 do Projeto Angular
+ <b>REALIZANDO AUTENTICAÃ‡ÃƒO</b>
+
+  Agora que jÃ¡ realizamos a autenticaÃ§Ã£o Ã© preciso que vocÃª faÃ§a a mesma autenticaÃ§Ã£o na rota #/login.
+  Quando o usuÃ¡rio for autenticado, redirecione-o para #/home. NÃ£o se preocupe em restringir o acesso ao #/home quando nÃ£o estivermos
+  autenticados.
  
 ------------------------------------------------------------------------------------------
 [Bruno Castro](http://www.bhzautomacao.com.br) - Development
