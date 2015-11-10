@@ -24,6 +24,10 @@ app.config(['$routeProvider','OAuthProvider','appConfigProvider',function($route
         .when('/home', {
             templateUrl: 'build/views/home.html',
             controller: 'HomeController'
+        })
+        .when('/clients', {
+            templateUrl: 'build/views/client/list.html',
+            controller: 'ClientListController'
         });
         OAuthProvider.configure({
             baseUrl: appConfigProvider.config.baseUrl,
