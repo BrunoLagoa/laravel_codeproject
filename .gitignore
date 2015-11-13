@@ -1,6 +1,4 @@
 /.idea/
-./idea
-./vagrant
 .env
 /vendor
 /node_modules
