@@ -89,7 +89,7 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
 ## Fase 1 do Projeto Angular
 <b>CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO</b>
   
- Agora que você já viu todo processo de prepara��o do nosso front-end, voc� deve reproduzir o mesmo ambiente em seu projeto.
+ Agora que você já viu todo processo de preparação do nosso front-end, você deve reproduzir o mesmo ambiente em seu projeto.
  É preciso que ao digitarmos "gulp watch-dev", ele realize todas as tarefas descritas para o desenvolvimento e quando
  digitarmos "gulp default" ou somente "gulp", o mesmo gere os arquivos all.js e all.css que será o resultado da união dos arquivos correspondentes.
 
