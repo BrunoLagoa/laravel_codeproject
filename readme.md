@@ -14,18 +14,18 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
 ## Fase 1 do Projeto Laravel
 <b>CLIENTS</b>
  
- - Nessa fase do projeto, voc� dever� apresentar um CRUD completo de nosso model Client.
- - Sempre lembrando que toda a informa��o resultante dever� ser exibida para o usu�rio final como um json.
- - N�o se esque�a de utilizar corretamente os verbos HTTP. 
+ - Nessa fase do projeto, você deverá apresentar um CRUD completo de nosso model Client.
+ - Sempre lembrando que toda a informação resultante deverá ser exibida para o usuário final como um json.
+ - Não se esqueça de utilizar corretamente os verbos HTTP.
 
 ## Fase 2 do Projeto Laravel
 <b>REPOSITORES / SERVICES</b>
  
- Agora que j� falamos sobre os conceitos de Services e Repositories:
+ Agora que já falamos sobre os conceitos de Services e Repositories:
    
- 1 - Fa�a o CRUD completo de nossa Entidade Client
+ 1 - Faça o CRUD completo de nossa Entidade Client
    
- 2 - Crie uma nova entidade chamada Project, onde sua tabela do banco de dados ter�:
+ 2 - Crie uma nova entidade chamada Project, onde sua tabela do banco de dados terá:
    
    - id
    - owner_id (chave estrangeira para users)
@@ -38,17 +38,17 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
    - created_at
    - updated_at
    
- 3 - Crie o Repository e Service referente a entidade Project, bem como suas valida��es, gerando um CRUD completo
+ 3 - Crie o Repository e Service referente a entidade Project, bem como suas validações, gerando um CRUD completo
    
- 4 - Na listagem dos dados, traga tamb�m as informa��es sobre o owner_id e client_id (dica: utilize o m�todo do repository: "with")
+ 4 - Na listagem dos dados, traga também as informações sobre o owner_id e client_id (dica: utilize o método do repository: "with")
  
 ## Fase 3 do Projeto Laravel
 <b>TASKS E MEMBERS</b>
   
- Agora que voc� est� entendendo o processo de relacionamento e disponibiliza��o das APIs relacionadas a Projects, fa�a:
+ Agora que você está entendendo o processo de relacionamento e disponibilização das APIs relacionadas a Projects, faça:
  
  1 - Crie a entidade ProjectTask, com os seguintes campos e disponibilize os endpoints project/tasks.
- N�o se esque�a de criar as migrations, seeds, repositories, services, etc.
+ Não se esqueça de criar as migrations, seeds, repositories, services, etc.
  
  - id
  - name
@@ -64,34 +64,34 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
  - project_id
  - user_id
  
- Fa�a o relacionamento com a entidade Project e User para que facilmente possamos ter acesso aos membros de um projeto.
+ Faça o relacionamento com a entidade Project e User para que facilmente possamos ter acesso aos membros de um projeto.
  
- No ProjectService, crie dois m�todos:
+ No ProjectService, crie dois métodos:
  
  - addMember: para adicionar um novo member em um projeto
  - removeMember: para remover um membro de um projeto
- - isMember: para verificar se um usu�rio � membro de um determinado projeto
+ - isMember: para verificar se um usuário é membro de um determinado projeto
  
  Crie um endpoint: /project/{id}/members para ter acesso a todos os membros de um projeto. 
  
 ## Fase 4 do Projeto Laravel
 <b>FINALIZANDO BACKEND</b>
   
- Agora que j� temos nossa estrutura montada em rela��o ao projeto, precisamos finalizar a parte "base" do backend para que possamos iniciar o processo de integra��o com o AngularJS.
+ Agora que já temos nossa estrutura montada em relação ao projeto, precisamos finalizar a parte "base" do backend para que possamos iniciar o processo de integração com o AngularJS.
 
- Fa�a:
+ Faça:
 
-- Aplique o processo de Autoriza��o em todos os endpoints de nossa API
-- Crie Presenters e Transformers em todos os repositories (deixe exibindo todos os dados por padr�o - isso poder� ser mudado quando formos conversar com o Angular)
-- Termine o processo de inclus�o de arquivos / upload validando poss�veis tipos de erros
-- Processo de remo��o de arquivos do projeto
+- Aplique o processo de Autorização em todos os endpoints de nossa API
+- Crie Presenters e Transformers em todos os repositories (deixe exibindo todos os dados por padrão - isso poderá ser mudado quando formos conversar com o Angular)
+- Termine o processo de inclusão de arquivos / upload validando possíveis tipos de erros
+- Processo de remoção de arquivos do projeto
 
 ## Fase 1 do Projeto Angular
 <b>CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO</b>
   
- Agora que voc� j� viu todo processo de prepara��o do nosso front-end, voc� deve reproduzir o mesmo ambiente em seu projeto.
- � preciso que ao digitarmos "gulp watch-dev", ele realize todas as tarefas descritas para o desenvolvimento e quando
- digitarmos "gulp default" ou somente "gulp", o mesmo gere os arquivos all.js e all.css que ser� o resultado da uni�o dos arquivos correspondentes.
+ Agora que você já viu todo processo de prepara��o do nosso front-end, voc� deve reproduzir o mesmo ambiente em seu projeto.
+ É preciso que ao digitarmos "gulp watch-dev", ele realize todas as tarefas descritas para o desenvolvimento e quando
+ digitarmos "gulp default" ou somente "gulp", o mesmo gere os arquivos all.js e all.css que será o resultado da união dos arquivos correspondentes.
 
 ## Fase 2 do Projeto Angular
  <b>REALIZANDO AUTENTICAÇÃO</b>

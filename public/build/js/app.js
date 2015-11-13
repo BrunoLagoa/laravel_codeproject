@@ -16,7 +16,9 @@ app.provider('appConfig', function(){
     }
 });
 
-app.config(['$routeProvider','OAuthProvider','OAuthTokenProvider','appConfigProvider',function($routeProvider,OAuthProvider,OAuthTokenProvider,appConfigProvider){
+app.config([
+    '$routeProvider','OAuthProvider','OAuthTokenProvider','appConfigProvider',
+    function($routeProvider,OAuthProvider,OAuthTokenProvider,appConfigProvider){
     $routeProvider
         .when('/login', {
             templateUrl: 'build/views/login.html',
@@ -31,19 +33,19 @@ app.config(['$routeProvider','OAuthProvider','OAuthTokenProvider','appConfigProv
             controller: 'ClientListController'
         });
 
-        OAuthProvider.configure({
-            baseUrl: appConfigProvider.config.baseUrl,
-            clientId: 'appid1',
-            clientSecret: 'secret',
-            grantPath: 'oauth/access_token'
-        });
+    OAuthProvider.configure({
+        baseUrl: appConfigProvider.config.baseUrl,
+        clientId: 'appid1',
+        clientSecret: 'secret',
+        grantPath: 'oauth/access_token'
+    });
 
-        OAuthTokenProvider.configure({
-            name: 'token',
-            options: {
-                secure: false
-            }
-        })
+    OAuthTokenProvider.configure({
+        name: 'token',
+        options: {
+            secure: false
+        }
+    })
 }]);
 
 app.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) {
