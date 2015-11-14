@@ -12,6 +12,7 @@
                                 <th>Responsible</th>
                                 <th>E-mail</th>
                                 <th>Phone</th>
+                                <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -20,6 +21,9 @@
                                 <td>{{ c.responsible }}</td>
                                 <td>{{ c.email }}</td>
                                 <td>{{ c.phone }}</td>
+                                <td>
+                                    <a ng-href="#/clients/{{c.id}}/edit">Editar</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
