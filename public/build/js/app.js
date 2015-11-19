@@ -57,7 +57,7 @@ app.config([
             controller: 'ClientRemoveController'
         })
         .when('/project/:id/notes', {
-            templateUrl: 'build/views/project-note/index.html',
+            templateUrl: 'build/views/project-note/list.html',
             controller: 'ProjectNoteListController'
         })
         .when('/project/:id/notes/:idNote', {
