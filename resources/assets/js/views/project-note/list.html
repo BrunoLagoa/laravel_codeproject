@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <a ng-href="#/clients/new" class="btn btn-success">Novo Cliente</a>
+            <a ng-href="#/project/{{project_id}}/notes/new" class="btn btn-success">Nova Nota</a>
             <br /><br />
             <div class="panel panel-default">
                 <div class="panel-heading">Listagem de Notas de Projeto</div>
@@ -16,7 +16,7 @@
                         <tbody>
                             <tr ng-repeat="o in projectNotes">
                                 <td>{{ o.title }}</td>
-                                <td>{{ o.note | limitTo: 110}}...</td>
+                                <td>{{ o.note | limitTo: 100}}...</td>
                                 <td>
                                     <a ng-href="#/project/{{o.project_id}}/notes/{{o.id}}/edit">Editar</a> |
                                     <a ng-href="#/project/{{o.project_id}}/notes/{{o.id}}/remove">Excluir</a>

@@ -1,5 +1,5 @@
 angular.module('app.controllers')
-    .controller('ProjectNoteController',
+    .controller('ProjectNoteNewController',
         ['$scope', '$location', '$routeParams', 'ProjectNote',
             function ($scope, $location, $routeParams, ProjectNote) {
                 $scope.projectNote = new ProjectNote();
