@@ -99,6 +99,38 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
   Agora que já realizamos a autenticação é preciso que você faça a mesma autenticação na rota #/login.
   Quando o usuário for autenticado, redirecione-o para #/home. Não se preocupe em restringir o acesso ao #/home quando não estivermos
   autenticados.
+
+## Fase 3 do Projeto Angular
+ <b>PRIMEIROS CRUD's</b>
+
+  Com o CRUD de client funcionando, você irá fazer os CRUD's de client e project note.
+  Para as rotas, mantenha o mesmo padrão que usamos no curso:
+  
+  <b>Client:</b>
+  
+  Para listar: #/clients
+  Para listar um client: #/clients/:id
+  Para criar: #/clients/new
+  Para editar: #/clients/:id/edit
+  Para excluir: #/clients/:id/remove
+  
+  ===============================================================================================
+  
+  <b>Project Note:</b>
+  
+  Para listar as notas de um projeto específico: #/project/:id/notes
+  Para listar uma nota de um projeto específico: #/project/:id/notes/:idNote
+  Para criar uma nota para um projeto específico: #/project/:id/notes/new
+  Para editar uma nota: #/project/:id/notes/:idNote/edit
+  Para excluir uma nota: #/project/:id/notes/:idNote/remove
+  
+  Onde está o :id, será o id do projeto e você irá força-lo no URL porque nesta fase não faremos CRUD's de project.
+  Não se preocupe com os detalhes agora, o importante é que os dois CRUD's funcionem.
+  
+   
+  <b>Obs.:</b> utilize o método skipPresenter() nas consultas do repository por enquanto, para facilitar os CRUD's.
+ 
+ 
  
 ------------------------------------------------------------------------------------------
 [Bruno Castro](http://www.bhzautomacao.com.br) - Development
