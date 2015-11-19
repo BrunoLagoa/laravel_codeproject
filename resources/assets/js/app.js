@@ -60,7 +60,7 @@ app.config([
             templateUrl: 'build/views/project-note/list.html',
             controller: 'ProjectNoteListController'
         })
-        .when('/project/:id/notes/:idNote', {
+        .when('/project/:id/notes/:idNote/show', {
             templateUrl: 'build/views/project-note/show.html',
             controller: 'ProjectNoteShowController'
         })
