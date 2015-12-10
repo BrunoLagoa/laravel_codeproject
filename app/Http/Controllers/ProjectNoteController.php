@@ -54,13 +54,19 @@ class ProjectNoteController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
+     * @param $noteId
      * @return Response
      */
     public function show($id, $noteId)
     {
         try {
-            $project = $this->repository->findWhere(['project_id' => $id, 'id' => $noteId]);
-            return $project;
+            $result = $this->repository->findWhere(['project_id' => $id, 'id' => $noteId]);
+            if(isset($result['data']) && count($result['data'])==1){
+                $result = [
+                    'data' => $result['data'][0]
+                ];
+            }
+            return $result;
         }catch (ModelNotFoundException $e) {
             return [
                 'error' => true,
@@ -69,7 +75,6 @@ class ProjectNoteController extends Controller
         }
 
     }
-
 
     /**
      * Update the specified resource in storage.

@@ -68,7 +68,7 @@ app.config([
             templateUrl: 'build/views/project-note/new.html',
             controller: 'ProjectNoteNewController'
         })
-        .when('/project/:id/notes/:nodeId/edit', {
+        .when('/project/:id/notes/:idNote/edit', {
             templateUrl: 'build/views/project-note/edit.html',
             controller: 'ProjectNoteEditController'
         })
