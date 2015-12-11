@@ -11,7 +11,7 @@ use CodeProject\Presenters\UserPresenter;
  * Class UserRepositoryEloquent
  * @package namespace CodeProject\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements ProjectTaskRepository
+class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {
 
     protected $fieldSearchable = [
