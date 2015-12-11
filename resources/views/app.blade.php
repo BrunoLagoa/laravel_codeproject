@@ -41,7 +41,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/#/login') }}">Welcome</a></li>
 					<li><a href="{{ url('/#/clients') }}">Clients</a></li>
-					<li><a href="{{ url('/#/project') }}">Projects</a></li>
+					<li><a href="{{ url('/#/projects') }}">Projects</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -94,6 +94,11 @@
 		<script src="{{ asset('build/js/controllers/client/clientEdit.js') }}" ></script>
 		<script src="{{ asset('build/js/controllers/client/clientRemove.js') }}" ></script>
 
+		<script src="{{ asset('build/js/controllers/project/projectList.js') }}" ></script>
+		<script src="{{ asset('build/js/controllers/project/projectNew.js') }}" ></script>
+		<script src="{{ asset('build/js/controllers/project/projectEdit.js') }}" ></script>
+		<script src="{{ asset('build/js/controllers/project/projectRemove.js') }}" ></script>
+
 		<script src="{{ asset('build/js/controllers/project-note/projectNoteShow.js') }}" ></script>
 		<script src="{{ asset('build/js/controllers/project-note/projectNoteList.js') }}" ></script>
 		<script src="{{ asset('build/js/controllers/project-note/projectNoteNew.js') }}" ></script>
@@ -102,6 +107,7 @@
 
 		<!-- SERVICES !-->
 		<script src="{{ asset('build/js/services/client.js') }}" ></script>
+		<script src="{{ asset('build/js/services/project.js') }}" ></script>
 		<script src="{{ asset('build/js/services/projectNote.js') }}" ></script>
 		<script src="{{ asset('build/js/services/user.js') }}" ></script>
 	@else
