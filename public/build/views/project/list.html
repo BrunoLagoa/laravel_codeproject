@@ -23,7 +23,7 @@
                             <td>{{ o.client_id }}</td>
                             <td>{{ o.progress }}</td>
                             <td>{{ o.status }}</td>
-                            <td>{{ o.due_date }}</td>
+                            <td>{{ o.due_date | dateBr }}</td>
                             <td>
                                 <a ng-href="#/projects/{{o.id}}/edit">Editar</a> |
                                 <a ng-href="#/projects/{{o.id}}/remove">Excluir</a>
