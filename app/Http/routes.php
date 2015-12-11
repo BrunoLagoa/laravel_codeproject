@@ -25,11 +25,11 @@ Route::group(['middleware'=>'oauth'], function () {
 
     Route::group(['prefix' => 'project'], function() {
 
-        Route::get('/{id}/note', 'ProjectNoteController@index');
-        Route::post('/{id}/note', 'ProjectNoteController@store');
-        Route::get('/{id}/note/{nodeId}', 'ProjectNoteController@show');
-        Route::put('note/{idNote}', 'ProjectNoteController@update');
-        Route::delete('/{id}/note/{nodeId}', 'ProjectNoteController@destroy');
+        Route::get('{id}/note', 'ProjectNoteController@index');
+        Route::get('{id}/note/{noteId}', 'ProjectNoteController@show');
+        Route::post('{id}/note', 'ProjectNoteController@store');
+        Route::put('{id}/note/{noteId}', 'ProjectNoteController@update');
+        Route::delete('{id}/note/{noteId}', 'ProjectNoteController@destroy');
 
         Route::get('/{id}/task', 'ProjectTaskController@index');
         Route::post('/{id}/task', 'ProjectTaskController@store');

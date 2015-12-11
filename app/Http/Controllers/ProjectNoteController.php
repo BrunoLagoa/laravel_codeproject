@@ -29,9 +29,11 @@ class ProjectNoteController extends Controller
         $this->repository = $repository;
         $this->service = $service;
     }
+
     /**
      * Display a listing of the resource.
      *
+     * @param $id
      * @return Response
      */
     public function index($id)
@@ -54,14 +56,14 @@ class ProjectNoteController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
-     * @param $noteId
+     * @param $idNote
      * @return Response
      */
-    public function show($id, $noteId)
+    public function show($id, $idNote)
     {
         try {
-            $result = $this->repository->findWhere(['project_id' => $id, 'id' => $noteId]);
-            if(isset($result['data']) && count($result['data'])==1){
+            $result = $this->repository->findWhere(['project_id' => $id, 'id' => $idNote]);
+            if(isset($result['data']) && count($result['data']) == 1){
                 $result = [
                     'data' => $result['data'][0]
                 ];
@@ -76,16 +78,20 @@ class ProjectNoteController extends Controller
 
     }
 
+
     /**
      * Update the specified resource in storage.
      *
      * @param  Request $request
      * @param  int $id
+     * @param $idNote
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $idNote)
     {
-        return $this->service->update($request->all(), $id);
+        $data = $request->all();
+        $data['project_id'] = $id;
+        return $this->service->update($data, $idNote);
         //$this->repository->find($id)->update($request->all());
     }
 
@@ -95,8 +101,8 @@ class ProjectNoteController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, $noteId)
     {
-        $this->repository->find($id)->delete();
+        $this->repository->delete($noteId);
     }
 }
