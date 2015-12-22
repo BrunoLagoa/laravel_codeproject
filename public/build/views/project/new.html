@@ -20,6 +20,9 @@
                             <label class="col-md-4 control-label">Description</label>
                             <div class="col-md-6">
                                 <textarea name="description" cols="66" ng-model="project.description"></textarea>
+                                <div ng-messages="form.description.$error" class="help-block" ng-show="form.description.$touched">
+                                    <div ng-message="required">Campo obrigatório</div>
+                                </div>
                             </div>
                         </div>
 
@@ -41,6 +44,29 @@
                             <div class="col-md-6">
                                 <input type="date" class="form-control" name="due_date" ng-model="project.due_date" required>
                                 <div ng-messages="form.due_date.$error" class="help-block" ng-show="form.due_date.$touched">
+                                    <div ng-message="required">Campo obrigatório</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error': !form.progress.$valid && form.progress.$touched}">
+                            <label class="col-md-4 control-label">Progress</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="progress" ng-model="project.progress" required>
+                                <div ng-messages="form.progress.$error" class="help-block" ng-show="form.progress.$touched">
+                                    <div ng-message="required">Campo obrigatório</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-class="{'has-error': !form.status.$valid && form.status.$touched}">
+                            <label class="col-md-4 control-label">Status</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="status" ng-model="project.status"
+                                        ng-options="o.value as o.label for o in status" required>
+                                    <option value=""><-- Selecione o Status --></option>
+                                </select>
+                                <div ng-messages="form.status.$error" class="help-block" ng-show="form.status.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
                                 </div>
                             </div>

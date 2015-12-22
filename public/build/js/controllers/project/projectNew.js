@@ -1,8 +1,10 @@
 angular.module('app.controllers')
     .controller('ProjectNewController',
-        ['$scope', '$location', 'Project', 'Client', function ($scope, $location, Project, Client) {
+        ['$scope', '$location', 'Project', 'Client', 'appConfig',
+            function ($scope, $location, Project, Client, appConfig) {
             $scope.project = new Project();
             $scope.clients = Client.query();
+            $scope.status = appConfig.project.status;
 
             $scope.save = function () {
                 if ($scope.form.$valid) {
