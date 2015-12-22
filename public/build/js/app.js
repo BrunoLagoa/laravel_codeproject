@@ -1,48 +1,51 @@
-var app = angular.module('app',[
-    'ngRoute','angular-oauth2','app.controllers','app.services','app.filters'
+var app = angular.module('app', [
+    'ngRoute', 'angular-oauth2', 'app.controllers', 'app.services', 'app.filters'
 ]);
 
-angular.module('app.controllers',['ngMessages','angular-oauth2']);
-angular.module('app.filters',[]);
-angular.module('app.services',['ngResource']);
+angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
+angular.module('app.filters', []);
+angular.module('app.services', ['ngResource']);
 
-app.provider('appConfig', function(){
+app.provider('appConfig', function () {
     var config = {
         baseUrl: 'http://localhost:8000',
-        project:{
+        project: {
             status: [
                 {value: 1, label: 'Não Iniciado'},
                 {value: 2, label: 'Iniciado'},
                 {value: 3, label: 'Concluído'}
             ]
+        },
+        utils: {
+            transformResponse: function (data, headers) {
+                var headersGetter = headers();
+                if (headersGetter['content-type'] == 'application/json' ||
+                    headersGetter['content-type'] == 'text/json') {
+                    var dataJson = JSON.parse(data);
+                    if (dataJson.hasOwnProperty('data')) {
+                        dataJson = dataJson.data;
+                    }
+                    return dataJson;
+                }
+                return data;
+            }
         }
     };
 
     return {
         config: config,
-        $get: function(){
+        $get: function () {
             return config;
         }
     }
 });
 
 app.config([
-    '$routeProvider','$httpProvider','OAuthProvider','OAuthTokenProvider','appConfigProvider',
-    function($routeProvider,$httpProvider,OAuthProvider,OAuthTokenProvider,appConfigProvider){
+    '$routeProvider', '$httpProvider', 'OAuthProvider', 'OAuthTokenProvider', 'appConfigProvider',
+    function ($routeProvider, $httpProvider, OAuthProvider, OAuthTokenProvider, appConfigProvider) {
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-        $httpProvider.defaults.transformResponse = function(data,headers){
-            var headersGetter = headers();
-            if(headersGetter['content-type'] == 'application/json' ||
-                headersGetter['content-type'] == 'text/json'){
-                var dataJson = JSON.parse(data);
-                if(dataJson.hasOwnProperty('data')){
-                    dataJson = dataJson.data;
-                }
-                return dataJson;
-            }
-            return data;
-        };
+        $httpProvider.defaults.transformResponse = appConfigProvider.config.utils.transformResponse;
         $routeProvider
             .when('/login', {
                 templateUrl: 'build/views/login.html',
@@ -120,8 +123,8 @@ app.config([
         })
     }]);
 
-app.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) {
-    $rootScope.$on('oauth:error', function(event, rejection) {
+app.run(['$rootScope', '$window', 'OAuth', function ($rootScope, $window, OAuth) {
+    $rootScope.$on('oauth:error', function (event, rejection) {
         // Ignore `invalid_grant` error - should be catched on `LoginController`.
         if ('invalid_grant' === rejection.data.error) {
             return;
