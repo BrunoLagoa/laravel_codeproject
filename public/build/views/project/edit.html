@@ -32,9 +32,12 @@
                                 <input type="text" class="form-control" name="client_id" ng-model="clientSelected"
                                        typeahead="o as o.name for o in getClients($viewValue)|limitTo:10"
                                        typeahead-input-formatter="formatName($model)"
-                                       typeahead-on-select="selectClient($item)" />
+                                       typeahead-on-select="selectClient($item)"
+                                       typeahead-editable="false"
+                                       required/>
                                 <div ng-messages="form.client_id.$error" class="help-block" ng-show="form.client_id.$touched">
                                     <div ng-message="required">Campo obrigatório</div>
+                                    <div ng-message="editable">Selecione um client válido</div>
                                 </div>
                             </div>
                         </div>
