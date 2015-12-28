@@ -4,7 +4,9 @@ angular.module('app.controllers')
             function ($scope, $routeParams, $location, $cookies, Project, Client, appConfig) {
                 Project.get({id: $routeParams.id},function(data){
                     $scope.project = data;
-                    $scope.clientSelected = data.client;
+                    Client.get({id: data.client_id}, function(data){
+                        $scope.clientSelected = data;
+                    })
                 });
                 $scope.status = appConfig.project.status;
 
@@ -31,7 +33,7 @@ angular.module('app.controllers')
                     }).$promise;
                 };
 
-                $scope.selectClient = function(item){
+                $scope.selectClient = function (item) {
                     $scope.project.client_id = item.id;
                 };
 
