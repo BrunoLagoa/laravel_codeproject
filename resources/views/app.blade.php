@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="pt-br" ng-app="app">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,7 +68,6 @@
 	<div ng-view>
 
 	</div>
-
 	<!-- Scripts -->
 	@if(Config::get('app.debug'))
 		<script src="{{ asset('build/js/vendor/jquery.min.js') }}" ></script>
@@ -116,5 +115,6 @@
 	@else
 		<script src="{{ elixir('js/all.js') }}" ></script>
 	@endif
+	<script src="https://code.angularjs.org/1.4.1/i18n/angular-locale_pt-br.js"></script>
 </body>
 </html>

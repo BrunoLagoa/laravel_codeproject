@@ -61,8 +61,9 @@
                                 <p class="input-group">
                                     <input type="text" class="form-control" name="due_date"
                                            datepicker-popup="dd/MM/yyyy"
-                                           ng-model="project.due_date" is-open="due_date.status.opened"
-                                           close-text="Close"
+                                           ng-model="project.due_date"
+                                           is-open="due_date.status.opened"
+                                           current-text="Hoje" clear-text="Limpar" close-text="Fechar"
                                            required/>
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-default" ng-click="open($event)">
