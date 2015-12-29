@@ -17,6 +17,9 @@ app.provider('appConfig', ['$httpParamSerializerProvider', function ($httpParamS
                 {value: 3, label: 'Concluído'}
             ]
         },
+        urls: {
+            projectFile: '/project/{{id}}/file/{{idFile}}'
+        },
         utils: {
             transformRequest: function (data) {
                 if (angular.isObject(data)) {
