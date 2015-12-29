@@ -20,7 +20,7 @@
                         <tbody>
                         <tr ng-repeat="o in projects">
                             <td>{{ o.name }}</td>
-                            <td>{{ o.client_id }}</td>
+                            <td>{{ o.client.data.name }}</td>
                             <td>{{ o.progress }}</td>
                             <td>{{ o.status }}</td>
                             <td>{{ o.due_date | dateBr }}</td>
