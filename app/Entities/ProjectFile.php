@@ -1,5 +1,4 @@
 <?php
-
 namespace CodeProject\Entities;
 
 use Illuminate\Database\Eloquent\Model;
@@ -9,12 +8,10 @@ use Prettus\Repository\Traits\TransformableTrait;
 class ProjectFile extends Model implements Transformable
 {
     use TransformableTrait;
-
     protected $fillable = [
         'name',
         'description',
         'extension',
-        'project_id',
     ];
 
     public function project()
@@ -22,4 +19,8 @@ class ProjectFile extends Model implements Transformable
         return $this->belongsTo(Project::class);
     }
 
+    public function getFileName()
+    {
+        return $this->id . '.' . $this->extension;
+    }
 }
