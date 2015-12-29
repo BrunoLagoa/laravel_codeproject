@@ -2,7 +2,8 @@
 
 namespace CodeProject\Http\Controllers;
 
-use CodeProject\Entities\ProjectFileRepository;
+use CodeProject\Entities\ProjectFile;
+use CodeProject\Repositories\ProjectFileRepository;
 use CodeProject\Services\ProjectFileService;
 use CodeProject\Http\Requests;
 use CodeProject\Repositories\ProjectRepository;

@@ -81,6 +81,16 @@ class ProjectFileService
         }
     }
 
+    public function delete($id)
+    {
+        $projectFile = $this->repository->skipPresenter()->find($id);
+        if($this->storage->exists($projectFile->id.'.'.$projectFile->extensions))
+        {
+            $this->storage->delete($projectFile->id.'.'.$projectFile->extensions);
+            return $projectFile->delete();
+        }
+    }
+
     public function getFilePath($id)
     {
         $projectFile = $this->repository->skipPresenter()->find($id);

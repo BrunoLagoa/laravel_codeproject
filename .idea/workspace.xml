@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26e5cf6d-0a97-4df7-8a10-56d515e6291e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Services/ProjectFileService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectFileController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectFileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/ProjectService.php" afterPath="$PROJECT_DIR$/app/Services/ProjectService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/ProjectFileService.php" afterPath="$PROJECT_DIR$/app/Services/ProjectFileService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Validators/ProjectFileValidator.php" afterPath="$PROJECT_DIR$/app/Validators/ProjectFileValidator.php" />
     </list>
     <ignored path="codeproject-curso.iws" />
@@ -32,8 +29,8 @@
       <file leaf-file-name="ProjectController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="32.692307">
-              <caret line="68" column="55" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="55" />
+            <state vertical-scroll-proportion="-64.07692">
+              <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
               <folding>
                 <element signature="e#48#78#0#PHP" expanded="true" />
               </folding>
@@ -44,9 +41,11 @@
       <file leaf-file-name="ProjectService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Services/ProjectService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="50" />
-              <folding />
+            <state vertical-scroll-proportion="77.80769">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#41#88#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,11 +53,21 @@
       <file leaf-file-name="ProjectFileController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectFileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
-              <caret line="92" column="58" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="58" />
+            <state vertical-scroll-proportion="75.19231">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
               <folding>
-                <element signature="e#48#95#0#PHP" expanded="true" />
+                <element signature="e#48#85#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectFileRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/ProjectFileRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.153846">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,8 +75,8 @@
       <file leaf-file-name="ProjectFileService.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Services/ProjectFileService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8461537">
-              <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+            <state vertical-scroll-proportion="57.53846">
+              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -76,8 +85,8 @@
       <file leaf-file-name="ProjectFileValidator.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Validators/ProjectFileValidator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35897437">
-              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.17948718">
+              <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -146,10 +155,10 @@
         <option value="$PROJECT_DIR$/app/Transformers/ProjectFileTransformer.php" />
         <option value="$PROJECT_DIR$/app/Presenters/ProjectFilePresenter.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProjectFileController.php" />
         <option value="$PROJECT_DIR$/app/Services/ProjectService.php" />
         <option value="$PROJECT_DIR$/app/Services/ProjectFileService.php" />
         <option value="$PROJECT_DIR$/app/Validators/ProjectFileValidator.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProjectFileController.php" />
       </list>
     </option>
   </component>
@@ -660,10 +669,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25385603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25385603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1000,14 +1009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repositories/ProjectFileRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repositories/ProjectFileRepositoryEloquent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537">
@@ -1048,8 +1049,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="32.692307">
-          <caret line="68" column="55" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="55" />
+        <state vertical-scroll-proportion="-64.07692">
+          <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
           <folding>
             <element signature="e#48#78#0#PHP" expanded="true" />
           </folding>
@@ -1058,34 +1059,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/ProjectService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="50" />
-          <folding />
+        <state vertical-scroll-proportion="77.80769">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#41#88#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectFileController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="92" column="58" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="58" />
+        <state vertical-scroll-proportion="75.19231">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding>
-            <element signature="e#48#95#0#PHP" expanded="true" />
+            <element signature="e#48#85#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/ProjectFileRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/ProjectFileService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+        <state vertical-scroll-proportion="57.53846">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Validators/ProjectFileValidator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35897437">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.17948718">
+          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
           <folding />
         </state>
       </provider>
