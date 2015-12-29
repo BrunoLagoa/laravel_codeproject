@@ -116,10 +116,15 @@ RawBlameHistory     122 lines (108 sloc)  5.35 KB
     <script src="{{ asset('build/js/controllers/project/projectRemove.js') }}"></script>
 
     <script src="{{ asset('build/js/controllers/project-note/projectNoteShow.js') }}"></script>
-    <script src="{{ asset('projectFileList.js') }}"></script>
-    <script src="{{ asset('projectFileNew.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project-note/projectNoteList.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project-note/projectNoteNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-note/projectNoteEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-note/projectNoteRemove.js') }}"></script>
+
+    <script src="{{ asset('build/js/controllers/project-file/projectFileList.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project-file/projectFileNew.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project-file/projectFileEdit.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project-file/projectFileRemove.js') }}"></script>
 
     <!-- FILTERS !-->
     <script src="{{ asset('build/js/filters/date-br.js') }}"></script>
