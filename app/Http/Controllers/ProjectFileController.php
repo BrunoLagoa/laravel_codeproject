@@ -2,8 +2,8 @@
 
 namespace CodeProject\Http\Controllers;
 
-use CodeProject\Entities\Project;
-use CodeProject\Entities\ProjectFile;
+use CodeProject\Entities\ProjectFileRepository;
+use CodeProject\Services\ProjectFileService;
 use CodeProject\Http\Requests;
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
@@ -18,20 +18,20 @@ use Prettus\Validator\Exceptions\ValidatorException;
 class ProjectFileController extends Controller
 {
     /**
-     * @var ProjectRepository
+     * @var ProjectFileRepository
      */
     private $repository;
 
     /**
-     * @var ProjectService
+     * @var ProjectFileService
      */
     private $service;
 
     /**
-     * @param ProjectRepository $repository
-     * @param ProjectService $service
+     * @param ProjectFileRepository $repository
+     * @param ProjectFileService $service
      */
-    public function __construct(ProjectRepository $repository, ProjectService $service)
+    public function __construct(ProjectFileRepository $repository, ProjectFileService $service)
     {
         $this->repository = $repository;
         $this->service = $service;
@@ -41,9 +41,9 @@ class ProjectFileController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        return $this->repository->findWhere(['project_id' => $id]);
     }
 
     /**
@@ -76,13 +76,21 @@ class ProjectFileController extends Controller
             $data['project_id'] = $request->project_id;
             $data['description'] = $request->description;
 
-            $this->service->createFile($data);
+            return $this->service->create($data);
         } catch(ModelNotFoundException $ex) {
             return [
                 'error' => true,
                 'message' => 'Error store file'
             ];
         }
+    }
+
+    public function showFile($id)
+    {
+        if($this->service->checkProjectPermissions($id) == false){
+            return ['error' => 'Access Forbidden'];
+        }
+        return response()->download($this->service->getFilePath($id));
     }
 
     /**
@@ -93,7 +101,10 @@ class ProjectFileController extends Controller
      */
     public function show($id)
     {
-        //
+        if($this->service->checkProjectPermissions($id) == false){
+            return ['error' => 'Access Forbidden'];
+        }
+        return $this->repository->find($id);
     }
 
     /**
@@ -105,7 +116,10 @@ class ProjectFileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($this->service->checkProjectPermissions($id) == false){
+            return ['error' => 'Access Forbidden'];
+        }
+        return $this->service->update($request->all(), $id);
     }
 
     /**
@@ -118,6 +132,10 @@ class ProjectFileController extends Controller
     public function destroy($id, $fileId)
     {
         try{
+            if($this->service->checkProjectPermissions($id) == false){
+                return ['error' => 'Access Forbidden'];
+            }
+
             $projectFile = ProjectFile::find($fileId);
             //dd($projectFile);
             if($projectFile == null)

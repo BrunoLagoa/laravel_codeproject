@@ -65,7 +65,7 @@ class ProjectController extends Controller
     public function show($id)
     {
         try {
-            if($this->checkProjectPermissions($id) == false){
+            if($this->service->checkProjectPermissions($id) == false){
                 return ['error' => 'Access Forbidden'];
             }
             $project = $this->service->find($id);
@@ -77,7 +77,6 @@ class ProjectController extends Controller
                 'message' => 'Project not found'
             ];
         }
-
     }
 
     /**
@@ -89,7 +88,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($this->checkProjectPermissions($id) == false){
+        if($this->service->checkProjectPermissions($id) == false){
             return ['error' => 'Access Forbidden'];
         }
 
@@ -105,11 +104,12 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        if($this->checkProjectPermissions($id) == false){
+        if($this->service->checkProjectPermissions($id) == false){
             return ['error' => 'Access Forbidden'];
         }
 
         $this->repository->find($id)->delete();
+        //$this->repository->delete($id);
     }
 
     /**
@@ -147,26 +147,5 @@ class ProjectController extends Controller
     public function isMember($id, $memberId)
     {
         return $this->service->isMember($id, $memberId);
-    }
-
-    private function checkProjectOwner($projectId)
-    {
-        $userId = Authorizer::getResourceOwnerId();
-        return $this->repository->isOwner($projectId, $userId);
-    }
-
-    private function checkProjectMember($projectId)
-    {
-        $userId = Authorizer::getResourceOwnerId();
-        return $this->repository->hasMember($projectId, $userId);
-    }
-
-    private function checkProjectPermissions($projectId)
-    {
-        if($this->checkProjectOwner($projectId) or $this->checkProjectMember($projectId)){
-            return true;
-        };
-
-        return false;
     }
 }
