@@ -1,18 +1,3 @@
-Skip to content
-Sign up Sign in
-This repository
-Search
-Explore
-Features
-Enterprise
-Pricing
-Watch 1  Star 1  Fork 0 BrunoLagoa/laravel_codeproject
-Code  Issues 0  Pull requests 0  Pulse  Graphs
-Branch: master Find file Copy pathlaravel_codeproject/resources/views/app.blade.php
-831427f  10 minutes ago
-@BrunoLagoa BrunoLagoa - LaravelAngular-8.1-Instalando ng-file-upload
-1 contributor
-RawBlameHistory     122 lines (108 sloc)  5.35 KB
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="app">
 <head>
