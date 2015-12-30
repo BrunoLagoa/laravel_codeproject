@@ -7,8 +7,12 @@ angular.module('app.directives')
             link: function(scope, element, attr){
 
             },
-            controller: ['$scope', '$attrs',function($scope, $attrs){
-
+            controller: ['$scope', '$element', '$attrs',function($scope, $element, $attrs){
+                $scope.downloadFile = function(){
+                    var anchor = $element.children()[0];
+                    $(anchor).addClass('disabled');
+                    $(anchor).text('Carregando...');
+                }
             }]
         };
     }]);
