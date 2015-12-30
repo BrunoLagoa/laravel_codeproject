@@ -137,29 +137,14 @@ class ProjectFileController extends Controller
      * @param $filetId
      * @return Response
      */
-    public function destroy($id, $fileId)
+    public function destroy($id)
     {
         try{
             if($this->service->checkProjectPermissions($id) == false){
                 return ['error' => 'Access Forbidden'];
             }
 
-            $projectFile = ProjectFile::find($fileId);
-            //dd($projectFile);
-            if($projectFile == null)
-            {
-                return [
-                    'error' => true,
-                    'message' => 'File not found'
-                ];
-            }
-
-            if(file_exists(storage_path().'\app\\'.$projectFile->id.'.'.$projectFile->extension))
-            {
-                Storage::disk('local')->delete($projectFile->id.'.'.$projectFile->extension);
-            }
-
-            $projectFile->delete();
+            $this->service->delete($id);
 
             return [
                 'error' => false,
