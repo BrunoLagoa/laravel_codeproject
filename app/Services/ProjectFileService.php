@@ -4,10 +4,10 @@ namespace CodeProject\Services;
 use CodeProject\Repositories\ProjectFileRepository;
 use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Validators\ProjectFileValidator;
+use Prettus\Validator\Exceptions\ValidatorException;
 use Illuminate\Contracts\Filesystem\Factory as Storage;
 use Illuminate\Filesystem\Filesystem;
 use Prettus\Validator\Contracts\ValidatorInterface;
-use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectFileService
 {
@@ -83,7 +83,6 @@ class ProjectFileService
         return $this->getBaseUrl($projectFile);
     }
 
-    // 09/10/2015
     public function getFileName($id)
     {
         $projectFile = $this->repository->skipPresenter()->find($id);
@@ -126,6 +125,27 @@ class ProjectFileService
             return ['error' => true];
         */
     }
+
+    public function checkProjectOwner($projectFileId)
+    {
+        $userId = \Authorizer::getResourceOwnerId();
+        $projectId = $this->repository->skipPresenter()->find($projectFileId)->project_id;
+        return $this->projectRepository->isOwner($projectId, $userId);
+    }
+    public function checkProjectMember($projectFileId)
+    {
+        $userId = \Authorizer::getResourceOwnerId();
+        $projectId = $this->repository->skipPresenter()->find($projectFileId)->project_id;
+        return $this->projectRepository->hasMember($projectId, $userId);
+    }
+    public function checkProjectPermissions($projectFileId){
+
+        if($this->checkProjectOwner($projectFileId) or $this->checkProjectMember($projectFileId)){
+            return true;
+        }
+        return false;
+    }
+
     /* // 17/10/2015 - Removido. Agora middleware Project é responsável pela verificação.
     public function checkProjectOwner($projectFileId)
     {
