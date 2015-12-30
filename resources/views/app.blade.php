@@ -83,6 +83,7 @@
     <script src="{{ asset('build/js/vendor/query-string.js') }}"></script>
     <script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/ng-file-upload.min.js') }}"></script>
+    <script src="{{ asset('build/js/vendor/angular-locale_pt-br.js') }}"></script>
 
     <script src="{{ asset('build/js/app.js') }}"></script>
 
@@ -127,6 +128,6 @@
 @else
     <script src="{{ elixir('js/all.js') }}"></script>
 @endif
-<script src="https://code.angularjs.org/1.4.1/i18n/angular-locale_pt-br.js"></script>
+
 </body>
 </html>
