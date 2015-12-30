@@ -11,7 +11,7 @@ class ProjectFile extends Model implements Transformable
     protected $fillable = [
         'name',
         'description',
-        'extension',
+        'extension'
     ];
 
     public function project()
@@ -23,4 +23,5 @@ class ProjectFile extends Model implements Transformable
     {
         return $this->id . '.' . $this->extension;
     }
+
 }
