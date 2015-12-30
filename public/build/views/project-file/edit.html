@@ -26,10 +26,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group" ng-class="{'has-error': !form.description.$valid && form.description.$touched}">
+                            <label class="col-md-4 control-label">Link</label>
+                            <div class="col-md-6">
+                                <project-file-download id-file="{{projectFile.id}}"></project-file-download>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">Salvar</button>
-                                <a ng-href="#/project/{{project_id}}/files" class="btn btn-default">Voltar</a>
+                                <a ng-href="#/project/{{projectFile.project_id}}/files" class="btn btn-default">Voltar</a>
                             </div>
                         </div>
                     </form>

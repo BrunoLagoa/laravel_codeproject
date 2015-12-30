@@ -2,7 +2,6 @@ angular.module('app.controllers')
     .controller('ProjectFileEditController',
         ['$scope', '$location', '$routeParams', 'ProjectFile',
             function($scope, $location, $routeParams, ProjectFile){
-                $scope.project_id = $routeParams.id;
                 $scope.projectFile = ProjectFile.get({
                     id: null,
                     idFile: $routeParams.idFile
