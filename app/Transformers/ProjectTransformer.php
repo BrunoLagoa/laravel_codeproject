@@ -34,6 +34,7 @@ class ProjectTransformer extends TransformerAbstract
 
     public function includeClient(Project $project)
     {
+        //dd($project->client);
         return $this->item($project->client, new ClientTransformer());
     }
 }
