@@ -51,13 +51,15 @@ class ProjectFileController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  Request $request
+     * @param $id
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         try {
-
-            $validator = Validator::make($request->all(), [
+            $data = $request->all();
+            $data['project_id'] = $id;
+            $validator = Validator::make($data, [
                 'file'=> 'required'
             ]);
 
@@ -124,10 +126,13 @@ class ProjectFileController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->all();
+        $data['project_id'] = $id;
+
         if($this->service->checkProjectPermissions($id) == false){
             return ['error' => 'Access Forbidden'];
         }
-        return $this->service->update($request->all(), $id);
+        return $this->service->update($data, $id);
     }
 
     /**
