@@ -23,7 +23,13 @@ class ProjectFileService
      * @var ProjectFileValidator
      */
     protected $validator;
+    /**
+     * @var Filesystem
+     */
     private $filesystem;
+    /**
+     * @var Storage
+     */
     private $storage;
     /**
      * @var ProjectFileValidator
@@ -124,26 +130,6 @@ class ProjectFileService
         else
             return ['error' => true];
         */
-    }
-
-    public function checkProjectOwner($projectFileId)
-    {
-        $userId = \Authorizer::getResourceOwnerId();
-        $projectId = $this->repository->skipPresenter()->find($projectFileId)->project_id;
-        return $this->projectRepository->isOwner($projectId, $userId);
-    }
-    public function checkProjectMember($projectFileId)
-    {
-        $userId = \Authorizer::getResourceOwnerId();
-        $projectId = $this->repository->skipPresenter()->find($projectFileId)->project_id;
-        return $this->projectRepository->hasMember($projectId, $userId);
-    }
-    public function checkProjectPermissions($projectFileId){
-
-        if($this->checkProjectOwner($projectFileId) or $this->checkProjectMember($projectFileId)){
-            return true;
-        }
-        return false;
     }
 
     /* // 17/10/2015 - Removido. Agora middleware Project é responsável pela verificação.

@@ -63,7 +63,8 @@ class ProjectService
 
     public function find($id)
     {
-        return $this->repository->with(['owner', 'client'])->find($id);
+        //return $this->repository->with(['owner', 'client'])->find($id);
+        return $this->repository->skipPresenter(false)->with(['owner', 'client'])->find($id);
     }
 
     public function showMembers($id)
@@ -147,21 +148,19 @@ class ProjectService
 
     public function checkProjectOwner($projectId)
     {
-        $userId = Authorizer::getResourceOwnerId();
+        $userId = \Authorizer::getResourceOwnerId();
         return $this->repository->isOwner($projectId, $userId);
     }
-
     public function checkProjectMember($projectId)
     {
-        $userId = Authorizer::getResourceOwnerId();
+        $userId = \Authorizer::getResourceOwnerId();
         return $this->repository->hasMember($projectId, $userId);
     }
+    public function checkProjectPermissions($projectId){
 
-    public function checkProjectPermissions($projectId)
-    {
         if($this->checkProjectOwner($projectId) or $this->checkProjectMember($projectId)){
             return true;
-        };
+        }
         return false;
     }
 }
