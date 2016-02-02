@@ -92,10 +92,12 @@ class ProjectTaskController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int $id
+     * @param $idTask
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, $idTask)
     {
-        $this->repository->find($id)->delete();
+        $this->service->delete($idTask);
+        //$this->repository->find($id)->delete();
     }
 }
