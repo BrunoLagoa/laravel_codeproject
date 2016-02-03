@@ -6,7 +6,6 @@ angular.module('app.controllers')
                     id: $routeParams.id,
                     idFile: $routeParams.idFile
                 });
-                $scope.project_id = $routeParams.id;
 
                 $scope.save = function(){
                     if($scope.form.$valid){

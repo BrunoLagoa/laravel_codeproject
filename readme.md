@@ -130,6 +130,20 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
    
   <b>Obs.:</b> utilize o método skipPresenter() nas consultas do repository por enquanto, para facilitar os CRUD's.
  
+## Fase 4 do Projeto Angular
+ <b>PROJECT CRUD</b>
+  Agora que já fizemos o CRUD de project note, você deverá fazer o CRUD de project.
+  Use o conhecimento que aprendeu para passar o owner_id (usuário autenticado) no cadastro e use o ng-select e ng-options para mostrar os clients a serem incluídos no projeto.
+  As rotas deste CRUD serão semelhante ao formato que usamos no CRUD de client.
+  
+## Fase 5 do Projeto Angular
+ <b>CRIANDO CRUD DE PROJECT FILE</b>
+  Nesta fase você deve fazer a implementação do CRUD de project file, igual fizemos neste capítulo.
+
+## Fase 5 do Projeto Angular
+ <b>CRUD's DE PROJECT TASK E PROJECT MEMBER</b>  
+  Nesta fase você deve fazer o CRUD de project task e project member, usando o mesmo padrão que já utilizamos no curso. Além disto, você deve também no CRUD de project fazer a funcionalidade de autocomplete de client.
+ 
  
  
 ------------------------------------------------------------------------------------------

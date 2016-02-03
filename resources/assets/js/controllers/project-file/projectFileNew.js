@@ -6,7 +6,7 @@ angular.module('app.controllers')
                 $scope.save = function () {
                     if ($scope.form.$valid) {
                         var url = appConfig.baseUrl +
-                            Url.getUrlFromUrlSymbol(appConfig.urls.projectFile,{
+                            Url.getUrlFromUrlSymbol(appConfig.urls.projectFile, {
                                 id: $routeParams.id,
                                 idFile: ''
                             });
@@ -18,15 +18,8 @@ angular.module('app.controllers')
                                 project_id: $routeParams.id
                             },
                             file: $scope.projectFile.file
-                        }).success(function (data, status, headers, config){
-                            $location.path('/project/' + $routeParams.id + '/files')
-                        }).then(function (resp) {
-                            console.log('Success ' + resp.file.name + 'uploaded. Response: ' + resp.data);
-                        }, function (resp) {
-                            console.log('Error status: ' + resp.status);
-                        }, function (evt) {
-                            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+                        }).success(function (data, status, headers, config) {
+                            $location.path('/project/' + $routeParams.id + '/files');
                         });
                     }
                 }

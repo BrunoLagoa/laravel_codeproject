@@ -2,19 +2,13 @@
 
 namespace CodeProject\Http\Controllers;
 
-use CodeProject\Entities\ProjectFile;
+use CodeProject\Http\Requests;
 use CodeProject\Repositories\ProjectFileRepository;
 use CodeProject\Services\ProjectFileService;
-use CodeProject\Http\Requests;
-use CodeProject\Repositories\ProjectRepository;
 use CodeProject\Services\ProjectService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use LucaDegasperi\OAuth2Server\Facades\Authorizer;
-use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectFileController extends Controller
 {
@@ -22,24 +16,31 @@ class ProjectFileController extends Controller
      * @var ProjectFileRepository
      */
     private $repository;
-
     /**
      * @var ProjectFileService
      */
     private $service;
+    /**
+     * @var ProjectService
+     */
+    private $projectService;
 
     /**
      * @param ProjectFileRepository $repository
      * @param ProjectFileService $service
+     * @param ProjectService $projectService
      */
-    public function __construct(ProjectFileRepository $repository, ProjectFileService $service)
+    public function __construct(ProjectFileRepository $repository, ProjectFileService $service, ProjectService $projectService)
     {
         $this->repository = $repository;
         $this->service = $service;
+        $this->projectService = $projectService;
     }
+
     /**
      * Display a listing of the resource.
      *
+     * @param $id
      * @return Response
      */
     public function index($id)
@@ -54,16 +55,16 @@ class ProjectFileController extends Controller
      * @param $id
      * @return Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request, $id)
     {
         try {
             $data = $request->all();
             $data['project_id'] = $id;
             $validator = Validator::make($data, [
-                'file'=> 'required'
+                'file' => 'required'
             ]);
 
-            if($validator->fails()) {
+            if ($validator->fails()) {
                 return [
                     'error' => true,
                     'message' => 'Unselected file'
@@ -80,7 +81,7 @@ class ProjectFileController extends Controller
             $data['description'] = $request->description;
 
             return $this->service->create($data);
-        } catch(ModelNotFoundException $ex) {
+        } catch (ModelNotFoundException $ex) {
             return [
                 'error' => true,
                 'message' => 'Error store file'
@@ -88,18 +89,18 @@ class ProjectFileController extends Controller
         }
     }
 
-    public function showFile($id)
+    public function showFile($id, $idFile)
     {
-        if($this->service->checkProjectPermissions($id) == false){
+        if ($this->projectService->checkProjectPermissions($id) == false) {
             return ['error' => 'Access Forbidden'];
         }
-        $filePath = $this->service->getFilePath($id);
+        $filePath = $this->service->getFilePath($idFile);
         $fileContent = file_get_contents($filePath);
         $file64 = base64_encode($fileContent);
         return [
             'file' => $file64,
             'size' => filesize($filePath),
-            'name' => $this->service->getFileName($id)
+            'name' => $this->service->getFileName($idFile)
         ];
     }
 
@@ -107,14 +108,28 @@ class ProjectFileController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
+     * @param $idFile
      * @return Response
      */
-    public function show($id)
+    public function show($id, $idFile)
     {
-        if($this->service->checkProjectPermissions($id) == false){
+        if($this->projectService->checkProjectPermissions($id) == false){
+            return ['error' => 'Access Forbidden'];
+        }
+
+        $result = $this->repository->findWhere(['project_id' => $id, 'id' => $idFile]);
+        if(isset($result['data']) && count($result['data']) == 1){
+            $result = [
+                'data' => $result['data'][0]
+            ];
+        }
+        return $result;
+        /*
+        if($this->projectService->checkProjectPermissions($id) == false){
             return ['error' => 'Access Forbidden'];
         }
         return $this->repository->find($id);
+        */
     }
 
     /**
@@ -124,38 +139,38 @@ class ProjectFileController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $idFile)
     {
         $data = $request->all();
         $data['project_id'] = $id;
 
-        if($this->service->checkProjectPermissions($id) == false){
+        if ($this->projectService->checkProjectPermissions($id) == false) {
             return ['error' => 'Access Forbidden'];
         }
-        return $this->service->update($data, $id);
+        return $this->service->update($data, $idFile);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int $id
-     * @param $filetId
+     * @param $idFile
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($id, $idFile)
     {
-        try{
-            if($this->service->checkProjectPermissions($id) == false){
+        try {
+            if ($this->projectService->checkProjectPermissions($id) == false) {
                 return ['error' => 'Access Forbidden'];
             }
 
-            $this->service->delete($id);
+            $this->service->delete($idFile);
 
             return [
                 'error' => false,
                 'message' => 'Store file deleted'
             ];
-        } catch(ModelNotFoundException $ex) {
+        } catch (ModelNotFoundException $ex) {
             return [
                 'error' => true,
                 'message' => 'Store file error'
