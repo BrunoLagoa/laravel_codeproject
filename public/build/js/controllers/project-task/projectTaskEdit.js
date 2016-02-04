@@ -1,23 +1,47 @@
 angular.module('app.controllers')
-    .controller('ProjectNoteEditController',
-        ['$scope', '$location', '$routeParams', 'ProjectNote',
-            function ($scope, $location, $routeParams, ProjectNote) {
+    .controller('ProjectTaskEditController',
+        ['$scope', '$location', '$routeParams', 'appConfig', 'ProjectTask',
+            function ($scope, $location, $routeParams, appConfig, ProjectTask) {
 
-                $scope.project_id = $routeParams.id;
-                $scope.projectNote = ProjectNote.get({
+                $scope.projectTask = ProjectTask.get({
                     id: $routeParams.id,
-                    idNote: $routeParams.idNote
+                    idTask: $routeParams.idTask
                 });
+
+                //console.log($scope.projectTask);
+
+                $scope.status = appConfig.projectTask.status;
+
+                $scope.start_date = {
+                    status: {
+                        opened: false
+                    }
+                };
+
+                $scope.due_date = {
+                    status: {
+                        opened: false
+                    }
+                };
+
+                $scope.openStartDatePicker = function ($event) {
+                    $scope.start_date.status.opened = true;
+                };
+
+                $scope.openDueDatePicker = function ($event) {
+                    $scope.due_date.status.opened = true;
+                };
+
 
                 $scope.save = function () {
 
                     if ($scope.form.$valid) {
-                        ProjectNote.update({
-                            //id: null, idNote: $scope.projectNote.id
+                        ProjectTask.update({
+                            //id: null, idTask: $scope.projectTask.id
                             id: $routeParams.id,
-                            idNote: $scope.projectNote.id
-                        }, $scope.projectNote, function () {
-                            $location.path('/project/' + $routeParams.id + '/notes');
+                            idTask: $scope.projectTask.id
+                        },$scope.projectTask, function () {
+                            $location.path('/project/' + $routeParams.id + '/tasks');
                         });
                     }
                 }
