@@ -18,11 +18,11 @@ app.provider('appConfig', ['$httpParamSerializerProvider', function ($httpParamS
                 {value: 3, label: 'Concluído'}
             ]
         },
-        projectTask: {
-          status : [
-              {value: 1, label: 'Incompleta'},
-              {value: 1, label: 'Completa'}
-          ]
+        projectTask:{
+            status: [
+                {value: 1, label: 'Incompleta'},
+                {value: 2, label: 'Completa'}
+            ]
         },
         urls: {
             projectFile: '/project/{{id}}/file/{{idFile}}'
