@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <a ng-href="#/clients/new" class="btn btn-success">Novo Cliente</a>
+            <a ng-href="#/client/new" class="btn btn-success">Novo Cliente</a>
             <br /><br />
             <div class="panel panel-default">
                 <div class="panel-heading">Listagem de Clientes</div>
@@ -23,8 +23,8 @@
                                 <td>{{ c.email }}</td>
                                 <td>{{ c.phone }}</td>
                                 <td>
-                                    <a ng-href="#/clients/{{c.id}}/edit">Editar</a> |
-                                    <a ng-href="#/clients/{{c.id}}/remove">Excluir</a>
+                                    <a ng-href="#/client/{{c.id}}/edit">Editar</a> |
+                                    <a ng-href="#/client/{{c.id}}/remove">Excluir</a>
                                 </td>
                             </tr>
                         </tbody>

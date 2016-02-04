@@ -112,11 +112,10 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
   - Para listar um client: #/clients/:id
   - Para criar: #/clients/new
   - Para editar: #/clients/:id/edit
-  - Para excluir: #/clients/:id/remove
-  
+  - Para excluir: #/clients/:id/remove  
   ===============================================================================================
   
-  <b>Project Note:</b>
+ <b>Project Note:</b>
   
   - Para listar as notas de um projeto específico: #/project/:id/notes
   - Para listar uma nota de um projeto específico: #/project/:id/notes/:idNote
@@ -150,25 +149,31 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
 ## Como Utilizar:
 
 1. Criar a base no mysql, e configurar o .env
+
     ```
     configurar o mysql no .env, e deixar o debug=true
     ``` 
 2. Rodar Composer install
+
     ```
     composer install
     ```   
 3. Rodar Npm Install
+
     ```npm
     npm install
     ```
 4. rodar o Bower install
+
     ```bower
     bower install
     ```
 5. rodar o gulp
+
     ```gulp
     gulp watch-dev
     ```
+
 #### .env:
 ```
 APP_ENV=local
