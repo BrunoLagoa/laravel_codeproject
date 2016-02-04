@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Exclusão de Arquivo de Projeto</div>
+                <div class="panel-body">
+                    <p>
+                        Deseja realmente excluir esta arquivo de projeto?
+                    </p>
+                    <ul>
+                        <li><strong>Name: </strong>{{projectFile.name}}</li>
+                        <li><strong>Description: </strong>{{projectFile.description}}</li>
+                    </ul>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="button" class="btn btn-danger" ng-click="remove()">Excluir</button>
+                            <a ng-href="#/project/{{projectFile.project_id}}/files" class="btn btn-default">Voltar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
