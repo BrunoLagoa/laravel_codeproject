@@ -108,21 +108,21 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
   
   <b>Client:</b>
   
-  Para listar: #/clients
-  Para listar um client: #/clients/:id
-  Para criar: #/clients/new
-  Para editar: #/clients/:id/edit
-  Para excluir: #/clients/:id/remove
+  - Para listar: #/clients
+  - Para listar um client: #/clients/:id
+  - Para criar: #/clients/new
+  - Para editar: #/clients/:id/edit
+  - Para excluir: #/clients/:id/remove
   
   ===============================================================================================
   
   <b>Project Note:</b>
   
-  Para listar as notas de um projeto específico: #/project/:id/notes
-  Para listar uma nota de um projeto específico: #/project/:id/notes/:idNote
-  Para criar uma nota para um projeto específico: #/project/:id/notes/new
-  Para editar uma nota: #/project/:id/notes/:idNote/edit
-  Para excluir uma nota: #/project/:id/notes/:idNote/remove
+  - Para listar as notas de um projeto específico: #/project/:id/notes
+  - Para listar uma nota de um projeto específico: #/project/:id/notes/:idNote
+  - Para criar uma nota para um projeto específico: #/project/:id/notes/new
+  - Para editar uma nota: #/project/:id/notes/:idNote/edit
+  - Para excluir uma nota: #/project/:id/notes/:idNote/remove
   
   Onde está o :id, será o id do projeto e você irá força-lo no URL porque nesta fase não faremos CRUD's de project.
   Não se preocupe com os detalhes agora, o importante é que os dois CRUD's funcionem.
@@ -143,6 +143,39 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
 ## Fase 5 do Projeto Angular
  <b>CRUD's DE PROJECT TASK E PROJECT MEMBER</b>  
   Nesta fase você deve fazer o CRUD de project task e project member, usando o mesmo padrão que já utilizamos no curso. Além disto, você deve também no CRUD de project fazer a funcionalidade de autocomplete de client.
+ 
+
+  ===============================================================================================
+  
+## Como Utilizar:
+
+1. Criar a base no mysql, e configurar o .env
+    ```
+    configurar o mysql no .env, e deixar o debug=true
+    ``` 
+2. Rodar Composer install
+    ```
+    composer install
+    ```   
+3. Rodar Npm Install
+    ```npm
+    npm install
+    ```
+4. rodar o Bower install
+    ```bower
+    bower install
+    ```
+5. rodar o gulp
+    ```gulp
+    gulp watch-dev
+    ```
+#### .env:
+```
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY= php artisan key:generate
+``` 
+ 
  
  
  

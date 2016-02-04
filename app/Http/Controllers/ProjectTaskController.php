@@ -56,6 +56,7 @@ class ProjectTaskController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
+     * @param $taskId
      * @return Response
      */
     public function show($id, $taskId)
@@ -78,6 +79,7 @@ class ProjectTaskController extends Controller
      *
      * @param  Request $request
      * @param  int $id
+     * @param $taskId
      * @return Response
      */
     public function update(Request $request, $id, $taskId)
