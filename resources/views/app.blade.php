@@ -85,45 +85,56 @@
     <script src="{{ asset('build/js/vendor/ng-file-upload.min.js') }}"></script>
     <script src="{{ asset('build/js/vendor/angular-locale_pt-br.js') }}"></script>
 
+
     <script src="{{ asset('build/js/app.js') }}"></script>
 
-    <!-- CONTROLLERS !-->
+    <!-- CONTROLLERS -->
     <script src="{{ asset('build/js/controllers/login.js') }}"></script>
     <script src="{{ asset('build/js/controllers/home.js') }}"></script>
 
+    <!-- CONTROLLER: Clientes -->
     <script src="{{ asset('build/js/controllers/client/clientList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/client/clientRemove.js') }}"></script>
 
+    <!-- CONTROLLER: Projects -->
     <script src="{{ asset('build/js/controllers/project/projectList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectRemove.js') }}"></script>
 
+    <!-- CONTROLLER: Project Notes -->
     <script src="{{ asset('build/js/controllers/project-note/projectNoteShow.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-note/projectNoteList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-note/projectNoteNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-note/projectNoteEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-note/projectNoteRemove.js') }}"></script>
 
+    <!-- CONTROLLER: Project Files -->
     <script src="{{ asset('build/js/controllers/project-file/projectFileList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-file/projectFileNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-file/projectFileEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-file/projectFileRemove.js') }}"></script>
 
+
+    <!-- CONTROLLER: Project Tasks -->
     <script src="{{ asset('build/js/controllers/project-task/projectTaskList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-task/projectTaskNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-task/projectTaskEdit.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project-task/projectTaskRemove.js') }}"></script>
 
-    <!-- DIRECTIVES !-->
+    <!-- CONTROLLER: Project Members -->
+    <script src="{{ asset('build/js/controllers/project-member/projectMemberList.js') }}"></script>
+    <script src="{{ asset('build/js/controllers/project-member/projectMemberRemove.js') }}"></script>
+
+    <!-- DIRECTIVES -->
     <script src="{{ asset('build/js/directives/projectFileDownload.js') }}"></script>
 
-    <!-- FILTERS !-->
+    <!-- FILTERS -->
     <script src="{{ asset('build/js/filters/date-br.js') }}"></script>
 
-    <!-- SERVICES !-->
+    <!-- SERVICES -->
     <script src="{{ asset('build/js/services/url.js') }}"></script>
     <script src="{{ asset('build/js/services/client.js') }}"></script>
     <script src="{{ asset('build/js/services/project.js') }}"></script>
@@ -131,6 +142,7 @@
     <script src="{{ asset('build/js/services/projectFile.js') }}"></script>
     <script src="{{ asset('build/js/services/projectTask.js') }}"></script>
     <script src="{{ asset('build/js/services/user.js') }}"></script>
+    <script src="{{ asset('build/js/services/projectMember.js') }}"></script>
 @else
     <script src="{{ elixir('js/all.js') }}"></script>
 @endif

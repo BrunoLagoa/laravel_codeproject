@@ -63,7 +63,8 @@ class ProjectTaskController extends Controller
     public function show($id, $taskId)
     {
         try {
-            $project = $this->repository->findWhere(['project_id' => $id, 'id' => $taskId]);
+            //$project = $this->repository->findWhere(['project_id' => $id, 'id' => $taskId]);
+            $project =  $this->repository->find($taskId);
             return $project;
         }catch (ModelNotFoundException $e) {
             return [
@@ -100,7 +101,7 @@ class ProjectTaskController extends Controller
      */
     public function destroy($id, $idTask)
     {
-        //$this->service->delete($idTask);
-        $this->repository->find($idTask)->delete();
+        $this->service->delete($idTask);
+        //$this->repository->find($idTask)->delete();
     }
 }

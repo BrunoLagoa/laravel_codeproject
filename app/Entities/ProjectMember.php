@@ -1,5 +1,4 @@
 <?php
-
 namespace CodeProject\Entities;
 
 use Illuminate\Database\Eloquent\Model;
@@ -9,20 +8,20 @@ use Prettus\Repository\Traits\TransformableTrait;
 class ProjectMember extends Model implements Transformable
 {
     use TransformableTrait;
-
+    public $timestamps = false;
     protected $fillable = [
         'project_id',
-        'member_id',
+        'user_id'
     ];
 
     public function project()
     {
-        return $this->hasMany(Project::class);
+        return $this->belongsTo(Project::class);
     }
 
     public function member()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function user()

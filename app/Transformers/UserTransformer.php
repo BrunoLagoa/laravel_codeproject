@@ -13,7 +13,7 @@ class UserTransformer extends TransformerAbstract
 {
 
     /**
-     * @param \CodeProject\Transformers\User $user
+     * @param User|\CodeProject\Transformers\User $user
      * @return array
      */
     public function transform(User $user)

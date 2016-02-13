@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <a ng-href="#/project/{{project_id}}/files/new" class="btn btn-success">Novo Projeto</a>
+            <a ng-href="#/project/{{project_id}}/file/new" class="btn btn-success">Novo Projeto</a>
             <br /><br />
             <div class="panel panel-default">
                 <div class="panel-heading">Listagem de Arquivos de Projetos</div>
@@ -25,8 +25,8 @@
                                 <!-- <a ng-href="/project/file/{{o.id}}/download" target="_blank">Download</a> -->
                             </td>
                             <td>
-                                <a ng-href="#/project/{{o.project_id}}/files/{{o.id}}/edit">Editar</a> |
-                                <a ng-href="#/project/{{o.project_id}}/files/{{o.id}}/remove">Excluir</a>
+                                <a ng-href="#/project/{{o.project_id}}/file/{{o.id}}/edit">Editar</a> |
+                                <a ng-href="#/project/{{o.project_id}}/file/{{o.id}}/remove">Excluir</a>
                             </td>
                         </tr>
                         </tbody>

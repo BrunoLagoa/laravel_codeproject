@@ -2,22 +2,18 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Exclusão de Tarefa de Projeto</div>
+                <div class="panel-heading">Exclusão de membro de projeto</div>
                 <div class="panel-body">
                     <p>
-                        Deseja realmente excluir esta nota de projeto?
+                        Deseja realmente excluir este membro do projeto?
                     </p>
                     <ul>
-                        <li><strong>Name: </strong>{{projectTask.name}}</li>
-                        <li><strong>Start Date: </strong>{{projectTask.start_date | dateBr}}</li>
-                        <li><strong>Due Date: </strong>{{projectTask.due_date | dateBr}}</li>
-                        <li><strong>Status: </strong>{{projectTask.status}}</li>
+                        <li><strong>Name: </strong>{{projectMember.user.data.name}}</li>
                     </ul>
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="button" class="btn btn-danger" ng-click="remove()">Excluir</button>
-                            <a ng-href="#/project/{{projectTask.project_id}}/tasks" class="btn btn-default">Voltar</a>
                         </div>
                     </div>
                 </div>

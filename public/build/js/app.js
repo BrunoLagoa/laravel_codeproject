@@ -65,98 +65,139 @@ app.config([
         $httpProvider.defaults.transformRequest = appConfigProvider.config.utils.transformRequest;
         $httpProvider.defaults.transformResponse = appConfigProvider.config.utils.transformResponse;
         $routeProvider
-            .when('/login', {
+            .when('/login',{
                 templateUrl: 'build/views/login.html',
                 controller: 'LoginController'
             })
-            .when('/home', {
+            .when('/logout',{
+                resolve: {
+                    logout: ['$location', 'OAuthToken', function($location,OAuthToken){
+                        OAuthToken.removeToken();
+                        return $location.path('/login');
+                    }]
+                }
+            })
+            .when('/home',{
                 templateUrl: 'build/views/home.html',
                 controller: 'HomeController'
             })
-            .when('/clients', {
+
+            // Clients
+            .when('/clients',{
                 templateUrl: 'build/views/client/list.html',
-                controller: 'ClientListController'
+                controller: 'ClientListController',
+                title: 'Clientes'
             })
-            .when('/client/new', {
+            .when('/client/new',{
                 templateUrl: 'build/views/client/new.html',
-                controller: 'ClientNewController'
+                controller: 'ClientNewController',
+                title: 'Clientes'
             })
-            .when('/client/:id/edit', {
+            .when('/client/:id/edit',{
                 templateUrl: 'build/views/client/edit.html',
-                controller: 'ClientEditController'
+                controller: 'ClientEditController',
+                title: 'Clientes'
             })
-            .when('/client/:id/remove', {
+            .when('/client/:id/remove',{
                 templateUrl: 'build/views/client/remove.html',
-                controller: 'ClientRemoveController'
+                controller: 'ClientRemoveController',
+                title: 'Clientes'
             })
-            .when('/projects', {
+
+            // Projects
+            .when('/projects',{
                 templateUrl: 'build/views/project/list.html',
                 controller: 'ProjectListController'
             })
-            .when('/project/new', {
+            .when('/project/new',{
                 templateUrl: 'build/views/project/new.html',
                 controller: 'ProjectNewController'
             })
-            .when('/project/:id/edit', {
+            .when('/project/:id',{
+                templateUrl: 'build/views/project/show.html',
+                controller: 'ProjectShowController'
+            })
+            .when('/project/:id/edit',{
                 templateUrl: 'build/views/project/edit.html',
                 controller: 'ProjectEditController'
             })
-            .when('/project/:id/remove', {
+            .when('/project/:id/remove',{
                 templateUrl: 'build/views/project/remove.html',
                 controller: 'ProjectRemoveController'
             })
-            .when('/project/:id/notes', {
+
+            // Project notes
+            .when('/project/:id/notes',{
                 templateUrl: 'build/views/project-note/list.html',
                 controller: 'ProjectNoteListController'
             })
-            .when('/project/:id/notes/:nodeId/show', {
+            .when('/project/:id/note/:idNote/show',{
                 templateUrl: 'build/views/project-note/show.html',
                 controller: 'ProjectNoteShowController'
             })
-            .when('/project/:id/notes/new', {
+            .when('/project/:id/note/new',{
                 templateUrl: 'build/views/project-note/new.html',
                 controller: 'ProjectNoteNewController'
             })
-            .when('/project/:id/notes/:idNote/edit', {
+            .when('/project/:id/note/:idNote/edit',{
                 templateUrl: 'build/views/project-note/edit.html',
                 controller: 'ProjectNoteEditController'
             })
-            .when('/project/:id/notes/:idNote/remove', {
+            .when('/project/:id/note/:idNote/remove',{
                 templateUrl: 'build/views/project-note/remove.html',
                 controller: 'ProjectNoteRemoveController'
             })
-            .when('/project/:id/tasks', {
-                templateUrl: 'build/views/project-task/list.html',
-                controller: 'ProjectTaskListController'
-            })
-            .when('/project/:id/task/new', {
-                templateUrl: 'build/views/project-task/new.html',
-                controller: 'ProjectTaskNewController'
-            })
-            .when('/project/:id/task/:idTask/edit', {
-                templateUrl: 'build/views/project-task/edit.html',
-                controller: 'ProjectTaskEditController'
-            })
-            .when('/project/:id/task/:idTask/remove', {
-                templateUrl: 'build/views/project-task/remove.html',
-                controller: 'ProjectTaskRemoveController'
-            })
-            .when('/project/:id/files', {
+
+            // Project File
+            .when('/project/:id/files',{
                 templateUrl: 'build/views/project-file/list.html',
                 controller: 'ProjectFileListController'
             })
-            .when('/project/:id/file/new', {
+            .when('/project/:id/file/new',{
                 templateUrl: 'build/views/project-file/new.html',
                 controller: 'ProjectFileNewController'
             })
-            .when('/project/:id/file/:idFile/edit', {
+            .when('/project/:id/file/:idFile/edit',{
                 templateUrl: 'build/views/project-file/edit.html',
                 controller: 'ProjectFileEditController'
             })
-            .when('/project/:id/file/:idFile/remove', {
+            .when('/project/:id/file/:idFile/remove',{
                 templateUrl: 'build/views/project-file/remove.html',
                 controller: 'ProjectFileRemoveController'
-            });
+            })
+
+            // Project tasks
+            .when('/project/:id/tasks',{
+                templateUrl: 'build/views/project-task/list.html',
+                controller: 'ProjectTaskListController'
+            })
+            .when('/project/:id/task/:idTask/show',{
+                templateUrl: 'build/views/project-task/show.html',
+                controller: 'ProjectTaskShowController'
+            })
+            .when('/project/:id/task/new',{
+                templateUrl: 'build/views/project-task/new.html',
+                controller: 'ProjectTaskNewController'
+            })
+            .when('/project/:id/task/:idTask/edit',{
+                templateUrl: 'build/views/project-task/edit.html',
+                controller: 'ProjectTaskEditController'
+            })
+            .when('/project/:id/task/:idTask/remove',{
+                templateUrl: 'build/views/project-task/remove.html',
+                controller: 'ProjectTaskRemoveController'
+            })
+
+            // Project members
+            .when('/project/:id/members',{
+                templateUrl: 'build/views/project-member/list.html',
+                controller: 'ProjectMemberListController'
+            })
+            .when('/project/:id/member/:idProjectMember/remove',{
+                templateUrl: 'build/views/project-member/remove.html',
+                controller: 'ProjectMemberRemoveController'
+            })
+            ;
 
         OAuthProvider.configure({
             baseUrl: appConfigProvider.config.baseUrl,
