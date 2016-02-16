@@ -8,6 +8,7 @@ angular.module('app.controllers')
                     idProjectMember: $routeParams.idProjectMember
                 });
 
+
                 $scope.remove = function () {
                     $scope.projectMember.$delete({
                         id: $routeParams.id,

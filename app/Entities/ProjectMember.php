@@ -8,10 +8,13 @@ use Prettus\Repository\Traits\TransformableTrait;
 class ProjectMember extends Model implements Transformable
 {
     use TransformableTrait;
-    public $timestamps = false;
+
+    //public $timestamps = false;
+
     protected $fillable = [
         'project_id',
-        'user_id'
+        'member_id'
+        //'user_id'
     ];
 
     public function project()
@@ -21,7 +24,8 @@ class ProjectMember extends Model implements Transformable
 
     public function member()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
+        //return $this->belongsTo(User::class, 'user_id');
     }
 
     public function user()

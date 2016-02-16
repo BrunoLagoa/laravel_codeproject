@@ -13,8 +13,9 @@ class ProjectMemberTransformer extends TransformerAbstract
     public function transform(ProjectMember $member)
     {
         return [
+            //'id' => $member->id,
             'id' => $member->id,
-            'project_id' => $member->project_id,
+            'project_id' => $member->project_id
         ];
     }
 

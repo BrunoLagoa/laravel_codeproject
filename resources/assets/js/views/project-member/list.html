@@ -3,13 +3,13 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Listagem de membros de projetos
+                    Listagem de Membros de Projetos
                     <div class="pull-right col-md-9">
                         <form class="form-inline" name="form" role="form" method="POST" ng-submit="save()">
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Name</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="user_id"
+                                    <input type="text" class="form-control" name="member_id"
                                            ng-model="userSelected"
                                            typeahead="o as o.name for o in getUsers($viewValue)|limitTo:10"
                                            typeahead-input-formatter="formatName($model)"

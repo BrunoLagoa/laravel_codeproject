@@ -37,7 +37,8 @@ class ProjectMemberController extends Controller
     {
         $data = $request->all();
         $data['project_id'] = $id;
-        return $this->repository->create($data);
+        //return $this->repository->create($data);
+        return $this->service->create($data);
     }
 
     public function show($id, $idProjectMember)

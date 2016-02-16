@@ -3,7 +3,7 @@ angular.module('app.services')
 
         return $resource(appConfig.baseUrl + '/project/:id/member/:idProjectMember', {
             id: '@id',
-            idProjectMember: '@idProjectMember',
+            idProjectMember: '@idProjectMember'
         }, {
             update: {
                 method: 'PUT'

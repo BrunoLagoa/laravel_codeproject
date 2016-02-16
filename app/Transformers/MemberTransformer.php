@@ -9,7 +9,8 @@ class MemberTransformer extends TransformerAbstract
     public function transform(User $member)
     {
         return [
-            'user_id' => $member->id,
+            //'user_id' => $member->id,
+            'member_id' => $member->id,
             'name' => $member->name,
         ];
     }
