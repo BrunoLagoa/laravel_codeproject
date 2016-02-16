@@ -45,6 +45,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url('/#/logout') }}">Logout</a></li>
                 @if(auth()->guest())
                     @if(!Request::is('auth/login'))
                         <li><a href="{{ url('/auth/login') }}">Login</a></li>
