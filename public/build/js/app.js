@@ -64,6 +64,7 @@ app.config([
         $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $httpProvider.defaults.transformRequest = appConfigProvider.config.utils.transformRequest;
         $httpProvider.defaults.transformResponse = appConfigProvider.config.utils.transformResponse;
+        $httpProvider.interceptors.push('oauthFixInterceptor');
         $routeProvider
             .when('/login',{
                 templateUrl: 'build/views/login.html',
@@ -214,7 +215,7 @@ app.config([
         })
     }]);
 
-app.run(['$rootScope', '$location', '$window', 'OAuth', function ($rootScope, $location, $window, OAuth) {
+app.run(['$rootScope', '$location', 'OAuth', function ($rootScope, $location, OAuth) {
     $rootScope.$on('$routeChangeStart', function(event,next,current){
         if(next.$$route.originalPath != '/login'){
             if(!OAuth.isAuthenticated()){
@@ -229,11 +230,11 @@ app.run(['$rootScope', '$location', '$window', 'OAuth', function ($rootScope, $l
         }
 
         // Refresh token when a `invalid_token` error occurs.
-        if ('invalid_token' === rejection.data.error) {
+        if ('access_denied' === rejection.data.error) {
             return OAuth.getRefreshToken();
         }
 
         // Redirect to `/login` with the `error_reason`.
-        return $window.location.href = '/#/login?error_reason=' + rejection.data.error;
+        return $location.path('login');
     });
 }]);
