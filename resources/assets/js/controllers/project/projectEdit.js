@@ -6,6 +6,7 @@ angular.module('app.controllers')
                     $scope.project = data;
                     $scope.clientSelected = data.client.data;
                 });
+
                 $scope.status = appConfig.project.status;
 
                 $scope.due_date = {
