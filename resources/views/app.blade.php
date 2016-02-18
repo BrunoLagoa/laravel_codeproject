@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
         @endif
 
-                <!-- Fonts -->
+        <!-- Fonts -->
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -26,7 +26,7 @@
 </head>
 <body>
 
-<div ng-include="'build/views/templates/menu.html'"></div>
+<load-template url="build/views/templates/menu.html"></load-template>
 
 <div ng-view>
 
@@ -96,6 +96,7 @@
     <!-- DIRECTIVES -->
     <script src="{{ asset('build/js/directives/projectFileDownload.js') }}"></script>
     <script src="{{ asset('build/js/directives/loginForm.js') }}"></script>
+    <script src="{{ asset('build/js/directives/loadTemplate.js') }}"></script>
 
     <!-- FILTERS -->
     <script src="{{ asset('build/js/filters/date-br.js') }}"></script>
