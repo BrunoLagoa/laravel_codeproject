@@ -1,21 +1,38 @@
 angular.module('app.directives')
     .directive('menuActivated',
-        ['$location', function ($location) {
+        ['$location', function($location){
+
             return {
-                restrict: 'A',
-                link: function (scope, element, attr) {
-                    scope.$watch(function(){
-                        return $location.path();
-                    }, function(){
+                restrict: 'A', // 'A' restrito somente para Atributo
+                link: function(scope, element, attr){
+
+                    // assistindo a mudança
+                    scope.$watch(function() {
+
+                        return $location.path(); // assistindo a mudança do location.path
+
+                    }, function(newValue){ // toda vez que tiver uma mudança nova, chama a função com o novo valor
+
+                        //console.log(newValue);
+
+
                         var liElements = element[0].querySelectorAll('li[data-match-route]');
-                        var pattern = liElements.attr('data-match-route').replace('/','\\/');
-                        var regexp = new RegExp(pattern, 'i');
-                        if(regexp.test(newValue)){
-                            liElements.children().first().addClass('actived');
-                        }else{
-                            liElements.children().first().removeClass('actived');
-                        }
+
+                        angular.forEach(liElements, function(li){
+                            var liElement = angular.element(li);
+                            var pattern = liElement.attr('data-match-route').replace('/', '\\/');
+                            var regexp = new RegExp(pattern,'i');
+                            if(regexp.test(newValue)){
+                                liElement.children().first().addClass('actived');
+                            } else {
+                                liElement.children().first().removeClass('actived');
+                            }
+
+                        });
+
                     });
+
                 }
+
             };
         }]);

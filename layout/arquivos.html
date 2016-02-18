@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="app"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="app"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="app"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Project Manager > Arquivos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100,100italic,300italic,400italic,500italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/app.css">
+        <!--[if lte IE 7]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+        <![endif]-->
+        <!--[if lte IE 8]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!--[if gte IE 9]>
+        <style type="text/css">
+            .gradient {
+                filter: none;
+            }
+        </style>
+        <![endif]-->
+        <script src="js/components.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header class="header-global">
+            <div class="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <a href="index.html" class="brand">
+                                <img src="images/logo.png" alt=""/>
+                                <span class="text">Project Manager</span>
+                            </a> <!-- /brand -->
+                        </div>
+                        <div class="col-sm-6">
+                            <menu class="menu">
+                                <li>
+                                    <a href="index.html">
+                                        <i class="fa fa-home"></i> Painel
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="projetos.html">
+                                        <i class="flaticon-data-analytics1"></i> Projetos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="clientes.html">
+                                        <i class="flaticon-office-worker2"></i> Clientes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="arquivos.html" class="actived">
+                                        <i class="flaticon-file94"></i> Arquivos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tarefas.html">
+                                        <i class="flaticon-checkmark10"></i> Tarefas
+                                    </a>
+                                </li>
+                            </menu> <!-- /menu -->
+                        </div>
+                        <div class="col-sm-2">
+                            <form action="" class="form-inline" role="form">
+                                <input type="text" name="q" placeholder="Busca" />
+                                <button type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </form> <!-- /form-search -->
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="" class="userinfo">
+                                <i class="avatar flaticon-user7"></i>
+                                Olá, Alfredo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /top -->
+            <div class="bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 class="h3">Arquivos</h1>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /bottom -->
+        </header> <!-- /header-global -->
+        <section class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="boxed-manager">
+                            <div class="boxed-manager-menu">
+                                <ul class="boxed-manager-menu-nav">
+                                    <li class="boxed-manager-menu-nav-header">
+                                        <h3 class="h4">
+                                            Arquivos
+                                        </h3>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-search">
+                                        <form action="">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Filtrar por...">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-default" type="button">
+                                                        <i class="fa fa-search"></i>
+                                                    </button>
+                                                </span>
+                                            </div><!-- /input-group -->
+                                        </form>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <span class="type-type-icon text-upper text-silver">
+                                                    <i class="flaticon-pdf17"></i>
+                                                </span>
+                                                <h4 class="h4 text-boulder">Nome do arquivo.pdf</h4>
+                                            </header>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="" class="actived">
+                                            <header>
+                                                <span class="type-type-icon text-upper text-silver">
+                                                    <i class="fa fa-volume-up"></i>
+                                                </span>
+                                                <h4 class="h4 text-boulder">Nome do arquivo.mp3</h4>
+                                            </header>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <span class="type-type-icon text-upper text-silver">
+                                                    <i class="flaticon-doc"></i>
+                                                </span>
+                                                <h4 class="h4 text-boulder">Nome do arquivo.doc</h4>
+                                            </header>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <span class="type-type-icon text-upper text-silver">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </span>
+                                                <h4 class="h4 text-boulder">Nome do arquivo.jpg</h4>
+                                            </header>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <span class="type-type-icon text-upper text-silver">
+                                                    <i class="fa fa-film"></i>
+                                                </span>
+                                                <h4 class="h4 text-boulder">Nome do arquivo.mp4</h4>
+                                            </header>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="boxed-manager-main boxed-manager-main-sm arrow">
+                                <div class="boxed-manager-main-header">
+                                    <h4 class="h4">
+                                        Nome do arquivo.mp3
+                                    </h4>
+                                </div>
+                                <div class="boxed-manager-main-body">
+                                    <audio src="samples/sample.mp3" controls="controls"></audio>
+                                </div>
+                            </div>
+                            <div class="boxed-manager-info boxed-manager-info-lg no-border">
+                                <div class="boxed-manager-info-header">
+                                    &nbsp;
+                                </div>
+                                <div class="boxed-manager-info-body bg-gray10">
+                                    <h4 class="h4 text-gray55">Nome do arquivo.mp3</h4>
+                                    <br/>
+                                    <div class="clearfix">
+                                        <a href="" class="btn btn-primary btn-sm">Download</a>
+                                        <div class="pull-right">
+                                            <a href="" class="btn btn-default btn-sm">Edit Notes</a>
+                                            <a href="" class="btn btn-default btn-sm">Delete</a>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <h6 class="h6 text-upper font-bold text-gray55">Notes</h6>
+                                    <br/>
+                                    <p>Apr 29, 2013</p>
+                                    <p>
+                                        <strong>Uploaded By:</strong> <span class="text-gray55">Sample Admin</span>
+                                    </p>
+                                    <p>
+                                        <strong>Size:</strong> <span class="text-gray55">1187kb</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer-global">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center">&copy; Project Manager - 2015</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

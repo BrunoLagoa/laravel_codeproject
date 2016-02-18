@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="app"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="app"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="app"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Project Manager > Projetos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300,100,100italic,300italic,400italic,500italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/app.css">
+        <!--[if lte IE 7]>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+        <![endif]-->
+        <!--[if lte IE 8]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!--[if gte IE 9]>
+        <style type="text/css">
+            .gradient {
+                filter: none;
+            }
+        </style>
+        <![endif]-->
+        <script src="js/components.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header class="header-global">
+            <div class="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <a href="index.html" class="brand">
+                                <img src="images/logo.png" alt=""/>
+                                <span class="text">Project Manager</span>
+                            </a> <!-- /brand -->
+                        </div>
+                        <div class="col-sm-6">
+                            <menu class="menu">
+                                <li>
+                                    <a href="index.html">
+                                        <i class="fa fa-home"></i> Painel
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="projetos.html" class="actived">
+                                        <i class="flaticon-data-analytics1"></i> Projetos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="clientes.html">
+                                        <i class="flaticon-office-worker2"></i> Clientes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="arquivos.html">
+                                        <i class="flaticon-file94"></i> Arquivos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tarefas.html">
+                                        <i class="flaticon-checkmark10"></i> Tarefas
+                                    </a>
+                                </li>
+                            </menu> <!-- /menu -->
+                        </div>
+                        <div class="col-sm-2">
+                            <form action="" class="form-inline" role="form">
+                                <input type="text" name="q" placeholder="Busca" />
+                                <button type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </form> <!-- /form-search -->
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="" class="userinfo">
+                                <i class="avatar flaticon-user7"></i>
+                                Olá, Alfredo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /top -->
+            <div class="bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 class="h3">Projetos</h1>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /bottom -->
+        </header> <!-- /header-global -->
+        <section class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="boxed-manager">
+                            <div class="boxed-manager-menu">
+                                <ul class="boxed-manager-menu-nav">
+                                    <li class="boxed-manager-menu-nav-header">
+                                        <h3 class="h4">
+                                            Projetos
+
+                                            <div class="btn-group pull-right">
+                                                <a href="" class="btn btn-primary btn-sm text-upper">
+                                                    <small>Ver todos</small>
+                                                </a>
+                                                <a href="" class="btn btn-default btn-sm">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </h3>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="" class="actived">
+                                            <header>
+                                                <h4 class="h4 text-boulder">Nome do projeto</h4>
+                                                <small class="text-upper text-silver">Cliente empresa</small>
+                                            </header>
+                                            <p class="text-danger status">
+                                                <i class="fa fa-circle"></i> Atrasado
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <h4 class="h4 text-boulder">Nome do projeto</h4>
+                                                <small class="text-upper text-silver">Cliente empresa</small>
+                                            </header>
+                                            <p class="text-info status">
+                                                <i class="fa fa-circle"></i> Não iniciou
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <h4 class="h4 text-boulder">Nome do projeto</h4>
+                                                <small class="text-upper text-silver">Cliente empresa</small>
+                                            </header>
+                                            <p class="text-success status">
+                                                <i class="fa fa-circle"></i> Iniciado
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <h4 class="h4 text-boulder">Nome do projeto</h4>
+                                                <small class="text-upper text-silver">Cliente empresa</small>
+                                            </header>
+                                            <p class="text-danger status">
+                                                <i class="fa fa-circle"></i> Atrasado
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <h4 class="h4 text-boulder">Nome do projeto</h4>
+                                                <small class="text-upper text-silver">Cliente empresa</small>
+                                            </header>
+                                            <p class="text-danger status">
+                                                <i class="fa fa-circle"></i> Atrasado
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <h4 class="h4 text-boulder">Nome do projeto</h4>
+                                                <small class="text-upper text-silver">Cliente empresa</small>
+                                            </header>
+                                            <p class="text-danger status">
+                                                <i class="fa fa-circle"></i> Atrasado
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="boxed-manager-menu-nav-item">
+                                        <a href="">
+                                            <header>
+                                                <h4 class="h4 text-boulder">Nome do projeto</h4>
+                                                <small class="text-upper text-silver">Cliente empresa</small>
+                                            </header>
+                                            <p class="text-danger status">
+                                                <i class="fa fa-circle"></i> Atrasado
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="boxed-manager-main arrow">
+                                <div class="boxed-manager-main-header">
+                                    <h4 class="h4">
+                                        Nome do projeto <small>(90%)</small>
+
+                                        <div class="btn-group pull-right">
+                                            <a href="" class="btn btn-default btn-xs" title="Editar">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="" class="btn btn-danger btn-xs" title="Apagar">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </h4>
+                                </div>
+                                <div class="boxed-manager-main-body">
+                                    <div class="btn-group" role="tablist">
+                                        <a href="#detalhes"
+                                           aria-controls="detalhes"
+                                           role="tab"
+                                           data-toggle="tab"
+                                           class="btn btn-default active">
+                                            Detalhes
+                                        </a>
+                                        <a href="#tarefas"
+                                           aria-controls="tarefas"
+                                           role="tab"
+                                           data-toggle="tab"
+                                           class="btn btn-default">
+                                            Tarefas
+                                        </a>
+                                        <a href="#arquivos"
+                                           aria-controls="arquivos"
+                                           role="tab"
+                                           data-toggle="tab"
+                                           class="btn btn-default">
+                                            Arquivos
+                                        </a>
+                                        <a href="#anotacoes"
+                                           aria-controls="anotacoes"
+                                           role="tab"
+                                           data-toggle="tab"
+                                           class="btn btn-default">
+                                            Anotações
+                                        </a>
+                                    </div>
+
+                                    <br/>
+                                    <br/>
+
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="detalhes">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Debitis eius et illo quaerat quasi sit voluptatibus.
+                                                A autem debitis doloremque exercitationem mollitia neque
+                                                quasi quidem ratione vitae voluptate? Architecto at odit
+                                                quia? Aperiam nihil omnis pariatur quae quia recusandae
+                                                rem? Aperiam dolore, exercitationem fuga illo ipsa nemo
+                                                repudiandae similique soluta!</p>
+
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Accusantium libero magni maxime perspiciatis provident
+                                                qui rem similique sit ut vero! Beatae deleniti eum eveniet,
+                                                iure magnam necessitatibus possimus sit tempora.</p>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="tarefas">
+                                            <div class="task-list">
+                                                <h6 class="task-list-title">Requirements:</h6>
+                                                <ul class="task-list-body">
+                                                    <li>
+                                                        <label>
+                                                            <input type="checkbox" name="" id=""/>
+                                                            Call Joan to discuss existing requirements
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <input type="checkbox" name="" id=""/>
+                                                            Call Joan to discuss existing requirements
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <input type="checkbox" name="" id=""/>
+                                                            Call Joan to discuss existing requirements
+                                                        </label>
+                                                    </li>
+                                                </ul>
+
+                                                <h6 class="task-list-title">Development:</h6>
+                                                <ul class="task-list-body">
+                                                    <li>
+                                                        <label>
+                                                            <input type="checkbox" name="" id=""/>
+                                                            Call Joan to discuss existing requirements
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <input type="checkbox" name="" id=""/>
+                                                            Call Joan to discuss existing requirements
+                                                        </label>
+                                                    </li>
+                                                </ul>
+
+                                                <h6 class="task-list-title">Design:</h6>
+                                                <ul class="task-list-body">
+                                                    <li>
+                                                        <label>
+                                                            <input type="checkbox" name="" id=""/>
+                                                            Call Joan to discuss existing requirements
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="arquivos">
+                                            <div class="files-list-blocks">
+                                                <a href="">
+                                                    <img src="images/icons/ico-ai.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-css.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-doc.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-eps.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-flash.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-html.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-jpg.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-mp3.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-mp4.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-pdf.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-php.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-png.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-txt.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="images/icons/ico-xml.png" alt="" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="anotacoes">
+                                            <div class="notes-list">
+                                                <div class="notes-list-item note-type-status-changed">
+                                                    <a href="" class="avatar avatar-xs">
+                                                        <img src="images/avatar.png" alt=""/>
+                                                    </a>
+                                                    <div class="notes-list-body">
+                                                        <h6>
+                                                            Status change on a project
+                                                            <span class="time">3 minutes ago</span>
+                                                        </h6>
+                                                        <p class="notes-list-body-content">
+                                                            The status on <strong>Sample Project</strong> change to <strong>Overdue</strong>
+                                                        </p>
+                                                    </div>
+                                                </div> <!-- /notes-list-item -->
+                                                <div class="notes-list-item note-type-task-completed">
+                                                    <a href="" class="avatar avatar-xs">
+                                                        <img src="images/avatar.png" alt=""/>
+                                                    </a>
+                                                    <div class="notes-list-body">
+                                                        <h6>
+                                                            <span class="user">Sample Admin</span> completed a task
+                                                            <span class="time">2 years ago</span>
+                                                        </h6>
+                                                        <p class="notes-list-body-content">
+                                                            <input type="checkbox" name="" id="" disabled="disabled" checked="checked" />
+                                                            Design the new landing page
+                                                        </p>
+                                                    </div>
+                                                </div> <!-- /notes-list-item -->
+                                                <div class="notes-list-item note-type-attachement">
+                                                    <a href="" class="avatar avatar-xs">
+                                                        <img src="images/avatar.png" alt=""/>
+                                                    </a>
+                                                    <div class="notes-list-body">
+                                                        <h6>
+                                                            <span class="user">Sample Admin</span> upload a file
+                                                            <span class="time">2 years ago</span>
+                                                        </h6>
+                                                        <p class="notes-list-body-content">
+                                                            <a href="">
+                                                                <i class="fa fa-paperclip"></i> preview.jpg
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div> <!-- /notes-list-item -->
+                                                <div class="notes-list-item note-type-message">
+                                                    <a href="" class="avatar avatar-xs">
+                                                        <img src="images/avatar.png" alt=""/>
+                                                    </a>
+                                                    <div class="notes-list-body">
+                                                        <h6>
+                                                            <span class="user">Sample Admin</span> posted a message on a project
+                                                            (<a href="">Sample Project</a>)
+                                                            <span class="time">2 years ago</span>
+                                                        </h6>
+                                                        <p class="notes-list-body-content">
+                                                            Hi. John asked me to look at the changes. Everythins looks greate!
+                                                        </p>
+                                                    </div>
+                                                </div> <!-- /notes-list-item -->
+                                            </div> <!-- /notes-list -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="boxed-manager-info">
+                                <div class="boxed-manager-info-header">
+                                    <h4 class="h4">Estatísticas do projeto</h4>
+                                </div>
+                                <div class="boxed-manager-info-body">
+                                    <div class="boxed-manager-info-body-chart text-center">
+                                        <div class="radial-progress radial-progress-lg radial-progress-danger" data-progress="90">
+                                            <div class="circle">
+                                                <div class="mask full">
+                                                    <div class="fill"></div>
+                                                </div>
+                                                <div class="mask half">
+                                                    <div class="fill"></div>
+                                                    <div class="fill fix"></div>
+                                                </div>
+                                                <div class="shadow"></div>
+                                            </div>
+                                            <div class="inset">
+                                                <div class="percentage">
+                                                    <div class="numbers">90%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        Progresso esperado: 100%
+                                    </div>
+                                    <ul class="list-styled">
+                                        <li class="list-styled-header text-upper text-center">
+                                            Cliente
+                                        </li>
+                                        <li class="text-center text-silver">Nome do cliente</li>
+                                        <li class="list-styled-header text-upper text-center">
+                                            Data de entrega
+                                        </li>
+                                        <li class="text-center text-silver">20/09/2015</li>
+                                        <li class="list-styled-header text-upper text-center">
+                                            Tarefas (12)
+                                        </li>
+                                        <li class="text-center text-silver">9 terefas em aberto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer-global">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center">&copy; Project Manager - 2015</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
