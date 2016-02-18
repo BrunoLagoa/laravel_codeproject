@@ -239,11 +239,12 @@ app.run(['$rootScope', '$location', '$http', '$modal', 'httpBuffer', 'OAuth',
             httpBuffer.append(data.rejection.config,data.deferred);
             if(!$rootScope.loginModalOpened) {
                 var modalInstance = $modal.open({
-                    templateUrl: 'build/views/template/loginModal.html',
+                    templateUrl: 'build/views/templates/loginModal.html',
                     controller: 'LoginModalController'
                 });
                 $rootScope.loginModalOpened = true;
             }
+            return;
         }
 
         // Redirect to `/login` with the `error_reason`.
