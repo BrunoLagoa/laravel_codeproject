@@ -23,7 +23,7 @@ angular.module('app.services')
                         $rootScope.$emit("oauth:error", {rejection: rejection, deferred: deferred});
                         return deferred.promise;
                     }
-                    return deferred.promise;
+                    return $q.reject(rejection);
                 }
 
             };
