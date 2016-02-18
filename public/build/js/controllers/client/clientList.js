@@ -1,4 +1,10 @@
 angular.module('app.controllers')
     .controller('ClientListController',['$scope','Client',function($scope,Client) {
-        $scope.clients = Client.query();
+        Client.query({
+            orderBy: 'created_at',
+            sortedBy: 'desc',
+            limit: 8
+        }, function (response) {
+            $scope.clients = response.data;
+        });
     }]);

@@ -29,43 +29,11 @@
                                     </div>
                                 </h3>
                             </li>
-                            <li class="boxed-manager-menu-nav-item">
+                            <li class="boxed-manager-menu-nav-item" ng-repeat="o in clients">
                                 <a href="">
                                     <header>
-                                        <h4 class="h4 text-boulder">Nome do Cliente</h4>
-                                        <small class="text-upper text-silver">orea@seca.com</small>
-                                    </header>
-                                </a>
-                            </li>
-                            <li class="boxed-manager-menu-nav-item">
-                                <a href="" class="actived">
-                                    <header>
-                                        <h4 class="h4 text-boulder">Nome do Cliente</h4>
-                                        <small class="text-upper text-silver">orea@seca.com</small>
-                                    </header>
-                                </a>
-                            </li>
-                            <li class="boxed-manager-menu-nav-item">
-                                <a href="">
-                                    <header>
-                                        <h4 class="h4 text-boulder">Nome do Cliente</h4>
-                                        <small class="text-upper text-silver">orea@seca.com</small>
-                                    </header>
-                                </a>
-                            </li>
-                            <li class="boxed-manager-menu-nav-item">
-                                <a href="">
-                                    <header>
-                                        <h4 class="h4 text-boulder">Nome do Cliente</h4>
-                                        <small class="text-upper text-silver">orea@seca.com</small>
-                                    </header>
-                                </a>
-                            </li>
-                            <li class="boxed-manager-menu-nav-item">
-                                <a href="">
-                                    <header>
-                                        <h4 class="h4 text-boulder">Nome do Cliente</h4>
-                                        <small class="text-upper text-silver">orea@seca.com</small>
+                                        <h4 class="h4 text-boulder">{{o.name}}</h4>
+                                        <small class="text-upper text-silver">{{o.email}}</small>
                                     </header>
                                 </a>
                             </li>
