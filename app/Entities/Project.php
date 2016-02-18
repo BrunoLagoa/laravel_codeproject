@@ -1,12 +1,9 @@
 <?php
-
 namespace CodeProject\Entities;
-
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
-
-class Project extends Model implements Transformable
+class Project extends Model  implements Transformable
 {
     use TransformableTrait;
 
@@ -17,37 +14,29 @@ class Project extends Model implements Transformable
         'description',
         'progress',
         'status',
-        'due_date'
-    ];
-
+        'due_date'];
     public function owner()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('\CodeProject\Entities\User', 'owner_id');
     }
-
     public function client()
     {
         return $this->belongsTo(Client::class);
     }
-
-    public function members()
-    {
-        return $this->belongsToMany(User::class, 'project_members', 'project_id', 'member_id');
-    }
-
     public function notes()
     {
-        return $this->hasMany(ProjectNote::class);
+        return $this->hasMany(ProjectNote::class)->orderBy('created_at', 'desc');
     }
-
     public function tasks()
     {
-        return $this->hasMany(ProjectTask::class);
+        return $this->hasMany(ProjectTask::class)->orderBy('id', 'desc');;
     }
-
+    public function members()
+    {
+        return $this->belongsToMany(User::class, 'project_members', 'project_id', 'member_id')->withPivot('id');
+    }
     public function files()
     {
         return $this->hasMany(ProjectFile::class);
     }
-
 }

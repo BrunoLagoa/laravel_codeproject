@@ -10,10 +10,10 @@
                                     Clientes
 
                                     <div class="btn-group pull-right">
-                                        <a href="" class="btn btn-primary btn-sm text-upper">
-                                            <i class="fa fa-list-alt"></i>
+                                        <a href="#/clients" class="btn btn-primary btn-sm text-upper">
+                                            <small>Ver todos</small>
                                         </a>
-                                        <label class="select-styled select-styled-default select-styled-sm">
+                                        <!-- <label class="select-styled select-styled-default select-styled-sm">
                                             <select>
                                                 <option selected="selected">A</option>
                                                 <option>B</option>
@@ -22,7 +22,7 @@
                                                 <option>E</option>
                                                 <option>F</option>
                                             </select>
-                                        </label>
+                                        </label> -->
                                         <a ng-href="#/client/new" class="btn btn-default btn-sm">
                                             <i class="fa fa-plus"></i>
                                         </a>
@@ -45,10 +45,11 @@
                                 Dados do cliente
 
                                 <div class="btn-group pull-right">
-                                    <a ng-href="#/client/{{client.id}}/edit" class="btn btn-default btn-xs" title="Editar">
+                                    <a href="#/client/{{client.id}}/edit" class="btn btn-default btn-xs" title="Editar">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a ng-href="#/client/{{client.id}}/remove" class="btn btn-danger btn-xs" title="Apagar">
+                                    <a href="#/client/{{client.id}}/remove" class="btn btn-danger btn-xs"
+                                       title="Apagar">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </div>
@@ -64,7 +65,7 @@
                                         <i class="icon-inline fa fa-envelope-o"></i> {{client.email}}
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-skype"></i> Dados não informado
+                                        <i class="icon-inline fa fa-skype"></i> {{client.skype}}
                                     </p>
                                     <p>
                                         <i class="icon-inline flaticon-telephone60"></i> {{client.phone}}
@@ -72,16 +73,16 @@
                                 </div>
                                 <div class="col-xs-6">
                                     <p>
-                                        <i class="icon-inline fa fa-twitter"></i> Dados não informado
+                                        <i class="icon-inline fa fa-twitter"></i> {{client.twitter}}
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-facebook"></i> Dados não informado
+                                        <i class="icon-inline fa fa-facebook"></i> {{client.facebook}}
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-google-plus"></i> Dados não informado
+                                        <i class="icon-inline fa fa-google-plus"></i> {{client.google}}
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-search"></i> Dados não informado
+                                        <i class="icon-inline fa fa-search"></i> {{client.url}}
                                     </p>
                                 </div>
                             </div>
@@ -97,17 +98,17 @@
 
                                 <table class="table">
                                     <thead>
-                                    <tr ng-repeat="o in client.projects.data">
+                                    <tr>
                                         <th>Nome</th>
                                         <th>Data de entrega</th>
                                         <th>Status</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody ng-repeat="p in client.projects.data">
                                     <tr>
-                                        <td>{{o.name}}</td>
-                                        <td>{{o.due_date | dateBr}}</td>
-                                        <td>{{o.status}}</td>
+                                        <td>{{p.name}}</td>
+                                        <td>{{p.due_date|dateBr}}</td>
+                                        <td>{{status[p.status-1].label}}</td>
                                     </tr>
                                     </tbody>
                                 </table>

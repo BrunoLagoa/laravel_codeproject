@@ -10,23 +10,23 @@
                                     Projetos
 
                                     <div class="btn-group pull-right">
-                                        <a href="#/projects" class="btn btn-primary btn-sm text-upper">
+                                        <a ng-href="#/projects" class="btn btn-primary btn-sm text-upper">
                                             <small>Ver todos</small>
                                         </a>
-                                        <a href="#/project/new" class="btn btn-default btn-sm">
+                                        <a href="" class="btn btn-default btn-sm">
                                             <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
                                 </h3>
                             </li>
-                            <li class="boxed-manager-menu-nav-item" ng-repeat="p in projects">
-                                <a href="javascript:void(0);" ng-click="showProject(p)">
+                            <li class="boxed-manager-menu-nav-item" ng-repeat="o in projects">
+                                <a href="javascript:void(0)" ng-click="showClient(o)">
                                     <header>
-                                        <h4 class="h4 text-boulder">{{p.name}}</h4>
-                                        <small class="text-upper text-silver">{{p.client.name}}</small>
+                                        <h4 class="h4 text-boulder">{{o.name}}</h4>
+                                        <small class="text-upper text-silver">{{o.client.data.name}}</small>
                                     </header>
-                                    <p class="status" ng-class="{'text-info':p.status==1, 'text-success': p.status==2, 'text-danger':p.status==3}">
-                                        <i class="fa fa-circle"></i> {{status[p.status-1].label}}
+                                    <p class="text-danger status">
+                                        <i class="fa fa-circle"></i> {{o.status}}
                                     </p>
                                 </a>
                             </li>
@@ -35,7 +35,7 @@
                     <div class="boxed-manager-main arrow">
                         <div class="boxed-manager-main-header">
                             <h4 class="h4">
-                                {{project.name}} <small>({{project.progress}}%)</small>
+                                {{ o.name }} <small>({{ o.progress }})</small>
 
                                 <div class="btn-group pull-right">
                                     <a href="#/project/{{project.id}}/edit" class="btn btn-default btn-xs" title="Editar">
@@ -53,7 +53,7 @@
                                    aria-controls="detalhes"
                                    role="tab"
                                    data-toggle="tab"
-                                   class="btn btn-default">
+                                   class="btn btn-default active">
                                     Detalhes
                                 </a>
                                 <a href=""
@@ -77,13 +77,6 @@
                                    class="btn btn-default">
                                     Anotações
                                 </a>
-                                <a href=""
-                                   aria-controls="membros"
-                                   role="tab"
-                                   data-toggle="tab"
-                                   class="btn btn-default">
-                                    Membros
-                                </a>
                             </div>
 
                             <br/>
@@ -91,150 +84,179 @@
 
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="detalhes">
-                                    <p>{{project.description}}</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Debitis eius et illo quaerat quasi sit voluptatibus.
+                                        A autem debitis doloremque exercitationem mollitia neque
+                                        quasi quidem ratione vitae voluptate? Architecto at odit
+                                        quia? Aperiam nihil omnis pariatur quae quia recusandae
+                                        rem? Aperiam dolore, exercitationem fuga illo ipsa nemo
+                                        repudiandae similique soluta!</p>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Accusantium libero magni maxime perspiciatis provident
+                                        qui rem similique sit ut vero! Beatae deleniti eum eveniet,
+                                        iure magnam necessitatibus possimus sit tempora.</p>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="tarefas">
-                                    <div class="boxed-manager-main-header" ng-show="project.tasks.data">
-                                        <h4 class="h4">
-                                            <div class="btn-group">
-                                                <a href="#/project/{{project.id}}/task/new" class="btn btn-default btn-xs" title="Novo">
-                                                    <i class="fa fa-plus"></i>
-                                                </a>
-                                            </div>
-                                        </h4>
-                                    </div>
                                     <div class="task-list">
+                                        <h6 class="task-list-title">Requirements:</h6>
                                         <ul class="task-list-body">
-                                            <li ng-repeat="t in project.tasks.data">
+                                            <li>
                                                 <label>
-                                                    <input type="checkbox" name="" id="{{t.id}}" ng-checked="t.status==3"
-                                                           ng-disabled="t.status==3" ng-click="updateTask(t)"/>
-                                                            <span class="status"
-                                                                  ng-class="{'text-info':t.status==1, 'text-warning':t.status==2, 'text-success':t.status==3}">
-                                                                    {{t.name}}
-                                                            </span>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                        </ul>
+
+                                        <h6 class="task-list-title">Development:</h6>
+                                        <ul class="task-list-body">
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                        </ul>
+
+                                        <h6 class="task-list-title">Design:</h6>
+                                        <ul class="task-list-body">
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
                                                 </label>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="arquivos">
-                                    <div class="boxed-manager-main-header" ng-show="project.files.data">
-                                        <h4 class="h4">
-                                            <div class="btn-group">
-                                                <a href="#/project/{{project.id}}/file/new" class="btn btn-default btn-xs" title="Novo">
-                                                    <i class="fa fa-plus"></i>
-                                                </a>
-                                            </div>
-                                        </h4>
-                                    </div>
                                     <div class="files-list-blocks">
-                                        <project-file-download ng-repeat="f in project.files.data" id-project="{{f.project_id}}" id-file='{{f.id}}' file='f'></project-file-download>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-ai.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-css.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-doc.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-eps.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-flash.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-html.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-jpg.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-mp3.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-mp4.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-pdf.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-php.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-png.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-txt.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-xml.png" alt="" />
+                                        </a>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="anotacoes">
-                                    <div class="boxed-manager-main-header" ng-show="project.notes.data">
-                                        <h4 class="h4">
-                                            <div class="btn-group">
-                                                <a href="#/project/{{project.id}}/note/new" class="btn btn-default btn-xs" title="Novo">
-                                                    <i class="fa fa-plus"></i>
-                                                </a>
-                                            </div>
-                                        </h4>
-                                    </div>
                                     <div class="notes-list">
-                                        <div class="notes-list-item note-type-status-changed" ng-repeat="n in project.notes.data">
+                                        <div class="notes-list-item note-type-status-changed">
                                             <a href="" class="avatar avatar-xs">
-                                                <img src="build/assets/images/avatar.png" alt=""/>
+                                                <img src="build/images/avatar.png" alt=""/>
                                             </a>
                                             <div class="notes-list-body">
                                                 <h6>
-                                                    {{n.title}}
-                                                    <span class="time">{{n.created | dateMoment}}</span>
+                                                    Status change on a project
+                                                    <span class="time">3 minutes ago</span>
                                                 </h6>
                                                 <p class="notes-list-body-content">
-                                                    {{n.note}}
+                                                    The status on <strong>Sample Project</strong> change to <strong>Overdue</strong>
                                                 </p>
                                             </div>
                                         </div> <!-- /notes-list-item -->
-                                        <!-- <div class="notes-list-item note-type-task-completed">
-                                             <a href="" class="avatar avatar-xs">
-                                                 <img src="build/assets/images/avatar.png" alt=""/>
-                                             </a>
-                                             <div class="notes-list-body">
-                                                 <h6>
-                                                     <span class="user">Sample Admin</span> completed a task
-                                                     <span class="time">2 years ago</span>
-                                                 </h6>
-                                                 <p class="notes-list-body-content">
-                                                     <input type="checkbox" name="" id="" disabled="disabled" checked="checked" />
-                                                     Design the new landing page
-                                                 </p>
-                                             </div>
-                                         </div> /notes-list-item
-                                         <div class="notes-list-item note-type-attachement">
-                                             <a href="" class="avatar avatar-xs">
-                                                 <img src="build/assets/images/avatar.png" alt=""/>
-                                             </a>
-                                             <div class="notes-list-body">
-                                                 <h6>
-                                                     <span class="user">Sample Admin</span> upload a file
-                                                     <span class="time">2 years ago</span>
-                                                 </h6>
-                                                 <p class="notes-list-body-content">
-                                                     <a href="">
-                                                         <i class="fa fa-paperclip"></i> preview.jpg
-                                                     </a>
-                                                 </p>
-                                             </div>
-                                         </div> /notes-list-item
-                                         <div class="notes-list-item note-type-message">
-                                             <a href="" class="avatar avatar-xs">
-                                                 <img src="build/assets/images/avatar.png" alt=""/>
-                                             </a>
-                                             <div class="notes-list-body">
-                                                 <h6>
-                                                     <span class="user">Sample Admin</span> posted a message on a project
-                                                     (<a href="">Sample Project</a>)
-                                                     <span class="time">2 years ago</span>
-                                                 </h6>
-                                                 <p class="notes-list-body-content">
-                                                     Hi. John asked me to look at the changes. Everythins looks greate!
-                                                 </p>
-                                             </div>
-                                         </div> --> <!-- /notes-list-item -->
+                                        <div class="notes-list-item note-type-task-completed">
+                                            <a href="" class="avatar avatar-xs">
+                                                <img src="build/images/avatar.png" alt=""/>
+                                            </a>
+                                            <div class="notes-list-body">
+                                                <h6>
+                                                    <span class="user">Sample Admin</span> completed a task
+                                                    <span class="time">2 years ago</span>
+                                                </h6>
+                                                <p class="notes-list-body-content">
+                                                    <input type="checkbox" name="" id="" disabled="disabled" checked="checked" />
+                                                    Design the new landing page
+                                                </p>
+                                            </div>
+                                        </div> <!-- /notes-list-item -->
+                                        <div class="notes-list-item note-type-attachement">
+                                            <a href="" class="avatar avatar-xs">
+                                                <img src="build/images/avatar.png" alt=""/>
+                                            </a>
+                                            <div class="notes-list-body">
+                                                <h6>
+                                                    <span class="user">Sample Admin</span> upload a file
+                                                    <span class="time">2 years ago</span>
+                                                </h6>
+                                                <p class="notes-list-body-content">
+                                                    <a href="">
+                                                        <i class="fa fa-paperclip"></i> preview.jpg
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div> <!-- /notes-list-item -->
+                                        <div class="notes-list-item note-type-message">
+                                            <a href="" class="avatar avatar-xs">
+                                                <img src="build/images/avatar.png" alt=""/>
+                                            </a>
+                                            <div class="notes-list-body">
+                                                <h6>
+                                                    <span class="user">Sample Admin</span> posted a message on a project
+                                                    (<a href="">Sample Project</a>)
+                                                    <span class="time">2 years ago</span>
+                                                </h6>
+                                                <p class="notes-list-body-content">
+                                                    Hi. John asked me to look at the changes. Everythins looks greate!
+                                                </p>
+                                            </div>
+                                        </div> <!-- /notes-list-item -->
                                     </div> <!-- /notes-list -->
-                                </div>
-                                <div role="tabpanel" class="tab-pane" id="membros">
-                                    <div class="" ng-show="project.members.data">
-                                        <div >
-                                            <form name="formMember" class="form-inline" role='form' ng-submit="saveMember()">
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Name:</label>
-                                                    <div class="col-md-6">
-                                                        <input type="text" name="member_id" class="form-control"
-                                                               ng-model="userSelected" required
-                                                               typeahead="u as u.name for u in getUsers($viewValue)|limitTo:10"
-                                                               typeahead-input-formatter="formatName($model)"
-                                                               typeahead-on-select="selectUser($item)"
-                                                               typeahead-editable='false' required/>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="col-md-6 col-md-offset-4">
-                                                        <button type="submit" class="btn btn-primary">Salvar</button>
-                                                    </div>
-                                                </div>
-                                            </form><br>
-                                        </div>
-                                    </div>
-                                    <div class="task-list">
-                                        <ul class="task-list-body">
-                                            <li ng-repeat="m in project.members.data">
-                                                <a ng-href="#/project/{{project.id}}/member/{{m.id}}/remove" title="Excluir"><i class="fa fa-minus"></i></a> {{m.name}}
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -245,7 +267,7 @@
                         </div>
                         <div class="boxed-manager-info-body">
                             <div class="boxed-manager-info-body-chart text-center">
-                                <div class="radial-progress radial-progress-lg radial-progress-danger" data-progress="{{project.progress}}">
+                                <div class="radial-progress radial-progress-lg radial-progress-danger" data-progress="{{ o.progress }}">
                                     <div class="circle">
                                         <div class="mask full">
                                             <div class="fill"></div>
@@ -258,25 +280,26 @@
                                     </div>
                                     <div class="inset">
                                         <div class="percentage">
-                                            <div class="numbers">{{project.progress}}%</div>
+                                            <div class="numbers">{{ o.progress }}%</div>
                                         </div>
                                     </div>
                                 </div>
-                                Progresso esperado: {{project.progress_expected}}%
+
+                                Progresso esperado: 100%
                             </div>
                             <ul class="list-styled">
                                 <li class="list-styled-header text-upper text-center">
-                                    Cliente
+                                    {{ o.client.data.name }}
                                 </li>
-                                <li class="text-center text-silver">{{project.client.name}}</li>
+                                <li class="text-center text-silver">Nome do cliente</li>
                                 <li class="list-styled-header text-upper text-center">
-                                    Data de entrega
+                                    {{ o.due_date | dateBr }}
                                 </li>
-                                <li class="text-center text-silver">{{project.due_date | dateBr}}</li>
+                                <li class="text-center text-silver">20/09/2015</li>
                                 <li class="list-styled-header text-upper text-center">
-                                    Tarefas ({{project.tasks_count}})
+                                    Tarefas (12)
                                 </li>
-                                <li class="text-center text-silver">{{project.tasks_opened}} tarefas em aberto</li>
+                                <li class="text-center text-silver">9 terefas em aberto</li>
                             </ul>
                         </div>
                     </div>
