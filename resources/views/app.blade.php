@@ -101,6 +101,7 @@
     <script src="{{ asset('build/js/directives/loginForm.js') }}"></script>
     <script src="{{ asset('build/js/directives/loadTemplate.js') }}"></script>
     <script src="{{ asset('build/js/directives/menu-activated.js') }}"></script>
+    <script src="{{ asset('build/js/directives/tabProject.js') }}"></script>
 
     <!-- FILTERS -->
     <script src="{{ asset('build/js/filters/date-br.js') }}"></script>
