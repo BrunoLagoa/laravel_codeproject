@@ -1,9 +1,9 @@
-<header class="header-global">
+<header class="header-global" ng-controller="MenuController">
     <div class="top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
-                    <a href="#/home" class="brand">
+                    <a ng-href="#/home" class="brand">
                         <img src="build/images/logo.png" alt=""/>
                         <span class="text">Project Manager</span>
                     </a> <!-- /brand -->
@@ -36,9 +36,12 @@
                     </form> <!-- /form-search -->
                 </div>
                 <div class="col-sm-2">
-                    <a href="" class="userinfo">
+                    <a ng-href="" class="userinfo">
                         <i class="avatar flaticon-user7"></i>
                         Olá, {{ user.name }}
+                    </a>
+                    <a ng-href="#/logout" class="userinfo">
+                        Sair
                     </a>
                 </div>
             </div>
@@ -48,7 +51,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="h3">Projetos</h1>
+                    <h1 class="h3">{{ pageTitle }}</h1>
                 </div>
             </div>
         </div>
