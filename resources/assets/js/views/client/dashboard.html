@@ -23,14 +23,14 @@
                                                 <option>F</option>
                                             </select>
                                         </label>
-                                        <a href="" class="btn btn-default btn-sm">
+                                        <a ng-href="#/client/new" class="btn btn-default btn-sm">
                                             <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
                                 </h3>
                             </li>
                             <li class="boxed-manager-menu-nav-item" ng-repeat="o in clients">
-                                <a href="">
+                                <a href="javascript:void(0)" ng-click="showClient(o)">
                                     <header>
                                         <h4 class="h4 text-boulder">{{o.name}}</h4>
                                         <small class="text-upper text-silver">{{o.email}}</small>
@@ -45,10 +45,10 @@
                                 Dados do cliente
 
                                 <div class="btn-group pull-right">
-                                    <a href="" class="btn btn-default btn-xs" title="Editar">
+                                    <a ng-href="#/client/{{client.id}}/edit" class="btn btn-default btn-xs" title="Editar">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a href="" class="btn btn-danger btn-xs" title="Apagar">
+                                    <a ng-href="#/client/{{client.id}}/remove" class="btn btn-danger btn-xs" title="Apagar">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </div>
@@ -58,30 +58,30 @@
                             <div class="row">
                                 <div class="col-xs-6">
                                     <p>
-                                        <i class="icon-inline flaticon-gps36"></i> R. Code education, 1800
+                                        <i class="icon-inline flaticon-gps36"></i> {{client.address}}
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-envelope-o"></i> orea@seca.com
+                                        <i class="icon-inline fa fa-envelope-o"></i> {{client.email}}
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-skype"></i> oreaseca
+                                        <i class="icon-inline fa fa-skype"></i> Dados não informado
                                     </p>
                                     <p>
-                                        <i class="icon-inline flaticon-telephone60"></i> +55 11 9969.6969
+                                        <i class="icon-inline flaticon-telephone60"></i> {{client.phone}}
                                     </p>
                                 </div>
                                 <div class="col-xs-6">
                                     <p>
-                                        <i class="icon-inline fa fa-twitter"></i> @codeeducation
+                                        <i class="icon-inline fa fa-twitter"></i> Dados não informado
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-facebook"></i> facebook.com/codeeducation
+                                        <i class="icon-inline fa fa-facebook"></i> Dados não informado
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-google-plus"></i> Codeeducation
+                                        <i class="icon-inline fa fa-google-plus"></i> Dados não informado
                                     </p>
                                     <p>
-                                        <i class="icon-inline fa fa-search"></i> www.code.education
+                                        <i class="icon-inline fa fa-search"></i> Dados não informado
                                     </p>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
 
                                 <table class="table">
                                     <thead>
-                                    <tr>
+                                    <tr ng-repeat="o in client.projects.data">
                                         <th>Nome</th>
                                         <th>Data de entrega</th>
                                         <th>Status</th>
@@ -105,24 +105,9 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td>Nome do projeto</td>
-                                        <td>23/07/2015</td>
-                                        <td>Atrasado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nome do projeto</td>
-                                        <td>23/07/2015</td>
-                                        <td>Atrasado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nome do projeto</td>
-                                        <td>23/07/2015</td>
-                                        <td>Atrasado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nome do projeto</td>
-                                        <td>23/07/2015</td>
-                                        <td>Atrasado</td>
+                                        <td>{{o.name}}</td>
+                                        <td>{{o.due_date | dateBr}}</td>
+                                        <td>{{o.status}}</td>
                                     </tr>
                                     </tbody>
                                 </table>

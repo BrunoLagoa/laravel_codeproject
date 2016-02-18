@@ -11,14 +11,8 @@ use League\Fractal\TransformerAbstract;
  */
 class ClientTransformer extends TransformerAbstract
 {
-    /**
-     * Transform the \Project entity
-     * @param Client $client
-     * @return array
-     * @internal param ProjectNote $projectNote
-     * @internal param ProjectNote $project
-     * @internal param \Project $model
-     */
+    protected $defaultIncludes = ['projects'];
+
     public function transform(Client $client)
     {
         return [
@@ -32,6 +26,13 @@ class ClientTransformer extends TransformerAbstract
             'created_at' => date_format($client->created_at, "Y-m-d h:m:s"),
             'updated_at' => date_format($client->created_at, "Y-m-d h:m:s"),
         ];
+    }
+
+    public function includeProjects(Client $client)
+    {
+        $transformer = new ProjectTransformer();
+        $transformer->setDefaultIncludes([]);
+        return $this->collection($client->projects, $transformer);
     }
 
 }
