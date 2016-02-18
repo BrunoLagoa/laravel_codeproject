@@ -1,7 +1,7 @@
 var app = angular.module('app', [
     'ngRoute', 'angular-oauth2', 'app.controllers', 'app.services', 'app.filters', 'app.directives', 'ui.bootstrap.typeahead',
     'ui.bootstrap.datepicker', 'ui.bootstrap.tpls', 'ui.bootstrap.modal', 'ngFileUpload', 'http-auth-interceptor', 'angularUtils.directives.dirPagination',
-    'ui.bootstrap.dropdown'
+    'ui.bootstrap.dropdown', 'ui.bootstrap.tabs'
 ]);
 
 angular.module('app.controllers', ['ngMessages', 'angular-oauth2']);
@@ -117,6 +117,11 @@ app.config([
             })
 
             // Projects
+            .when('/projects/dashboard', {
+                templateUrl: 'build/views/project/dashboard.html',
+                controller: 'ProjectDashboardController',
+                title: 'Projects'
+            })
             .when('/projects', {
                 templateUrl: 'build/views/project/list.html',
                 controller: 'ProjectListController',

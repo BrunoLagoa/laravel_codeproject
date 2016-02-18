@@ -1,0 +1,325 @@
+<section class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="boxed-manager">
+                    <div class="boxed-manager-menu">
+                        <ul class="boxed-manager-menu-nav">
+                            <li class="boxed-manager-menu-nav-header">
+                                <h3 class="h4">
+                                    Projetos
+
+                                    <div class="btn-group pull-right">
+                                        <a href="" class="btn btn-primary btn-sm text-upper">
+                                            <small>Ver todos</small>
+                                        </a>
+                                        <a href="" class="btn btn-default btn-sm">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </h3>
+                            </li>
+                            <li class="boxed-manager-menu-nav-item" ng-repeat="o in projects">
+                                <a href="javascript:void(0)" ng-click="showClient(o)">
+                                    <header>
+                                        <h4 class="h4 text-boulder">{{o.name}}</h4>
+                                        <small class="text-upper text-silver">{{o.client.data.name}}</small>
+                                    </header>
+                                    <p class="text-danger status">
+                                        <i class="fa fa-circle"></i> {{o.status}}
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="boxed-manager-main arrow">
+                        <div class="boxed-manager-main-header">
+                            <h4 class="h4">
+                                {{ o.name }} <small>({{ o.progress }})</small>
+
+                                <div class="btn-group pull-right">
+                                    <a href="#/project/{{project.id}}/edit" class="btn btn-default btn-xs" title="Editar">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a href="#/project/{{project.id}}/remove" class="btn btn-danger btn-xs" title="Apagar">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </div>
+                            </h4>
+                        </div>
+                        <div class="boxed-manager-main-body">
+                            <div class="btn-group" role="tablist">
+                                <a href="#detalhes"
+                                   aria-controls="detalhes"
+                                   role="tab"
+                                   data-toggle="tab"
+                                   class="btn btn-default active">
+                                    Detalhes
+                                </a>
+                                <a href="#tarefas"
+                                   aria-controls="tarefas"
+                                   role="tab"
+                                   data-toggle="tab"
+                                   class="btn btn-default">
+                                    Tarefas
+                                </a>
+                                <a href="#arquivos"
+                                   aria-controls="arquivos"
+                                   role="tab"
+                                   data-toggle="tab"
+                                   class="btn btn-default">
+                                    Arquivos
+                                </a>
+                                <a href="#anotacoes"
+                                   aria-controls="anotacoes"
+                                   role="tab"
+                                   data-toggle="tab"
+                                   class="btn btn-default">
+                                    Anotações
+                                </a>
+                            </div>
+
+                            <br/>
+                            <br/>
+
+                            <tabset type="pills">
+                                <tab heading="Detalhes">
+                                    {{project.description}}
+                                </tab>
+                                <tab heading="Tarefas">
+                                    {{}}
+                                </tab>
+                                <tab heading="Arquivos">
+                                    {{}}
+                                </tab>
+                                <tab heading="Anotações">
+                                    {{}}
+                                </tab>
+                            </tabset>
+
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="detalhes">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Debitis eius et illo quaerat quasi sit voluptatibus.
+                                        A autem debitis doloremque exercitationem mollitia neque
+                                        quasi quidem ratione vitae voluptate? Architecto at odit
+                                        quia? Aperiam nihil omnis pariatur quae quia recusandae
+                                        rem? Aperiam dolore, exercitationem fuga illo ipsa nemo
+                                        repudiandae similique soluta!</p>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Accusantium libero magni maxime perspiciatis provident
+                                        qui rem similique sit ut vero! Beatae deleniti eum eveniet,
+                                        iure magnam necessitatibus possimus sit tempora.</p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="tarefas">
+                                    <div class="task-list">
+                                        <h6 class="task-list-title">Requirements:</h6>
+                                        <ul class="task-list-body">
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                        </ul>
+
+                                        <h6 class="task-list-title">Development:</h6>
+                                        <ul class="task-list-body">
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                        </ul>
+
+                                        <h6 class="task-list-title">Design:</h6>
+                                        <ul class="task-list-body">
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" name="" id=""/>
+                                                    Call Joan to discuss existing requirements
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="arquivos">
+                                    <div class="files-list-blocks">
+                                        <a href="">
+                                            <img src="build/images/icons/ico-ai.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-css.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-doc.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-eps.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-flash.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-html.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-jpg.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-mp3.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-mp4.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-pdf.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-php.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-png.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-txt.png" alt="" />
+                                        </a>
+                                        <a href="">
+                                            <img src="build/images/icons/ico-xml.png" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="anotacoes">
+                                    <div class="notes-list">
+                                        <div class="notes-list-item note-type-status-changed">
+                                            <a href="" class="avatar avatar-xs">
+                                                <img src="build/images/avatar.png" alt=""/>
+                                            </a>
+                                            <div class="notes-list-body">
+                                                <h6>
+                                                    Status change on a project
+                                                    <span class="time">3 minutes ago</span>
+                                                </h6>
+                                                <p class="notes-list-body-content">
+                                                    The status on <strong>Sample Project</strong> change to <strong>Overdue</strong>
+                                                </p>
+                                            </div>
+                                        </div> <!-- /notes-list-item -->
+                                        <div class="notes-list-item note-type-task-completed">
+                                            <a href="" class="avatar avatar-xs">
+                                                <img src="build/images/avatar.png" alt=""/>
+                                            </a>
+                                            <div class="notes-list-body">
+                                                <h6>
+                                                    <span class="user">Sample Admin</span> completed a task
+                                                    <span class="time">2 years ago</span>
+                                                </h6>
+                                                <p class="notes-list-body-content">
+                                                    <input type="checkbox" name="" id="" disabled="disabled" checked="checked" />
+                                                    Design the new landing page
+                                                </p>
+                                            </div>
+                                        </div> <!-- /notes-list-item -->
+                                        <div class="notes-list-item note-type-attachement">
+                                            <a href="" class="avatar avatar-xs">
+                                                <img src="build/images/avatar.png" alt=""/>
+                                            </a>
+                                            <div class="notes-list-body">
+                                                <h6>
+                                                    <span class="user">Sample Admin</span> upload a file
+                                                    <span class="time">2 years ago</span>
+                                                </h6>
+                                                <p class="notes-list-body-content">
+                                                    <a href="">
+                                                        <i class="fa fa-paperclip"></i> preview.jpg
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div> <!-- /notes-list-item -->
+                                        <div class="notes-list-item note-type-message">
+                                            <a href="" class="avatar avatar-xs">
+                                                <img src="build/images/avatar.png" alt=""/>
+                                            </a>
+                                            <div class="notes-list-body">
+                                                <h6>
+                                                    <span class="user">Sample Admin</span> posted a message on a project
+                                                    (<a href="">Sample Project</a>)
+                                                    <span class="time">2 years ago</span>
+                                                </h6>
+                                                <p class="notes-list-body-content">
+                                                    Hi. John asked me to look at the changes. Everythins looks greate!
+                                                </p>
+                                            </div>
+                                        </div> <!-- /notes-list-item -->
+                                    </div> <!-- /notes-list -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxed-manager-info">
+                        <div class="boxed-manager-info-header">
+                            <h4 class="h4">Estatísticas do projeto</h4>
+                        </div>
+                        <div class="boxed-manager-info-body">
+                            <div class="boxed-manager-info-body-chart text-center">
+                                <div class="radial-progress radial-progress-lg radial-progress-danger" data-progress="{{ o.progress }}">
+                                    <div class="circle">
+                                        <div class="mask full">
+                                            <div class="fill"></div>
+                                        </div>
+                                        <div class="mask half">
+                                            <div class="fill"></div>
+                                            <div class="fill fix"></div>
+                                        </div>
+                                        <div class="shadow"></div>
+                                    </div>
+                                    <div class="inset">
+                                        <div class="percentage">
+                                            <div class="numbers">{{ o.progress }}%</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                Progresso esperado: 100%
+                            </div>
+                            <ul class="list-styled">
+                                <li class="list-styled-header text-upper text-center">
+                                    {{ o.client.data.name }}
+                                </li>
+                                <li class="text-center text-silver">Nome do cliente</li>
+                                <li class="list-styled-header text-upper text-center">
+                                    {{ o.due_date | dateBr }}
+                                </li>
+                                <li class="text-center text-silver">20/09/2015</li>
+                                <li class="list-styled-header text-upper text-center">
+                                    Tarefas (12)
+                                </li>
+                                <li class="text-center text-silver">9 terefas em aberto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

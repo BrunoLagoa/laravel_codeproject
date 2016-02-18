@@ -66,6 +66,7 @@
     <script src="{{ asset('build/js/controllers/client/clientRemove.js') }}"></script>
 
     <!-- CONTROLLER: Projects -->
+    <script src="{{ asset('build/js/controllers/project/projectDashboard.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectList.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectNew.js') }}"></script>
     <script src="{{ asset('build/js/controllers/project/projectEdit.js') }}"></script>
