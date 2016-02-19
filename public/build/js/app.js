@@ -12,6 +12,7 @@ angular.module('app.services', ['ngResource']);
 app.provider('appConfig', ['$httpParamSerializerProvider', function ($httpParamSerializerProvider) {
     var config = {
         baseUrl: 'http://localhost:8000',
+        pusherkey: 'aa6a68c645adabdfd336',
         project: {
             status: [
                 {value: 1, label: 'Não Iniciado'},
@@ -66,8 +67,8 @@ app.config([
         $httpProvider.defaults.transformRequest = appConfigProvider.config.utils.transformRequest;
         $httpProvider.defaults.transformResponse = appConfigProvider.config.utils.transformResponse;
 
-        $httpProvider.interceptors.splice(0,1);
-        $httpProvider.interceptors.splice(0,1);
+        $httpProvider.interceptors.splice(0, 1);
+        $httpProvider.interceptors.splice(0, 1);
         $httpProvider.interceptors.push('oauthFixInterceptor');
 
         $routeProvider
@@ -251,40 +252,64 @@ app.config([
         })
     }]);
 
-app.run(['$rootScope', '$location', '$http', '$modal', 'httpBuffer', 'OAuth',
-    function ($rootScope, $location, $http, $modal, httpBuffer, OAuth) {
-    $rootScope.$on('$routeChangeStart', function (event, next, current) {
-        if (next.$$route.originalPath != '/login') {
-            if (!OAuth.isAuthenticated()) {
-                $location.path('login');
+app.run(['$rootScope', '$location', '$http', '$modal', '$pusher', 'httpBuffer', 'OAuth', 'appConfig',
+    function ($rootScope, $location, $http, $modal, $pusher, httpBuffer, OAuth, appConfig) {
+
+        $rootScope.$on('pusher-build', function (event, data){
+            if (data.next.$$route.originalPath != '/login') {
+                if(OAuth.isAuthenticated()){
+                    if(!window.client) {
+                        window.client = new Pusher(appConfig.pusherkey);
+                        var pusher = $pusher(window.client);
+                        var channel = pusher.subscribe('user.' + $cookies.getObject('user').id);
+                        channel.bind('CodeProject\\Events\\TaskWasIncluded',
+                            function (data) {
+                                console.log(data);
+                            }
+                        );
+                    }
+                }
             }
-        }
-    });
+        });
 
-    $rootScope.$on('$routeChangeSuccess', function(event, current, previous){
-        $rootScope.pageTitle = current.$$route.title;
-    });
+        $rootScope.$on('pusher-destroy', function (event, data){
 
-    $rootScope.$on('oauth:error', function (event, data) {
-        // Ignore `invalid_grant` error - should be catched on `LoginController`.
-        if ('invalid_grant' === data.rejection.data.error) {
-            return;
-        }
+        });
 
-        // Refresh token when a `invalid_token` error occurs.
-        if ('access_denied' === data.rejection.data.error) {
-            httpBuffer.append(data.rejection.config,data.deferred);
-            if(!$rootScope.loginModalOpened) {
-                var modalInstance = $modal.open({
-                    templateUrl: 'build/views/templates/loginModal.html',
-                    controller: 'LoginModalController'
-                });
-                $rootScope.loginModalOpened = true;
+        $rootScope.$on('$routeChangeStart', function (event, next, current) {
+            if (next.$$route.originalPath != '/login') {
+                if (!OAuth.isAuthenticated()) {
+                    $location.path('login');
+                }
             }
-            return;
-        }
+            $rootScope.$emit('pusher-build',{next: next});
+            $rootScope.$emit('pusher-destroy',{next: next});
+        });
 
-        // Redirect to `/login` with the `error_reason`.
-        return $location.path('login');
-    });
-}]);
+        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+            $rootScope.pageTitle = current.$$route.title;
+        });
+
+        $rootScope.$on('oauth:error', function (event, data) {
+            // Ignore `invalid_grant` error - should be catched on `LoginController`.
+            if ('invalid_grant' === data.rejection.data.error) {
+                return;
+            }
+
+            // Refresh token when a `invalid_token` error occurs.
+            if ('access_denied' === data.rejection.data.error) {
+                httpBuffer.append(data.rejection.config, data.deferred);
+                if (!$rootScope.loginModalOpened) {
+                    var modalInstance = $modal.open({
+                        templateUrl: 'build/views/templates/loginModal.html',
+                        controller: 'LoginModalController'
+                    });
+                    $rootScope.loginModalOpened = true;
+                }
+                return;
+            }
+
+            // Redirect to `/login` with the `error_reason`.
+            return $location.path('login');
+        });
+    }]);
