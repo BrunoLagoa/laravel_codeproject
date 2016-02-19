@@ -29,7 +29,8 @@ config.vendor_path_js = [
     config.bower_path + '/angular-i18n/angular-locale_pt-br.js',
     config.bower_path + '/angular-http-auth/src/http-auth-interceptor.js',
     config.bower_path + '/angularUtils-pagination/dirPagination.js',
-    config.bower_path + '/pusher/dist/pusher.min.js'
+    config.bower_path + '/pusher/dist/pusher.min.js',
+    config.bower_path + '/pusher-angular/lib/pusher-angular.min.js'
 ];
 
 config.build_path_css = config.build_path + '/css';
