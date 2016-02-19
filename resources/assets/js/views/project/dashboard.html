@@ -13,20 +13,20 @@
                                         <a ng-href="#/projects" class="btn btn-primary btn-sm text-upper">
                                             <small>Ver todos</small>
                                         </a>
-                                        <a href="" class="btn btn-default btn-sm">
+                                        <a ng-href="#/project/new" class="btn btn-default btn-sm">
                                             <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
                                 </h3>
                             </li>
                             <li class="boxed-manager-menu-nav-item" ng-repeat="o in projects">
-                                <a href="javascript:void(0)" ng-click="showClient(o)">
+                                <a href="javascript:void(0)" ng-click="showProject(o)">
                                     <header>
                                         <h4 class="h4 text-boulder">{{o.name}}</h4>
                                         <small class="text-upper text-silver">{{o.client.data.name}}</small>
                                     </header>
-                                    <p class="text-danger status">
-                                        <i class="fa fa-circle"></i> {{o.status}}
+                                    <p class="status" ng-class="{'text-warning':o.status==1, 'text-info': o.status==2, 'text-success':o.status==3}">
+                                        <i class="fa fa-circle"></i> {{status[o.status-1].label}}
                                     </p>
                                 </a>
                             </li>
@@ -34,8 +34,8 @@
                     </div>
                     <div class="boxed-manager-main arrow">
                         <div class="boxed-manager-main-header">
-                            <h4 class="h4">
-                                {{ o.name }} <small>({{ o.progress }})</small>
+                            <h4 id="progress" class="h4">
+                                {{ project.name }} <small>({{ project.progress }}%)</small>
 
                                 <div class="btn-group pull-right">
                                     <a href="#/project/{{project.id}}/edit" class="btn btn-default btn-xs" title="Editar">
@@ -84,65 +84,28 @@
 
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="detalhes">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Debitis eius et illo quaerat quasi sit voluptatibus.
-                                        A autem debitis doloremque exercitationem mollitia neque
-                                        quasi quidem ratione vitae voluptate? Architecto at odit
-                                        quia? Aperiam nihil omnis pariatur quae quia recusandae
-                                        rem? Aperiam dolore, exercitationem fuga illo ipsa nemo
-                                        repudiandae similique soluta!</p>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Accusantium libero magni maxime perspiciatis provident
-                                        qui rem similique sit ut vero! Beatae deleniti eum eveniet,
-                                        iure magnam necessitatibus possimus sit tempora.</p>
+                                    <p>{{project.description}}</p>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="tarefas">
+                                    <div class="boxed-manager-main-header" ng-show="project.tasks.data">
+                                        <h4 class="h4">
+                                            <div class="btn-group">
+                                                <a href="#/project/{{project.id}}/task/new" class="btn btn-default btn-xs" title="Novo">
+                                                    <i class="fa fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </h4>
+                                    </div>
                                     <div class="task-list">
-                                        <h6 class="task-list-title">Requirements:</h6>
                                         <ul class="task-list-body">
-                                            <li>
+                                            <li ng-repeat="t in project.tasks.data">
                                                 <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                        </ul>
-
-                                        <h6 class="task-list-title">Development:</h6>
-                                        <ul class="task-list-body">
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
-                                                </label>
-                                            </li>
-                                        </ul>
-
-                                        <h6 class="task-list-title">Design:</h6>
-                                        <ul class="task-list-body">
-                                            <li>
-                                                <label>
-                                                    <input type="checkbox" name="" id=""/>
-                                                    Call Joan to discuss existing requirements
+                                                    <input type="checkbox" name="" id="{{t.id}}" ng-checked="t.status==3"
+                                                           ng-disabled="t.status==3" ng-click="updateTask(t)"/>
+                                                            <span class="status"
+                                                                  ng-class="{'text-warning':t.status==1, 'text-info':t.status==2, 'text-success':t.status==3}">
+                                                                    {{t.name}}
+                                                            </span>
                                                 </label>
                                             </li>
                                         </ul>
@@ -267,7 +230,7 @@
                         </div>
                         <div class="boxed-manager-info-body">
                             <div class="boxed-manager-info-body-chart text-center">
-                                <div class="radial-progress radial-progress-lg radial-progress-danger" data-progress="{{ o.progress }}">
+                                <div class="radial-progress radial-progress-lg radial-progress-danger" data-progress="{{ project.progress }}">
                                     <div class="circle">
                                         <div class="mask full">
                                             <div class="fill"></div>
@@ -291,11 +254,11 @@
                                 <li class="list-styled-header text-upper text-center">
                                     Cliente
                                 </li>
-                                <li class="text-center text-silver">Nome do cliente</li>
+                                <li class="text-center text-silver">{{ project.client.data.name }}</li>
                                 <li class="list-styled-header text-upper text-center">
                                     Data de entrega
                                 </li>
-                                <li class="text-center text-silver">{{ o.due_date | dateBr }}</li>
+                                <li class="text-center text-silver">{{ project.due_date | dateBr }}</li>
                                 <li class="list-styled-header text-upper text-center">
                                     Tarefas (12)
                                 </li>

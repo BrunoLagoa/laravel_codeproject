@@ -168,7 +168,13 @@ Curso Laravel 5.1 com AngularJS - Code Education [Laravel 5.1 com AngularJS](htt
     ```bower
     bower install
     ```
-5. rodar o gulp
+4. rodar as migrate e seeds
+
+    ``` migrate e seeds
+    php artisan migrate
+    php artisan db:seed
+    ```
+6. rodar o gulp
 
     ```gulp
     gulp watch-dev
