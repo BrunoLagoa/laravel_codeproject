@@ -252,13 +252,13 @@ app.config([
         })
     }]);
 
-app.run(['$rootScope', '$location', '$http', '$modal', '$pusher', 'httpBuffer', 'OAuth', 'appConfig',
-    function ($rootScope, $location, $http, $modal, $pusher, httpBuffer, OAuth, appConfig) {
+app.run(['$rootScope', '$location', '$http', '$cookies', '$modal', '$pusher', 'httpBuffer', 'OAuth', 'appConfig',
+    function ($rootScope, $location, $http, $cookies, $modal, $pusher, httpBuffer, OAuth, appConfig) {
 
-        $rootScope.$on('pusher-build', function (event, data){
+        $rootScope.$on('pusher-build', function (event, data) {
             if (data.next.$$route.originalPath != '/login') {
-                if(OAuth.isAuthenticated()){
-                    if(!window.client) {
+                if (OAuth.isAuthenticated()) {
+                    if (!window.client) {
                         window.client = new Pusher(appConfig.pusherkey);
                         var pusher = $pusher(window.client);
                         var channel = pusher.subscribe('user.' + $cookies.getObject('user').id);
@@ -272,8 +272,13 @@ app.run(['$rootScope', '$location', '$http', '$modal', '$pusher', 'httpBuffer', 
             }
         });
 
-        $rootScope.$on('pusher-destroy', function (event, data){
-
+        $rootScope.$on('pusher-destroy', function (event, data) {
+            if (data.next.$$route.originalPath == '/login') {
+                if (window.client) {
+                    window.client.disconnect();
+                    window.client = null;
+                }
+            }
         });
 
         $rootScope.$on('$routeChangeStart', function (event, next, current) {
@@ -282,8 +287,8 @@ app.run(['$rootScope', '$location', '$http', '$modal', '$pusher', 'httpBuffer', 
                     $location.path('login');
                 }
             }
-            $rootScope.$emit('pusher-build',{next: next});
-            $rootScope.$emit('pusher-destroy',{next: next});
+            $rootScope.$emit('pusher-build', {next: next});
+            $rootScope.$emit('pusher-destroy', {next: next});
         });
 
         $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
