@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
         @endif
 
-        <!-- Fonts -->
+                <!-- Fonts -->
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -48,7 +48,7 @@
     <script src="{{ asset('build/js/vendor/angular-locale_pt-br.js') }}"></script>
     <script src="{{ asset('build/js/vendor/http-auth-interceptor.js') }}"></script>
     <script src="{{ asset('build/js/vendor/dirPagination.js') }}"></script>
-
+    <script src="{{ asset('build/js/vendor/pusher.min.js') }}"></script>
 
     <script src="{{ asset('build/js/app.js') }}"></script>
 
@@ -119,6 +119,14 @@
 @else
     <script src="{{ elixir('js/all.js') }}"></script>
 @endif
-
+<script type="text/javascript">
+    var socket = new Pusher('aa6a68c645adabdfd336');
+    var channel = socket.subscribe('user.1');
+    channel.bind('CodeProject\\Events\\TaskWasIncluded',
+            function (data) {
+                console.log(data);
+            }
+    );
+</script>
 </body>
 </html>
