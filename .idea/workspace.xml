@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26e5cf6d-0a97-4df7-8a10-56d515e6291e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/js/controllers/home.js" afterPath="$PROJECT_DIR$/public/build/js/controllers/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/views/home.html" afterPath="$PROJECT_DIR$/public/build/views/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/controllers/home.js" afterPath="$PROJECT_DIR$/resources/assets/js/controllers/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/views/home.html" afterPath="$PROJECT_DIR$/resources/assets/js/views/home.html" />
     </list>
     <ignored path="codeproject-curso.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -201,7 +198,7 @@
         <entry file="file://$PROJECT_DIR$/resources/assets/js/views/home.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.43674698">
-              <caret line="356" column="95" selection-start-line="356" selection-start-column="95" selection-end-line="356" selection-end-column="95" />
+              <caret line="356" column="111" selection-start-line="356" selection-start-column="74" selection-end-line="356" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -1196,7 +1193,7 @@
     <entry file="file://$PROJECT_DIR$/resources/assets/js/views/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43674698">
-          <caret line="356" column="95" selection-start-line="356" selection-start-column="95" selection-end-line="356" selection-end-column="95" />
+          <caret line="356" column="111" selection-start-line="356" selection-start-column="74" selection-end-line="356" selection-end-column="111" />
           <folding />
         </state>
       </provider>
