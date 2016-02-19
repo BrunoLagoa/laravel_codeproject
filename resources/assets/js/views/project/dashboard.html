@@ -280,7 +280,7 @@
                                     </div>
                                     <div class="inset">
                                         <div class="percentage">
-                                            <div class="numbers">{{ o.progress }}%</div>
+                                            <div class="numbers">{{ project.progress }}%</div>
                                         </div>
                                     </div>
                                 </div>
@@ -289,13 +289,13 @@
                             </div>
                             <ul class="list-styled">
                                 <li class="list-styled-header text-upper text-center">
-                                    {{ o.client.data.name }}
+                                    Cliente
                                 </li>
                                 <li class="text-center text-silver">Nome do cliente</li>
                                 <li class="list-styled-header text-upper text-center">
-                                    {{ o.due_date | dateBr }}
+                                    Data de entrega
                                 </li>
-                                <li class="text-center text-silver">20/09/2015</li>
+                                <li class="text-center text-silver">{{ o.due_date | dateBr }}</li>
                                 <li class="list-styled-header text-upper text-center">
                                     Tarefas (12)
                                 </li>

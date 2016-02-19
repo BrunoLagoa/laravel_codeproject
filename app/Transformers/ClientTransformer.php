@@ -11,7 +11,7 @@ use League\Fractal\TransformerAbstract;
  */
 class ClientTransformer extends TransformerAbstract
 {
-    protected $avaliableIncludes = ['projects'];
+    protected $defaultIncludes = ['projects'];
 
     public function transform(Client $client)
     {
@@ -23,8 +23,8 @@ class ClientTransformer extends TransformerAbstract
             'phone' => $client->phone,
             'address' => $client->address,
             'obs' => $client->obs,
-            //'created_at' => date_format($client->created_at, "Y-m-d h:m:s"),
-            //'updated_at' => date_format($client->created_at, "Y-m-d h:m:s"),
+            'created_at' => date_format($client->created_at, "Y-m-d h:m:s"),
+            'updated_at' => date_format($client->created_at, "Y-m-d h:m:s"),
         ];
     }
 
