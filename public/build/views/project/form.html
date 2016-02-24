@@ -28,9 +28,9 @@
      ng-class="{'has-error': !form.client_id.$valid && form.client_id.$touched}">
     <label class="col-md-4 control-label">Client</label>
     <div class="col-md-6">
-        <input type="text" class="form-control" name="client_id"
+        <input type="text" class="form-control" name="client_id" autocomplete="off"
                ng-model="clientSelected"
-               typeahead="o as o.name for o in getClients($viewValue)|limitTo:10"
+               typeahead="o as o.name for o in getClients($viewValue)"
                typeahead-input-formatter="formatName($model)"
                typeahead-on-select="selectClient($item)"
                typeahead-editable="false"
