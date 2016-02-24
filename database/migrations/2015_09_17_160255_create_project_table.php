@@ -16,6 +16,7 @@ class CreateProjectTable extends Migration
             $table->increments('id');
             $table->integer('owner_id')->unsigned();
             $table->foreign('owner_id')->references('id')->on('users');
+            //$table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients');
             $table->string('name');
