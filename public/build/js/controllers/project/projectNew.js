@@ -4,7 +4,8 @@ angular.module('app.controllers')
             function ($scope, $location, $cookies, Project, Client, appConfig) {
                 $scope.project = new Project();
                 $scope.status = appConfig.project.status;
-
+                $scope.project.client_id = 1;
+                $scope.clientSelected = {id: 1, name: "teste"};
                 $scope.due_date = {
                     status: {
                         opened: false
