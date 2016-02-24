@@ -3,8 +3,8 @@
 
     <div class="col-md-6">
         <input type="text" class="form-control" name="name" ng-model="project.name" required>
-
-        <div ng-messages="form.name.$error" class="help-block" ng-show="form.name.$touched">
+        <div ng-messages="form.name.$error" class="help-block"
+             ng-show="form.name.$touched && form.name.$invalid">
             <div ng-message="required">Campo obrigatório</div>
         </div>
     </div>
@@ -15,11 +15,10 @@
     <label class="col-md-4 control-label">Description</label>
 
     <div class="col-md-6">
-                                <textarea class="form-control" name="description" ng-model="project.description"
-                                          required></textarea>
-
+        <textarea class="form-control" name="description" ng-model="project.description"
+                  required></textarea>
         <div ng-messages="form.description.$error" class="help-block"
-             ng-show="form.description.$touched">
+             ng-show="form.description.$touched && form.name.$invalid">
             <div ng-message="required">Campo obrigatório</div>
         </div>
     </div>
@@ -28,7 +27,6 @@
 <div class="form-group"
      ng-class="{'has-error': !form.client_id.$valid && form.client_id.$touched}">
     <label class="col-md-4 control-label">Client</label>
-
     <div class="col-md-6">
         <input type="text" class="form-control" name="client_id"
                ng-model="clientSelected"
@@ -37,9 +35,8 @@
                typeahead-on-select="selectClient($item)"
                typeahead-editable="false"
                required/>
-
         <div ng-messages="form.client_id.$error" class="help-block"
-             ng-show="form.client_id.$touched">
+             ng-show="form.client_id.$touched && form.name.$invalid">
             <div ng-message="required">Campo obrigatório</div>
             <div ng-message="editable">Selecione um client válido</div>
         </div>
@@ -57,14 +54,14 @@
                    is-open="due_date.status.opened"
                    current-text="Hoje" clear-text="Limpar" close-text="Fechar"
                    required/>
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-default" ng-click="open($event)">
-                                            <i class="glyphicon glyphicon-calendar"></i>
-                                        </button>
-                                    </span>
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
         </p>
         <div ng-messages="form.due_date.$error" class="help-block"
-             ng-show="form.due_date.$touched">
+             ng-show="form.due_date.$touched && form.name.$invalid">
             <div ng-message="required">Campo obrigatório</div>
             <div ng-message="date">Data inválida</div>
         </div>
@@ -78,9 +75,8 @@
     <div class="col-md-6">
         <input type="number" class="form-control" name="progress" ng-model="project.progress"
                min="0" max="100" required>
-
         <div ng-messages="form.progress.$error" class="help-block"
-             ng-show="form.progress.$touched">
+             ng-show="form.progress.$touched && form.name.$invalid && form.name.$invalid">
             <div ng-message="required">Campo obrigatório</div>
             <div ng-message="min">Valor minimo aceitável é 0</div>
             <div ng-message="max">Valor máximo aceitável é 100</div>
@@ -90,14 +86,13 @@
 
 <div class="form-group" ng-class="{'has-error': !form.status.$valid && form.status.$touched}">
     <label class="col-md-4 control-label">Status</label>
-
     <div class="col-md-6">
         <select class="form-control" name="status" ng-model="project.status"
                 ng-options="o.value as o.label for o in status" required>
             <option value=""><-- Selecione o Status --></option>
         </select>
-
-        <div ng-messages="form.status.$error" class="help-block" ng-show="form.status.$touched">
+        <div ng-messages="form.status.$error" class="help-block"
+             ng-show="form.status.$touched && form.name.$invalid">
             <div ng-message="required">Campo obrigatório</div>
         </div>
     </div>
