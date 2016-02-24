@@ -4,8 +4,10 @@ angular.module('app.controllers')
 
         $scope.save = function() {
             if($scope.form.$valid){
-                $scope.client.$save().then(function () {
+                $scope.client.$save().then(function (data) {
                     $location.path('/clients');
+                }, function(error){
+                    // adiciona a mensagem de erro. Tem que buscar as mensagem primeiro.
                 });
             }
         }
