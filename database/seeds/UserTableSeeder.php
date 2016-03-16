@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Database\Seeder;
-
 class UserTableSeeder extends Seeder
 {
     /**
@@ -12,7 +10,6 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->truncate();
-
         factory(\CodeProject\Entities\User::class)->create([
             'name' => 'Bruno Castro',
             'email' => 'miroldols@gmail.com',

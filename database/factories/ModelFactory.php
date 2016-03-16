@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -10,7 +9,6 @@
 | database. Just tell the factory how a default model should look.
 |
 */
-
 $factory->define(CodeProject\Entities\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
@@ -19,7 +17,6 @@ $factory->define(CodeProject\Entities\User::class, function (Faker\Generator $fa
         'remember_token' => str_random(10),
     ];
 });
-
 $factory->define(CodeProject\Entities\Client::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
@@ -30,7 +27,6 @@ $factory->define(CodeProject\Entities\Client::class, function (Faker\Generator $
         'obs' => $faker->sentence,
     ];
 });
-
 $factory->define(CodeProject\Entities\Project::class, function (Faker\Generator $faker) {
     return [
         'owner_id' => rand(1,10),
@@ -42,7 +38,6 @@ $factory->define(CodeProject\Entities\Project::class, function (Faker\Generator 
         'due_date' => $faker->date('Y-m-d', 'now'),
     ];
 });
-
 $factory->define(CodeProject\Entities\ProjectNote::class, function (Faker\Generator $faker) {
     return [
         'project_id' => rand(1,10),
@@ -50,7 +45,6 @@ $factory->define(CodeProject\Entities\ProjectNote::class, function (Faker\Genera
         'note' => $faker->paragraph,
     ];
 });
-
 $factory->define(CodeProject\Entities\ProjectTask::class, function (Faker\Generator $faker) {
     return [
         'project_id' => $faker->numberBetween(1,10),
@@ -60,7 +54,6 @@ $factory->define(CodeProject\Entities\ProjectTask::class, function (Faker\Genera
         'due_date' => $faker->date('Y-m-d', 'now'),
     ];
 });
-
 $factory->define(CodeProject\Entities\ProjectMember::class, function (Faker\Generator $faker) {
     return [
         'project_id' => rand(1,10),

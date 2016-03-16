@@ -6,6 +6,7 @@ use CodeProject\Http\Requests;
 use CodeProject\Repositories\ProjectFileRepository;
 use CodeProject\Services\ProjectFileService;
 use CodeProject\Services\ProjectService;
+use Illuminate\Contracts\Filesystem\Factory;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -20,6 +21,11 @@ class ProjectFileController extends Controller
      * @var ProjectFileService
      */
     private $service;
+
+    /**
+     * @var \Illuminate\Contracts\Filesystem\Factory
+     */
+    private $storage;
     /**
      * @var ProjectService
      */
@@ -29,12 +35,14 @@ class ProjectFileController extends Controller
      * @param ProjectFileRepository $repository
      * @param ProjectFileService $service
      * @param ProjectService $projectService
+     * @param Factory $storage
      */
-    public function __construct(ProjectFileRepository $repository, ProjectFileService $service, ProjectService $projectService)
+    public function __construct(ProjectFileRepository $repository, ProjectFileService $service, ProjectService $projectService, Factory $storage)
     {
         $this->repository = $repository;
         $this->service = $service;
         $this->projectService = $projectService;
+        $this->storage = $storage;
     }
 
     /**
@@ -94,13 +102,15 @@ class ProjectFileController extends Controller
         if ($this->projectService->checkProjectPermissions($id) == false) {
             return ['error' => 'Access Forbidden'];
         }
+        $model = $this->repository->skipPresenter()->find($idFile);
         $filePath = $this->service->getFilePath($idFile);
         $fileContent = file_get_contents($filePath);
         $file64 = base64_encode($fileContent);
         return [
             'file' => $file64,
             'size' => filesize($filePath),
-            'name' => $this->service->getFileName($idFile)
+            'name' => $this->service->getFileName($idFile),
+            'mime_type' => $this->storage->mimeType($model->getFileName())
         ];
     }
 
